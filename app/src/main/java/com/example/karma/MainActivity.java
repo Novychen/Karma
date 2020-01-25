@@ -1,11 +1,17 @@
 package com.example.karma;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -37,9 +43,26 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View _v) {
+
         switch (_v.getId()){
             case R.id.activity_main_play: {
                 Intent i = new Intent(this, LevelActivity.class);
+
+                SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+
+                int[] location = new int[2];
+                _v.getLocationInWindow(location);
+                int x = location[0] + _v.getWidth() / 2;
+                int y = location[1];
+                Point point = new Point(x,y);
+
+                editor.putInt("x-Co",point.x);
+                editor.putInt("y-Co",point.y);
+                editor.putString("color","#FFFFFF");
+
+                editor.apply();
+
                 startActivity(i);
             } break;
             case R.id.activity_main_levels: {
