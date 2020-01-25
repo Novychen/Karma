@@ -40,6 +40,9 @@ public class LevelActivity extends Activity {
 
     }
 
+    /**
+     * Creates the circular reveal animation in the color of the box that was clicked
+     */
     private void circularReveal() {
         SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma",Context.MODE_PRIVATE);
         int bx = sharedPref.getInt("x-Co",0);

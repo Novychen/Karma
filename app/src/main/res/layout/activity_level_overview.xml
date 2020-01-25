@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/level_overview"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -251,4 +252,434 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_1"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintStart_toStartOf="@+id/level_overview_star_2"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_3"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_2"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_1"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_3"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_3"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_3"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_1"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_1"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_1"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_1"
+        app:layout_constraintVertical_bias="0.617"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_4"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_2"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_2"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_2"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_2"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_5"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintStart_toStartOf="@+id/level_overview_star_6"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_4"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_6"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_5"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_4"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_4"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_7"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_9"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_9"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_8"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_8"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="13dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_3"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_3"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_3"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_3"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_9"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_8"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_8"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_10"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_11"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_11"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_4"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_11"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_12"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_12"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_12"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_4"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_4"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_4"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_4"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_13"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_15"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_14"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_14"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_14"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="12dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_5"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_5"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_5"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_5"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_15"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_14"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_14"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_16"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_18"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_18"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_17"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_16"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_18"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_18"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_18"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_6"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_6"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_6"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_6"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_19"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_20"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_21"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_21"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_20"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_21"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_21"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_21"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_7"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_7"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_7"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_7"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_22"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_23"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_24"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_24"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_23"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_24"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_24"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_24"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_8"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_8"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_8"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_8"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_25"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_27"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_26"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_26"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_26"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_9"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_9"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_9"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_9"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_27"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="16dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_26"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_26"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_28"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_29"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_30"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_30"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_29"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_30"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_30"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_30"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_10"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_10"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_10"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_10"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_31"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_32"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_32"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_33"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_32"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_33"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_33"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_33"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_11"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_11"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_11"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_11"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_34"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_36"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_36"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_35"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_star_34"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_star_36"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_star_36"
+        app:srcCompat="@drawable/levelstar_anim" />
+
+    <ImageView
+        android:id="@+id/level_overview_star_36"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/level_overview_level_12"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_12"
+        app:layout_constraintStart_toEndOf="@+id/level_overview_level_12"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_level_12"
+        app:srcCompat="@drawable/levelstar_anim" />
 </androidx.constraintlayout.widget.ConstraintLayout>
