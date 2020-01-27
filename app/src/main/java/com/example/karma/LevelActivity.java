@@ -32,7 +32,7 @@ public class LevelActivity extends Activity {
 
         final FragmentManager frgm = getFragmentManager();
         FragmentTransaction ft = frgm.beginTransaction();
-       // ft.replace(R.id.fragment_container, new HelloFragment(),"hello");
+       // ft.replace(R.id.fragment_container, HelloFragment.class);
         ft.commit();
         ft.addToBackStack(null);
     }
