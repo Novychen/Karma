@@ -2,6 +2,8 @@ package com.example.karma;
 
 import android.animation.Animator;
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,6 +26,7 @@ public class LevelActivity extends Activity {
     final static String TAG = "at.fhooe.mc.karma";
     private View mCircleBackground;
 
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -37,7 +40,11 @@ public class LevelActivity extends Activity {
                 circularReveal();            }
         });
 
-
+        final FragmentManager frgm = getFragmentManager();
+        FragmentTransaction ft = frgm.beginTransaction();
+       // ft.replace(R.id.fragment_container, new HelloFragment(),"hello");
+        ft.commit();
+        ft.addToBackStack(null);
     }
 
     /**
