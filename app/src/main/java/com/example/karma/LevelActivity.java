@@ -8,12 +8,20 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 
+import static android.hardware.Sensor.TYPE_LIGHT;
 
-public class LevelActivity extends FragmentActivity {
+
+
+public class LevelActivity extends FragmentActivity implements SensorEventListener {
 
     final static String TAG = "at.fhooe.mc.karma";
     private View mCircleBackground;
@@ -31,10 +39,40 @@ public class LevelActivity extends FragmentActivity {
                 circularReveal();            }
         });
 
+        Sensor s =null;
+        SensorManager sMgr = (SensorManager)getSystemService(SENSOR_SERVICE);
+        s = sMgr.getDefaultSensor(TYPE_LIGHT);
+        sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
+        s = sMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
+
+
+
+
+
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_container,new HelloFragment());
-        ft.commit();
-        ft.addToBackStack(null);
+                ft.replace(R.id.fragment_container,new HelloFragment());
+                ft.commit();
+                ft.addToBackStack(null);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Sensor s =null;
+        SensorManager sMgr = (SensorManager)getSystemService(SENSOR_SERVICE);
+        s = sMgr.getDefaultSensor(TYPE_LIGHT);
+        sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
+        s = sMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
+
+
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        SensorManager sMgr = (SensorManager)getSystemService(SENSOR_SERVICE);
+        sMgr.unregisterListener(this);
     }
 
     /**
@@ -55,5 +93,19 @@ public class LevelActivity extends FragmentActivity {
         circularReveal.start();
     }
 
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+            Log.i(TAG, "LevelActivity:: Rotation" + event.values[0] + " :" + event.values[1] + " :" + event.values[2]);
+        }else if(event.sensor.getType() == TYPE_LIGHT) {
+            Log.i(TAG, "LevelActivity:: Light" + event.values[0]);
+
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
 }
 
