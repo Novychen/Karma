@@ -1,25 +1,26 @@
 package com.example.karma;
 
-import androidx.core.app.ActivityCompat;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 
-public class LevelOverviewActivity extends Activity  implements View.OnClickListener {
+public class LevelOverviewActivity extends Activity implements View.OnClickListener {
 
     final static String TAG = "at.fhooe.mc.karma";
+    private String[] mColor = {"#D51116","#C51262","#6C4595","#4C4394","#2B4792","#3B5FA9","#328ACA","#08B7D3","#30B39F","#48AE54","#76B82A","#ACC90F","#FFD600","#F8A912","#ED6D1D","#DD2E14"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_overview);
 
-        setOnClickListnerToButtons();
+        setOnClickListenerToButtons();
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -38,7 +39,7 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
     }
 
 
-    private void setOnClickListnerToButtons() {
+    private void setOnClickListenerToButtons() {
         Button button = findViewById(R.id.level_overview_level_1);
         button.setOnClickListener(this);
 
@@ -86,6 +87,9 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
 
         button = findViewById(R.id.level_overview_level_16);
         button.setOnClickListener(this);
+
+        button = findViewById(R.id.level_overview_back);
+        button.setOnClickListener(this);
     }
 
 
@@ -97,8 +101,7 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
      */
     private void animate(ImageView _star1, ImageView _star2, ImageView _star3){
 
-        Drawable d = getDrawable(R.drawable.levelstar_anim);
-
+        Drawable d = getDrawable(R.drawable.anim_star);
 
         if(d instanceof AnimatedVectorDrawableCompat){
             AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) d;
@@ -117,9 +120,12 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
         }
     }
 
-    @Override
-    public void onClick(View _v) {
-        Intent i = new Intent(this, LevelActivity.class);
+    /**
+     * Send SharedPreferences so that the next activity (LevelActivity) knows which color the background should be in as well as the position for the animation
+     * @param _v
+     * @param level
+     */
+    private void sendPreferences(View _v, int level){
         SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
@@ -129,13 +135,18 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
         int y = location[1];
         Point point = new Point(x, y);
 
-        Button b = findViewById(_v.getId());
-        String color = b.getText().toString();
-
         editor.putInt("x-Co", point.x);
         editor.putInt("y-Co", point.y);
-        editor.putString("color", color);
+
+        Button b = findViewById(_v.getId());
+        b.getBackground().setTint(Color.parseColor(mColor[level]));
+        editor.putString("color", mColor[level]);
         editor.apply();
+    }
+
+    @Override
+    public void onClick(View _v) {
+        Intent i = new Intent(this, LevelActivity.class);
 
         switch (_v.getId()) {
 
@@ -147,8 +158,10 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_3 = findViewById(R.id.level_overview_star_3);
 
                 animate(star_1,star_2,star_3);
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                sendPreferences(_v,0);
+
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_2: {
@@ -159,8 +172,10 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_6 = findViewById(R.id.level_overview_star_6);
 
                 animate(star_4,star_5,star_6);
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                sendPreferences(_v,1);
+
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_3: {
@@ -171,9 +186,10 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_9 = findViewById(R.id.level_overview_star_9);
 
                 animate(star_7,star_8,star_9);
+                sendPreferences(_v,2);
 
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_4: {
@@ -184,9 +200,10 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_12 = findViewById(R.id.level_overview_star_12);
 
                 animate(star_10,star_11,star_12);
+                sendPreferences(_v,3);
 
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_5: {
@@ -197,9 +214,10 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_15 = findViewById(R.id.level_overview_star_15);
 
                 animate(star_13,star_14,star_15);
+                sendPreferences(_v,4);
 
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_6: {
@@ -210,9 +228,10 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_18 = findViewById(R.id.level_overview_star_18);
 
                 animate(star_16,star_17,star_18);
+                sendPreferences(_v,5);
 
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_7: {
@@ -223,9 +242,10 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_21 = findViewById(R.id.level_overview_star_21);
 
                 animate(star_19,star_20,star_21);
+                sendPreferences(_v,6);
 
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_8: {
@@ -236,9 +256,10 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_24 = findViewById(R.id.level_overview_star_24);
 
                 animate(star_22,star_23,star_24);
+                sendPreferences(_v,7);
 
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_9: {
@@ -249,9 +270,10 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_27 = findViewById(R.id.level_overview_star_27);
 
                 animate(star_25,star_26,star_27);
+                sendPreferences(_v,8);
 
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_10: {
@@ -262,9 +284,10 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_30 = findViewById(R.id.level_overview_star_30);
 
                 animate(star_28,star_29,star_30);
+                sendPreferences(_v,9);
 
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_11: {
@@ -275,9 +298,10 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_33 = findViewById(R.id.level_overview_star_33);
 
                 animate(star_31,star_32,star_33);
+                sendPreferences(_v,10);
 
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_12: {
@@ -288,35 +312,75 @@ public class LevelOverviewActivity extends Activity  implements View.OnClickList
                 ImageView star_36 = findViewById(R.id.level_overview_star_36);
 
                 animate(star_34,star_35,star_36);
+                sendPreferences(_v,11);
 
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_13: {
                 Log.i(TAG, "LevelOverviewActivity :: onClick :: clicked 13. level");
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+
+                ImageView star_37 = findViewById(R.id.level_overview_star_37);
+                ImageView star_38 = findViewById(R.id.level_overview_star_38);
+                ImageView star_39 = findViewById(R.id.level_overview_star_39);
+
+                animate(star_37,star_38,star_39);
+                sendPreferences(_v,12);
+
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_14: {
                 Log.i(TAG, "LevelOverviewActivity :: onClick :: clicked 14. level");
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+
+                ImageView star_40 = findViewById(R.id.level_overview_star_40);
+                ImageView star_41 = findViewById(R.id.level_overview_star_41);
+                ImageView star_42 = findViewById(R.id.level_overview_star_42);
+
+                animate(star_40,star_41,star_42);
+                sendPreferences(_v,13);
+
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_15: {
                 Log.i(TAG, "LevelOverviewActivity :: onClick :: clicked 15. level");
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+
+                ImageView star_43 = findViewById(R.id.level_overview_star_43);
+                ImageView star_44 = findViewById(R.id.level_overview_star_44);
+                ImageView star_45 = findViewById(R.id.level_overview_star_45);
+
+                animate(star_43,star_44,star_45);
+                sendPreferences(_v,14);
+
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
             case R.id.level_overview_level_16: {
                 Log.i(TAG, "LevelOverviewActivity :: onClick :: clicked 16. level");
-                //ActivityCompat.startActivity(this, i, null);
-                //overridePendingTransition(0, 0);
+
+                ImageView star_46 = findViewById(R.id.level_overview_star_46);
+                ImageView star_47 = findViewById(R.id.level_overview_star_47);
+                ImageView star_48 = findViewById(R.id.level_overview_star_48);
+
+                animate(star_46,star_47,star_48);
+                sendPreferences(_v,15);
+
+                startActivity(i);
+                overridePendingTransition(0, 0);
             }
             break;
+
+            case R.id.level_overview_back:{
+                Log.i(TAG, "LevelOverviewActivity :: onClick :: clicked back");
+                i = new Intent(this, MainActivity.class);
+                startActivity(i);
+                finish();
+            }break;
             default: {
                 Log.i(TAG, "LevelOverviewActivity :: onClick :: unexpected ID");
             }

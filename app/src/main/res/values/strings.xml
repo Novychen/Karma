@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Karma</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="level_01">Hello</string>
+    <string name="level_overview_title">levels</string>
 </resources>

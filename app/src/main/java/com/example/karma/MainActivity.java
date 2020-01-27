@@ -8,10 +8,11 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.dynamicanimation.animation.DynamicAnimation;
+import androidx.dynamicanimation.animation.SpringAnimation;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -38,7 +39,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         button = findViewById(R.id.activity_main_settings);
         button.setOnClickListener(this);
 
-
     }
 
     @Override
@@ -64,6 +64,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 editor.apply();
 
                 startActivity(i);
+                overridePendingTransition(0, 0);
+
             } break;
             case R.id.activity_main_levels: {
                 Intent i = new Intent(this, LevelOverviewActivity.class);

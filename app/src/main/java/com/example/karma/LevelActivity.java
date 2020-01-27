@@ -3,21 +3,12 @@ package com.example.karma;
 import android.animation.Animator;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.drawable.Animatable;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewAnimationUtils;
-import android.view.ViewTreeObserver;
-import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 public class LevelActivity extends Activity {
 
@@ -36,8 +27,6 @@ public class LevelActivity extends Activity {
             public void run() {
                 circularReveal();            }
         });
-
-
     }
 
     /**
