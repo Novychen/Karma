@@ -2,6 +2,8 @@ package com.example.karma;
 
 import android.animation.Animator;
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -27,6 +29,12 @@ public class LevelActivity extends Activity {
             public void run() {
                 circularReveal();            }
         });
+
+        final FragmentManager frgm = getFragmentManager();
+        FragmentTransaction ft = frgm.beginTransaction();
+       // ft.replace(R.id.fragment_container, new HelloFragment(),"hello");
+        ft.commit();
+        ft.addToBackStack(null);
     }
 
     /**
