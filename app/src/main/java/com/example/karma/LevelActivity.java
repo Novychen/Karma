@@ -15,7 +15,7 @@ import android.view.ViewAnimationUtils;
 
 public class LevelActivity extends FragmentActivity {
 
-    final static String TAG = "at.fhooe.mc.karma";
+    final static String TAG = "at.fhooe.mc.karma LevelActivity";
     private View mCircleBackground;
 
     @Override

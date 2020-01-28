@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Karma</string>
     <string name="level_01">Hello</string>
+    <string name="level_01_Smiley">:)</string>
     <string name="level_overview_title">levels</string>
 </resources>
