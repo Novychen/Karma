@@ -222,7 +222,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_10,star_11,star_12);
                 sendPreferences(_v,3);
-                i.putExtra("value", 2);
+                i.putExtra("value", 3);
                 startActivity(i);
                 overridePendingTransition(0, 0);
                 finish();
@@ -237,7 +237,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_13,star_14,star_15);
                 sendPreferences(_v,4);
-                i.putExtra("value", 2);
+                i.putExtra("value", 4);
                 startActivity(i);
                 overridePendingTransition(0, 0);
                 finish();
@@ -252,7 +252,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_16,star_17,star_18);
                 sendPreferences(_v,5);
-                i.putExtra("value", 2);
+                i.putExtra("value", 5);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -268,7 +268,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_19,star_20,star_21);
                 sendPreferences(_v,6);
-                i.putExtra("value", 2);
+                i.putExtra("value", 6);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -284,7 +284,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_22,star_23,star_24);
                 sendPreferences(_v,7);
-                i.putExtra("value", 2);
+                i.putExtra("value", 7);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -300,7 +300,6 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_25,star_26,star_27);
                 sendPreferences(_v,8);
-                i.putExtra("value", 2);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
