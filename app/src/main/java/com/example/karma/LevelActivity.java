@@ -2,10 +2,13 @@ package com.example.karma;
 
 import android.animation.Animator;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.Sensor;
@@ -25,6 +28,8 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
 
     final static String TAG = "at.fhooe.mc.karma";
     private View mCircleBackground;
+    private static final int INPUT_ACTIVITY_RESULT = 129;
+
 
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
@@ -45,17 +50,23 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
         s = sMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
-
-
-
-
-
+        Log.i(TAG, "LevelActivity :: onCreate");
+        int value = getIntent().getIntExtra("value",0);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.fragment_container,new HelloFragment());
+                ft.replace(R.id.fragment_container,fragmentCreator(value));
                 ft.commit();
                 ft.addToBackStack(null);
     }
 
+
+    protected Fragment fragmentCreator( int _data){
+        switch (_data){
+            case 0: Log.i(TAG,"hello fragment");
+            return new HelloFragment();
+
+            default: return null;
+        }
+    }
     @Override
     protected void onResume(){
         super.onResume();

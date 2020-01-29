@@ -157,8 +157,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_2 = findViewById(R.id.level_overview_star_2);
                 ImageView star_3 = findViewById(R.id.level_overview_star_3);
 
+
                 animate(star_1,star_2,star_3);
                 sendPreferences(_v,0);
+                i.putExtra("value", 0);
+                setResult(RESULT_OK,i);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -173,7 +176,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 animate(star_4,star_5,star_6);
                 sendPreferences(_v,1);
-
+                i.putExtra("value", 1);
                 startActivity(i);
                 overridePendingTransition(0, 0);
             }
@@ -187,7 +190,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 animate(star_7,star_8,star_9);
                 sendPreferences(_v,2);
-
+                i.putExtra("value", 2);
                 startActivity(i);
                 overridePendingTransition(0, 0);
             }
@@ -201,7 +204,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 animate(star_10,star_11,star_12);
                 sendPreferences(_v,3);
-
+                i.putExtra("value", 2);
                 startActivity(i);
                 overridePendingTransition(0, 0);
             }
@@ -215,7 +218,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 animate(star_13,star_14,star_15);
                 sendPreferences(_v,4);
-
+                i.putExtra("value", 2);
                 startActivity(i);
                 overridePendingTransition(0, 0);
             }
@@ -229,6 +232,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 animate(star_16,star_17,star_18);
                 sendPreferences(_v,5);
+                i.putExtra("value", 2);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -243,6 +247,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 animate(star_19,star_20,star_21);
                 sendPreferences(_v,6);
+                i.putExtra("value", 2);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -257,6 +262,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 animate(star_22,star_23,star_24);
                 sendPreferences(_v,7);
+                i.putExtra("value", 2);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -271,6 +277,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 animate(star_25,star_26,star_27);
                 sendPreferences(_v,8);
+                i.putExtra("value", 2);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
