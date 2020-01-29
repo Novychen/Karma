@@ -46,7 +46,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-
                 int[] location = new int[2];
                 _v.getLocationInWindow(location);
                 int x = location[0] + _v.getWidth() / 2;

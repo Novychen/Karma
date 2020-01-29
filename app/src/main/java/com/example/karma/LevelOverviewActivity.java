@@ -94,6 +94,33 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
 
     /**
+     * Three star animation (with Drawable Vector Animation)
+     * @param _star1 first star icon
+     * @param _star2 second star icon
+     * @param _star3 third star icon
+     */
+    private void animate(ImageView _star1, ImageView _star2, ImageView _star3){
+
+        Drawable d = getDrawable(R.drawable.anim_star);
+
+        if(d instanceof AnimatedVectorDrawableCompat){
+            AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) d;
+            _star1.setImageDrawable(avd);
+            _star2.setImageDrawable(avd);
+            _star3.setImageDrawable(avd);
+            avd.start();
+
+        } else if (d instanceof AnimatedVectorDrawable){
+            AnimatedVectorDrawable avd = (AnimatedVectorDrawable) d;
+
+            _star1.setImageDrawable(avd);
+            _star2.setImageDrawable(avd);
+            _star3.setImageDrawable(avd);
+            avd.start();
+        }
+    }
+
+    /**
      * Send SharedPreferences so that the next activity (LevelActivity) knows which color the background should be in as well as the position for the animation
      * @param _v View to fetch the buttons etc
      * @param level which level the player wants to play
@@ -139,7 +166,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_1,star_2,star_3);
 
+
+                animate(star_1,star_2,star_3);
                 sendPreferences(_v,0);
+                i.putExtra("value", 0);
+                setResult(RESULT_OK,i);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -161,7 +192,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_4,star_5,star_6);
                 sendPreferences(_v,1);
-
+                i.putExtra("value", 1);
                 startActivity(i);
                 overridePendingTransition(0, 0);
                 finish();
@@ -176,7 +207,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_7,star_8,star_9);
                 sendPreferences(_v,2);
-
+                i.putExtra("value", 2);
                 startActivity(i);
                 overridePendingTransition(0, 0);
                 finish();
@@ -191,7 +222,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_10,star_11,star_12);
                 sendPreferences(_v,3);
-
+                i.putExtra("value", 3);
                 startActivity(i);
                 overridePendingTransition(0, 0);
                 finish();
@@ -206,7 +237,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_13,star_14,star_15);
                 sendPreferences(_v,4);
-
+                i.putExtra("value", 4);
                 startActivity(i);
                 overridePendingTransition(0, 0);
                 finish();
@@ -221,6 +252,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_16,star_17,star_18);
                 sendPreferences(_v,5);
+                i.putExtra("value", 5);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -236,6 +268,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_19,star_20,star_21);
                 sendPreferences(_v,6);
+                i.putExtra("value", 6);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -251,6 +284,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_22,star_23,star_24);
                 sendPreferences(_v,7);
+                i.putExtra("value", 7);
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
