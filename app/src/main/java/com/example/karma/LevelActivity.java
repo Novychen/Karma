@@ -3,7 +3,6 @@ package com.example.karma;
 import android.animation.Animator;
 
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -17,12 +16,17 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 
+import static android.hardware.Sensor.TYPE_GYROSCOPE;
 import static android.hardware.Sensor.TYPE_LIGHT;
 
 public class LevelActivity extends FragmentActivity implements SensorEventListener {
 
     final static String TAG = "at.fhooe.mc.karma LevelActivity";
     private View mCircleBackground;
+
+    private static final float NS2S = 1.0f / 1000000000.0f;
+    private final float[] deltaRotationVector = new float[4];
+    private float timestamp;
 
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
@@ -45,23 +49,22 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.fragment_container,new LevelFourFragment());
+                ft.replace(R.id.fragment_container,new LevelSevenFragment());
                 ft.commit();
                 ft.addToBackStack(null);
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
-        Sensor s =null;
-        SensorManager sMgr = (SensorManager)getSystemService(SENSOR_SERVICE);
+        Sensor s = null;
+        SensorManager sMgr = (SensorManager) getSystemService(SENSOR_SERVICE);
         s = sMgr.getDefaultSensor(TYPE_LIGHT);
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
         s = sMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
-
-
     }
+
     @Override
     protected void onPause(){
         super.onPause();
@@ -90,10 +93,10 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
         if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
-            Log.i(TAG, "LevelActivity:: Rotation     " + (int) event.values[0] + " :" + (int) event.values[1] + " :" + (int) event.values[2]);
+            Log.i(TAG, ":: Rotation " + (int) event.values[0] + " :" + (int) event.values[1] + " :" + (int) event.values[2]);
 
         }else if(event.sensor.getType() == TYPE_LIGHT) {
-            Log.i(TAG, "LevelActivity:: Light" + event.values[0]);
+            Log.i(TAG, ":: Light" + event.values[0]);
 
         }
     }
