@@ -21,7 +21,8 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
-
+import static android.hardware.Sensor.TYPE_PRESSURE;
+import static android.hardware.Sensor.TYPE_ROTATION_VECTOR;
 
 
 public class LevelActivity extends FragmentActivity implements SensorEventListener {
@@ -49,6 +50,10 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
         s = sMgr.getDefaultSensor(TYPE_LIGHT);
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
         s = sMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
+        s = sMgr.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+        sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
+        s = sMgr.getDefaultSensor(Sensor.TYPE_PRESSURE);
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
         Log.i(TAG, "LevelActivity :: onCreate");
         int value = getIntent().getIntExtra("value",0);
@@ -87,6 +92,10 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
         s = sMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
+        s = sMgr.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+        sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
+        s = sMgr.getDefaultSensor(Sensor.TYPE_PRESSURE);
+        sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
 
 
     }
@@ -122,6 +131,12 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
 
         }else if(event.sensor.getType() == TYPE_LIGHT) {
             Log.i(TAG, "LevelActivity:: Light" + event.values[0]);
+
+        }else if(event.sensor.getType() == TYPE_PRESSURE) {
+            Log.i(TAG, "LevelActivity:: PRESSURE" + event.values[0]);
+
+        }else if(event.sensor.getType() == TYPE_ROTATION_VECTOR) {
+            Log.i(TAG, "LevelActivity:: ROTATION" + event.values[0]);
 
         }
     }
