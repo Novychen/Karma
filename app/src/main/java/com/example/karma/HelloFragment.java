@@ -53,10 +53,10 @@ public class HelloFragment extends Fragment implements View.OnTouchListener {
 
     private void animate(TextView _hello){
 
-        DisplayMetrics displaymetrics = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-        float height = displaymetrics.heightPixels;
-        float width = displaymetrics.widthPixels;
+        Smartphone smartphone = Smartphone.getInstance(getActivity());
+
+        float height = smartphone.getHeightInPixels();
+        float width = smartphone.getWidthInPixels();
 
         _hello.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
@@ -129,7 +129,6 @@ public class HelloFragment extends Fragment implements View.OnTouchListener {
                 default:{
                     LevelCompleteDialog dialog = new LevelCompleteDialog(getActivity());
                     dialog.show();
-
                 }
             }
              mTouch++;

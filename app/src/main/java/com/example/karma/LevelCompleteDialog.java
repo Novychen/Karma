@@ -52,9 +52,9 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
         mStar2 = findViewById(R.id.dialog_level_complete_star_2);
         mStar3 = findViewById(R.id.dialog_level_complete_star_3);
 
-
+        mTitle.setText(R.string.dialog_level_complete_title);
+        mMessage.setText(R.string.dialog_level_complete_message);
         animate(mStar1,mStar2,mStar3);
-
 
         mBackButton.setOnClickListener(this);
         mNextButton.setOnClickListener(this);
@@ -106,8 +106,6 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
                 Log.i(TAG, " :: onClick :: unexpected ID");
             }
         }
-
-
     }
 }
 
