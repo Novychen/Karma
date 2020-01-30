@@ -6,7 +6,6 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -31,7 +30,7 @@ public class LevelOneActivity extends AppCompatActivity {
             public void run() {
                 circularReveal();            }
         });*/
-        TextView hello = findViewById(R.id.fragment_level_1_hello);
+        TextView hello = findViewById(R.id.activity_level_1_hello);
         animate(hello);
 
     }
@@ -43,7 +42,7 @@ public class LevelOneActivity extends AppCompatActivity {
 
     private void animate (TextView _hello){
 
-        Smartphone smartphone = Smartphone.getInstance(getActivity());
+        Smartphone smartphone = Smartphone.getInstance(this);
 
         float height = smartphone.getHeightInPixels();
         float width = smartphone.getWidthInPixels();

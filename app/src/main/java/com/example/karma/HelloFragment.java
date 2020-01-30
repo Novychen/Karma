@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +32,7 @@ public class HelloFragment extends Fragment {
     public View onCreateView(LayoutInflater _inflater, ViewGroup _container, Bundle _savedInstanceState) {
 
         View view = _inflater.inflate(R.layout.fragment_hello, _container, false);
-        TextView hello = view.findViewById(R.id.fragment_level_1_hello);
+        TextView hello = view.findViewById(R.id.activity_level_1_hello);
         animate(hello);
 
         return view;

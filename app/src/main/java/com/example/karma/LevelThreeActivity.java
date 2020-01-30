@@ -22,10 +22,10 @@ public class LevelThreeActivity extends AppCompatActivity implements SensorEvent
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_three);
-        Sensor s = null;
-        SensorManager sMgr = (SensorManager)getSystemService(SENSOR_SERVICE);
-        s = sMgr.getDefaultSensor(TYPE_LIGHT);
-        sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
+
+        mSensorManager= (SensorManager)getSystemService(SENSOR_SERVICE);
+        mLight = mSensorManager.getDefaultSensor(TYPE_LIGHT);
+        mSensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
     }
     @Override
     public void onStop() {
@@ -46,12 +46,16 @@ public class LevelThreeActivity extends AppCompatActivity implements SensorEvent
     }
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
-        if(event.sensor.getType() == TYPE_LIGHT) {
-            Log.i(TAG, ":: Light" + event.values[0]);
+    public void onSensorChanged(SensorEvent _event) {
+        if(_event.sensor.getType() == TYPE_LIGHT){
+            if(_event.values[0] < 20){
+                LevelCompleteDialog d = new LevelCompleteDialog(this);
+                d.show();
+                mSensorManager.unregisterListener(this);
+            }
         }
-
     }
+
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {

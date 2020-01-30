@@ -30,7 +30,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
 
         relativeLayout = findViewById(R.id.activity_level_2);
         relativeLayout.setOnTouchListener(this);
-        relativeLayout.setBackground(getActivity().getDrawable(R.drawable.ic_crack_0));
+        relativeLayout.setBackground(this.getDrawable(R.drawable.ic_crack_0));
 
     }
 
@@ -40,23 +40,23 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         float x = _event.getRawX();
         float y = _event.getRawY();
 
-        float height = Smartphone.getInstance(getActivity()).getHeightInPixels();
-        float width = Smartphone.getInstance(getActivity()).getWidthInPixels();
+        float height = Smartphone.getInstance(this).getHeightInPixels();
+        float width = Smartphone.getInstance(this).getWidthInPixels();
 
         int tap = 50 + (20* mTouch +1);
 
         if(_event.getAction() == MotionEvent.ACTION_DOWN){
             if(x > (width/2 - tap) && x < (width/2 + tap) && y > (height/2 - tap) && y < (height/2 + tap) ) {
                 if (mTouch >= mCracks.length) {
-                    Drawable d = Objects.requireNonNull(getActivity()).getDrawable(mCracks[mCracks.length - 1]);
+                    Drawable d = Objects.requireNonNull(this).getDrawable(mCracks[mCracks.length - 1]);
                     if (d != null) {
                         d.setAlpha(0);
                         relativeLayout.setBackground(d);
                     }
-                    LevelCompleteDialog dialog = new LevelCompleteDialog(getActivity());
+                    LevelCompleteDialog dialog = new LevelCompleteDialog(this);
                     dialog.show();
                 } else {
-                    relativeLayout.setBackground(getActivity().getDrawable(mCracks[mTouch]));
+                    relativeLayout.setBackground(this.getDrawable(mCracks[mTouch]));
                 }
                 mTouch++;
             }

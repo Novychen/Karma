@@ -21,16 +21,20 @@ public class LevelSevenActivity extends AppCompatActivity implements View.OnTouc
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_seven);
+
+
         mSafeLockNumbers = findViewById(R.id.fragment_level_7_numbers);
         ConstraintLayout constraintLayout = findViewById(R.id.fragment_level_7);
         constraintLayout.setOnTouchListener(this);
+
+
 
     }
 
     private void rotateLock(ImageView _lockNumbers){
 
-        float width = Smartphone.getInstance(getActivity()).getWidthInPixels();
-        float height = Smartphone.getInstance(getActivity()).getHeightInPixels();
+        float width = Smartphone.getInstance(this).getWidthInPixels();
+        float height = Smartphone.getInstance(this).getHeightInPixels();
 
         double delta_x = mX - mX2;
         double delta_y = mY - mY2;

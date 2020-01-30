@@ -201,7 +201,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
             break;
             case R.id.level_overview_level_3: {
                 Log.i(TAG, " :: onClick :: clicked 3. level");
-
+                i = new Intent(this, LevelThreeActivity.class);
                 ImageView star_7 = findViewById(R.id.level_overview_star_7);
                 ImageView star_8 = findViewById(R.id.level_overview_star_8);
                 ImageView star_9 = findViewById(R.id.level_overview_star_9);
@@ -216,7 +216,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
             break;
             case R.id.level_overview_level_4: {
                 Log.i(TAG, " :: onClick :: clicked 4. level");
-
+                i = new Intent(this, LevelFourActivity.class);
                 ImageView star_10 = findViewById(R.id.level_overview_star_10);
                 ImageView star_11 = findViewById(R.id.level_overview_star_11);
                 ImageView star_12 = findViewById(R.id.level_overview_star_12);
@@ -231,7 +231,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
             break;
             case R.id.level_overview_level_5: {
                 Log.i(TAG, " :: onClick :: clicked 5. level");
-
+                i = new Intent(this, LevelFiveActivity.class);
                 ImageView star_13 = findViewById(R.id.level_overview_star_13);
                 ImageView star_14 = findViewById(R.id.level_overview_star_14);
                 ImageView star_15 = findViewById(R.id.level_overview_star_15);
@@ -246,7 +246,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
             break;
             case R.id.level_overview_level_6: {
                 Log.i(TAG, " :: onClick :: clicked 6. level");
-
+                i = new Intent(this, LevelSixActivity.class);
                 ImageView star_16 = findViewById(R.id.level_overview_star_16);
                 ImageView star_17 = findViewById(R.id.level_overview_star_17);
                 ImageView star_18 = findViewById(R.id.level_overview_star_18);
@@ -262,7 +262,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
             break;
             case R.id.level_overview_level_7: {
                 Log.i(TAG, " :: onClick :: clicked 7. level");
-
+                i = new Intent(this, LevelSevenActivity.class);
                 ImageView star_19 = findViewById(R.id.level_overview_star_19);
                 ImageView star_20 = findViewById(R.id.level_overview_star_20);
                 ImageView star_21 = findViewById(R.id.level_overview_star_21);
