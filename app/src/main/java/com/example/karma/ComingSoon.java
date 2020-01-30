@@ -6,7 +6,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-public class LevelFiveActivity extends Activity {
+public class ComingSoon extends Activity {
 
     private View mCircleBackground;
     private Activity mActivity = this;
@@ -14,8 +14,8 @@ public class LevelFiveActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level_five);
-        mCircleBackground = findViewById(R.id.circleActivity_5);
+        setContentView(R.layout.activity_coming_soon);
+        mCircleBackground = findViewById(R.id.circleActivity_soon);
         mCircleBackground.setVisibility(View.INVISIBLE);
 
         mCircleBackground.post(new Runnable() {

@@ -51,18 +51,12 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
 
         Log.i(TAG, ":: onCreate");
         int value = getIntent().getIntExtra("value",0);
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.fragment_container,fragmentCreator(value));
-                ft.commit();
-                ft.addToBackStack(null);
     }
 
     protected Fragment fragmentCreator( int _data){
         switch (_data){
             case 0: Log.i(TAG,"hello fragment");
                 return new HelloFragment();
-            case 1:  Log.i(TAG,"LevelTwoFragment");
-                return new LevelTwoFragment();
             case 2:  Log.i(TAG,"LevelTreeFragment");
                 return new LevelThreeFragment();
             case 3:  Log.i(TAG,"LevelFourFragment");

@@ -153,13 +153,13 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
     }
     @Override
     public void onClick(View _v) {
-        Intent i = new Intent(this, LevelActivity.class);
+        Handler handler = new Handler();
 
         switch (_v.getId()) {
 
             case R.id.level_overview_level_1: {
                 Log.i(TAG, " :: onClick :: clicked 1. level");
-                i = new Intent(this, LevelOneActivity.class);
+                Intent i = new Intent(this, LevelOneActivity.class);
                 ImageView star_1 = findViewById(R.id.level_overview_star_1);
                 ImageView star_2 = findViewById(R.id.level_overview_star_2);
                 ImageView star_3 = findViewById(R.id.level_overview_star_3);
@@ -174,17 +174,10 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                Handler handler = new Handler();
-
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        finish();
-                    }
-                }, 100000);
             }
             break;
             case R.id.level_overview_level_2: {
-                i = new Intent(this, LevelTwoActivity.class);
+                Intent i = new Intent(this, LevelTwoActivity.class);
                 Log.i(TAG, " :: onClick :: clicked 2. level");
 
                 ImageView star_4 = findViewById(R.id.level_overview_star_4);
@@ -196,12 +189,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 i.putExtra("value", 1);
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_3: {
                 Log.i(TAG, " :: onClick :: clicked 3. level");
-                i = new Intent(this, LevelThreeActivity.class);
+                Intent i = new Intent(this, LevelThreeActivity.class);
                 ImageView star_7 = findViewById(R.id.level_overview_star_7);
                 ImageView star_8 = findViewById(R.id.level_overview_star_8);
                 ImageView star_9 = findViewById(R.id.level_overview_star_9);
@@ -211,12 +203,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 i.putExtra("value", 2);
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_4: {
                 Log.i(TAG, " :: onClick :: clicked 4. level");
-                i = new Intent(this, LevelFourActivity.class);
+                Intent i = new Intent(this, LevelFourActivity.class);
                 ImageView star_10 = findViewById(R.id.level_overview_star_10);
                 ImageView star_11 = findViewById(R.id.level_overview_star_11);
                 ImageView star_12 = findViewById(R.id.level_overview_star_12);
@@ -226,12 +217,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 i.putExtra("value", 3);
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_5: {
                 Log.i(TAG, " :: onClick :: clicked 5. level");
-                i = new Intent(this, LevelFiveActivity.class);
+                Intent i = new Intent(this, LevelFiveActivity.class);
                 ImageView star_13 = findViewById(R.id.level_overview_star_13);
                 ImageView star_14 = findViewById(R.id.level_overview_star_14);
                 ImageView star_15 = findViewById(R.id.level_overview_star_15);
@@ -241,12 +231,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 i.putExtra("value", 4);
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_6: {
                 Log.i(TAG, " :: onClick :: clicked 6. level");
-                i = new Intent(this, LevelSixActivity.class);
+                Intent i = new Intent(this, LevelSixActivity.class);
                 ImageView star_16 = findViewById(R.id.level_overview_star_16);
                 ImageView star_17 = findViewById(R.id.level_overview_star_17);
                 ImageView star_18 = findViewById(R.id.level_overview_star_18);
@@ -257,12 +246,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_7: {
                 Log.i(TAG, " :: onClick :: clicked 7. level");
-                i = new Intent(this, LevelSevenActivity.class);
+                Intent i = new Intent(this, LevelSevenActivity.class);
                 ImageView star_19 = findViewById(R.id.level_overview_star_19);
                 ImageView star_20 = findViewById(R.id.level_overview_star_20);
                 ImageView star_21 = findViewById(R.id.level_overview_star_21);
@@ -273,12 +261,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_8: {
                 Log.i(TAG, " :: onClick :: clicked 8. level");
-
+                Intent i = new Intent(this, ComingSoon.class);
                 ImageView star_22 = findViewById(R.id.level_overview_star_22);
                 ImageView star_23 = findViewById(R.id.level_overview_star_23);
                 ImageView star_24 = findViewById(R.id.level_overview_star_24);
@@ -289,12 +276,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_9: {
                 Log.i(TAG, " :: onClick :: clicked 9. level");
-
+                Intent i = new Intent(this, ComingSoon.class);
                 ImageView star_25 = findViewById(R.id.level_overview_star_25);
                 ImageView star_26 = findViewById(R.id.level_overview_star_26);
                 ImageView star_27 = findViewById(R.id.level_overview_star_27);
@@ -304,12 +290,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_10: {
                 Log.i(TAG, " :: onClick :: clicked 10. level");
-
+                Intent i = new Intent(this, ComingSoon.class);
                 ImageView star_28 = findViewById(R.id.level_overview_star_28);
                 ImageView star_29 = findViewById(R.id.level_overview_star_29);
                 ImageView star_30 = findViewById(R.id.level_overview_star_30);
@@ -319,12 +304,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_11: {
                 Log.i(TAG, " :: onClick :: clicked 11. level");
-
+                Intent i = new Intent(this, ComingSoon.class);
                 ImageView star_31 = findViewById(R.id.level_overview_star_31);
                 ImageView star_32 = findViewById(R.id.level_overview_star_32);
                 ImageView star_33 = findViewById(R.id.level_overview_star_33);
@@ -334,12 +318,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_12: {
                 Log.i(TAG, " :: onClick :: clicked 12. level");
-
+                Intent i = new Intent(this, ComingSoon.class);
                 ImageView star_34 = findViewById(R.id.level_overview_star_34);
                 ImageView star_35 = findViewById(R.id.level_overview_star_35);
                 ImageView star_36 = findViewById(R.id.level_overview_star_36);
@@ -349,12 +332,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_13: {
                 Log.i(TAG, " :: onClick :: clicked 13. level");
-
+                Intent i = new Intent(this, ComingSoon.class);
                 ImageView star_37 = findViewById(R.id.level_overview_star_37);
                 ImageView star_38 = findViewById(R.id.level_overview_star_38);
                 ImageView star_39 = findViewById(R.id.level_overview_star_39);
@@ -364,12 +346,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_14: {
                 Log.i(TAG, " :: onClick :: clicked 14. level");
-
+                Intent i = new Intent(this, ComingSoon.class);
                 ImageView star_40 = findViewById(R.id.level_overview_star_40);
                 ImageView star_41 = findViewById(R.id.level_overview_star_41);
                 ImageView star_42 = findViewById(R.id.level_overview_star_42);
@@ -379,12 +360,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_15: {
                 Log.i(TAG, " :: onClick :: clicked 15. level");
-
+                Intent i = new Intent(this, ComingSoon.class);
                 ImageView star_43 = findViewById(R.id.level_overview_star_43);
                 ImageView star_44 = findViewById(R.id.level_overview_star_44);
                 ImageView star_45 = findViewById(R.id.level_overview_star_45);
@@ -394,12 +374,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_16: {
                 Log.i(TAG, " :: onClick :: clicked 16. level");
-
+                Intent i = new Intent(this, ComingSoon.class);
                 ImageView star_46 = findViewById(R.id.level_overview_star_46);
                 ImageView star_47 = findViewById(R.id.level_overview_star_47);
                 ImageView star_48 = findViewById(R.id.level_overview_star_48);
@@ -409,13 +388,12 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
 
             case R.id.level_overview_back:{
                 Log.i(TAG, " :: onClick :: clicked back");
-                i = new Intent(this, MainActivity.class);
+                Intent i = new Intent(this, MainActivity.class);
                 startActivity(i);
                 finish();
             }break;

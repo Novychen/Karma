@@ -43,7 +43,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         switch (_v.getId()){
             case R.id.activity_main_play: {
-                Intent i = new Intent(this, LevelActivity.class);
+                Intent i = new Intent(this, LevelOneActivity.class);
 
                 SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();

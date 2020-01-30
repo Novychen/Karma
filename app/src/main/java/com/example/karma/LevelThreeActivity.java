@@ -2,18 +2,23 @@ package com.example.karma;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
 
 public class LevelThreeActivity extends AppCompatActivity implements SensorEventListener {
 
     final static String TAG = "at.fhooe.mc.karma LevelThreeFragment";
+
+    private View mCircleBackground;
+    private Activity mActivity = this;
 
     private SensorManager mSensorManager;
     private Sensor mLight;
@@ -22,6 +27,14 @@ public class LevelThreeActivity extends AppCompatActivity implements SensorEvent
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_three);
+        mCircleBackground = findViewById(R.id.circleActivity_3);
+        mCircleBackground.setVisibility(View.INVISIBLE);
+
+        mCircleBackground.post(new Runnable() {
+            @Override
+            public void run() {
+                Animation.circularReveal(mActivity,mCircleBackground);            }
+        });
 
         mSensorManager= (SensorManager)getSystemService(SENSOR_SERVICE);
         mLight = mSensorManager.getDefaultSensor(TYPE_LIGHT);

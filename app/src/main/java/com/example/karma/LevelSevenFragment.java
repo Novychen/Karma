@@ -62,7 +62,7 @@ public class LevelSevenFragment extends Fragment implements View.OnTouchListener
         // "A" to "C" - b
         double b = Math.sqrt( Math.pow(aY - cY,2) +  Math.pow(cX - aX,2));
 
-        // "A" to "B" - c
+        // "A" to "B" - mConstraintLayout
         double c = Math.sqrt( Math.pow(aY - bY,2) +  Math.pow(bX - aX,2));
 
        // "B" to "C" - a
@@ -83,14 +83,12 @@ public class LevelSevenFragment extends Fragment implements View.OnTouchListener
                 "AX: " + aX +  "     AY: " + aY + "\n" +
                 "BX: " + bX +  "     BY: " + bY + "\n" +
                 "CX: " + cX +  "     CY: " + cY + "\n" +
-                "a: " + a + "     b: " + b +  "     c: " + c + "\n" +
+                "a: " + a + "     b: " + b +  "     mConstraintLayout: " + c + "\n" +
                 "Value: " + value + "     Angle: " + mAngle + "     Number: " + mAngle / 360);
 
         mSafeLockNumbers.animate().rotation(mAngle).setDuration(1000);
         mSafeLockNumbers.animate().start();
         //mSafeLockNumbers.setRotation(mAngle);
-
-
     }
 
     @Override

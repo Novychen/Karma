@@ -2,8 +2,13 @@ package com.example.karma;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -11,6 +16,7 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -25,21 +31,22 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private View mCircleBackground;
+    private Activity mActivity = this;
 
     final static String TAG = "at.fhooe.mc.karma HelloActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_one);
-       /* mCircleBackground = findViewById(R.id.circleActivity);
+        mCircleBackground = findViewById(R.id.circleActivity_1);
         mCircleBackground.setVisibility(View.INVISIBLE);
 
         mCircleBackground.post(new Runnable() {
             @Override
             public void run() {
-                circularReveal();            }
-        });*/
-       mCount = 0;
+                Animation.circularReveal(mActivity,mCircleBackground);            }
+        });
+        mCount = 0;
         mSensorManager= (SensorManager)getSystemService(SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
@@ -143,10 +150,10 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
                 d.show();
 
             }
-
-
         }
     }
+
+
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {

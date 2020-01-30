@@ -9,13 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LevelSevenActivity"></activity>
-        <activity android:name=".LevelSixActivity" />
-        <activity android:name=".LevelFiveActivity" />
-        <activity android:name=".LevelFourActivity" />
-        <activity android:name=".LevelThreeActivity" />
-        <activity android:name=".LevelTwoActivity" />
-        <activity android:name=".LevelOneActivity" />
+        <activity
+            android:name=".ComingSoon"
+            android:theme="@style/AppTheme.Transparent" />
+
+        <activity
+            android:name=".LevelSevenActivity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".LevelSixActivity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".LevelFiveActivity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".LevelFourActivity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".LevelThreeActivity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".LevelTwoActivity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".LevelOneActivity"
+            android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">

@@ -3,68 +3,115 @@ package com.example.karma;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-public class LevelSevenActivity extends AppCompatActivity implements View.OnTouchListener{
-    final static String TAG = "at.fhooe.mc.karma LevelSevenFragment";
+public class LevelSevenActivity extends Activity implements View.OnTouchListener{
+
+    final static String TAG = "at.fhooe.mc.karma LevelSevenActivity";
+
+    float mStartX;
+    float mStartY;
+    float mEndX;
+    float mEndY;
+    float mAngle;
+    private View mCircleBackground;
+    private Activity mActivity = this;
 
     ImageView mSafeLockNumbers;
-    float mX;
-    float mY;
-    float mX2;
-    float mY2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_seven);
 
+        mCircleBackground = findViewById(R.id.circleActivity_7);
+        mCircleBackground.setVisibility(View.VISIBLE);
 
-        mSafeLockNumbers = findViewById(R.id.fragment_level_7_numbers);
-        ConstraintLayout constraintLayout = findViewById(R.id.fragment_level_7);
+        mCircleBackground.post(new Runnable() {
+            @Override
+            public void run() {
+                Animation.circularReveal(mActivity,mCircleBackground); }
+        });
+
+        mSafeLockNumbers = findViewById(R.id.activity_level_2_lock_num);
+        ConstraintLayout constraintLayout = findViewById(R.id.circleActivity_7);
         constraintLayout.setOnTouchListener(this);
-
-
-
     }
 
-    private void rotateLock(ImageView _lockNumbers){
+    private void rotateLock(){
 
         float width = Smartphone.getInstance(this).getWidthInPixels();
         float height = Smartphone.getInstance(this).getHeightInPixels();
 
-        double delta_x = mX - mX2;
-        double delta_y = mY - mY2;
-        double radians = Math.atan2(delta_y, delta_x);
+        // Coordinate of "A"
+        float aX = width/2;
+        float aY = height/2;
 
-        double angle =  Math.toDegrees(radians);
-        Log.i(TAG, "Angle: " + angle);
-        _lockNumbers.animate().rotation((float)angle);
+        // Coordinate of "B"
+        float bX = mEndX;
+        float bY = mEndY;
+
+        // Coordinate of "C"
+        float cX = mStartX;
+        float cY = mStartY;
+
+        // "A" to "C" - b
+        double b = Math.sqrt( Math.pow(aY - cY,2) +  Math.pow(cX - aX,2));
+
+        // "A" to "B" - mConstraintLayout
+        double c = Math.sqrt( Math.pow(aY - bY,2) +  Math.pow(bX - aX,2));
+
+        // "B" to "C" - a
+        double a = Math.sqrt( Math.pow(bY - cY,2) +  Math.pow(bX - cX,2));
+
+        double powB = Math.pow(b,2);
+        double powC = Math.pow(c,2);
+        double powA = Math.pow(a,2);
+        double value = ((powB + powC) - powA) / (2 * b * c);
+
+        if(mStartY > mEndY){
+            mAngle = mAngle - ((float) Math.acos(value) * 30);
+        } else {
+            mAngle = mAngle + ((float) Math.acos(value) * 30);
+        }
+        Log.i(TAG + "\n", "\n" + "----------------------------------MATH---------------------------------- " + "\n" +
+                "WIDTH: " + width + "     HEIGHT: " + height + "\n" +
+                "AX: " + aX +  "     AY: " + aY + "\n" +
+                "BX: " + bX +  "     BY: " + bY + "\n" +
+                "CX: " + cX +  "     CY: " + cY + "\n" +
+                "a: " + a + "     b: " + b +  "     mConstraintLayout: " + c + "\n" +
+                "Value: " + value + "     Angle: " + mAngle + "     Number: " + mAngle / 360);
+
+        mSafeLockNumbers.animate().rotation(mAngle).setDuration(1000);
+        mSafeLockNumbers.animate().start();
+        //mSafeLockNumbers.setRotation(mAngle);
     }
 
     @Override
     public boolean onTouch(View _v, MotionEvent _event) {
         if(_event.getAction() == MotionEvent.ACTION_DOWN){
-            Log.i(TAG, "ACTION DOWN");
+            mStartX = _event.getX();
+            mStartY = _event.getY();
 
-            mX = _event.getX();
-            mY = _event.getY();
+            Log.i(TAG, "ACTION DOWN:  X " + mStartX + "   Y " + mStartY);
 
         }
         if(_event.getAction() == MotionEvent.ACTION_MOVE){
+            mEndX = _event.getX();
+            mEndY = _event.getY();
+            rotateLock();
             Log.i(TAG, "ACTION MOVE");
 
         }
         if(_event.getAction() == MotionEvent.ACTION_UP){
-            Log.i(TAG, "ACTION UP");
 
-            mY2 = _event.getY();
-            mX2 = _event.getX();
-            rotateLock(mSafeLockNumbers);
+            Log.i(TAG, "ACTION UP:  X " + mEndX + "   Y " + mEndY);
         }
-        return false;
+        return true;
     }
 }
