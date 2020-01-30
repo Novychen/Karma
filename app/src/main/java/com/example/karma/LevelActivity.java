@@ -73,7 +73,7 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
                 return new LevelSixFragment();
             case 6: Log.i(TAG,"LevelSevenFragment");
                 return new LevelSevenFragment();
-            default: return new ComingSoon();
+            default: return null;
         }
     }
     @Override

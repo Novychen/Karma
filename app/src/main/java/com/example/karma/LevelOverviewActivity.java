@@ -159,7 +159,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
             case R.id.level_overview_level_1: {
                 Log.i(TAG, " :: onClick :: clicked 1. level");
-
+                i = new Intent(this, LevelOneActivity.class);
                 ImageView star_1 = findViewById(R.id.level_overview_star_1);
                 ImageView star_2 = findViewById(R.id.level_overview_star_2);
                 ImageView star_3 = findViewById(R.id.level_overview_star_3);
@@ -184,6 +184,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
             }
             break;
             case R.id.level_overview_level_2: {
+                i = new Intent(this, LevelTwoActivity.class);
                 Log.i(TAG, " :: onClick :: clicked 2. level");
 
                 ImageView star_4 = findViewById(R.id.level_overview_star_4);
