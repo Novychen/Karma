@@ -16,7 +16,7 @@
         android:text="@string/level_01"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#687A4F4F"
+        android:textColor="#FFFFFF"
         android:textSize="46sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

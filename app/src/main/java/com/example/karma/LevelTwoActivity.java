@@ -70,11 +70,6 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener{
                     }
                     mConstraintLayout.setBackground(this.getDrawable(R.drawable.ic_crack_17));
 
-                    TextView title = _v.findViewById(R.id.level_2_title);
-                    title.setVisibility(View.VISIBLE);
-
-                    TextView message = _v.findViewById(R.id.level_2_message);
-                    message.setVisibility(View.VISIBLE);
                 } else {
                     mConstraintLayout.setBackground(this.getDrawable(mCracks[mTouch]));
                 }

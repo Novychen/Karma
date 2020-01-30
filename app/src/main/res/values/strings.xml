@@ -7,10 +7,6 @@
     // Level 1
     <string name="level_01">Hello</string>
 
-    // Level 2
-    <string name="level_02_title">Finally free!</string>
-    <string name="level_02_message">Thank you, I won\'t \n forget your kindness</string>
-
     // Level Complete Dialog
     <string name="dialog_level_complete_title">Congrats!</string>
     <string name="dialog_level_complete_message">You beat the game. Off to the next level you go</string>

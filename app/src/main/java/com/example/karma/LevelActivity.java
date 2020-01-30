@@ -53,23 +53,6 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
         int value = getIntent().getIntExtra("value",0);
     }
 
-    protected Fragment fragmentCreator( int _data){
-        switch (_data){
-            case 0: Log.i(TAG,"hello fragment");
-                return new HelloFragment();
-            case 2:  Log.i(TAG,"LevelTreeFragment");
-                return new LevelThreeFragment();
-            case 3:  Log.i(TAG,"LevelFourFragment");
-                return new LevelFourFragment();
-            case 4:  Log.i(TAG,"LevelFiveFragment");
-                return new LevelFiveFragment();
-            case 5: Log.i(TAG,"LevelSixFragment");
-                return new LevelSixFragment();
-            case 6: Log.i(TAG,"LevelSevenFragment");
-                return new LevelSevenFragment();
-            default: return null;
-        }
-    }
     @Override
     protected void onResume() {
         super.onResume();

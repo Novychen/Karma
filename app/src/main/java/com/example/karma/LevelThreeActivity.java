@@ -13,7 +13,7 @@ import android.view.View;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
 
-public class LevelThreeActivity extends AppCompatActivity implements SensorEventListener {
+public class LevelThreeActivity extends Activity implements SensorEventListener {
 
     final static String TAG = "at.fhooe.mc.karma LevelThreeActivity";
 
@@ -61,7 +61,7 @@ public class LevelThreeActivity extends AppCompatActivity implements SensorEvent
     @Override
     public void onSensorChanged(SensorEvent _event) {
         if(_event.sensor.getType() == TYPE_LIGHT){
-            if(_event.values[0] < 50){
+            if(_event.values[0] < 10){
                 LevelCompleteDialog d = new LevelCompleteDialog(this);
                 d.show();
                 mSensorManager.unregisterListener(this);
