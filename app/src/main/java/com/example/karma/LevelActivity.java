@@ -29,7 +29,7 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
 
     final static String TAG = "at.fhooe.mc.karma LevelActivity";
     private View mCircleBackground;
-    private static final int INPUT_ACTIVITY_RESULT = 129;
+
 
 
     @Override
@@ -80,7 +80,7 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
                 return new LevelSixFragment();
             case 6: Log.i(TAG,"LevelSevenFragment");
                 return new LevelSevenFragment();
-            default: return null;
+            default: return new ComingSoon();
         }
     }
     @Override
@@ -125,18 +125,18 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
     }
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
-        if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
-            Log.i(TAG, "LevelActivity:: Rotation     " + (int) event.values[0] + " :" + (int) event.values[1] + " :" + (int) event.values[2]);
+    public void onSensorChanged(SensorEvent _event) {
+        if(_event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+            Log.i(TAG, "LevelActivity:: Accelerometer    " + (int) _event.values[0] + " :" + (int) _event.values[1] + " :" + (int) _event.values[2]);
 
-        }else if(event.sensor.getType() == TYPE_LIGHT) {
-            Log.i(TAG, "LevelActivity:: Light" + event.values[0]);
+        }else if(_event.sensor.getType() == TYPE_LIGHT) {
+            Log.i(TAG, "LevelActivity:: Light" + _event.values[0]);
 
-        }else if(event.sensor.getType() == TYPE_PRESSURE) {
-            Log.i(TAG, "LevelActivity:: PRESSURE" + event.values[0]);
+        }else if(_event.sensor.getType() == TYPE_PRESSURE) {
+            Log.i(TAG, "LevelActivity:: PRESSURE" + _event.values[0]);
 
-        }else if(event.sensor.getType() == TYPE_ROTATION_VECTOR) {
-            Log.i(TAG, "LevelActivity:: ROTATION" + event.values[0]);
+        }else if(_event.sensor.getType() == TYPE_ROTATION_VECTOR) {
+            Log.e(TAG, "LevelActivity:: ROTATION : " + _event.values[0] + " :"  + _event.values[1] + " :" + _event.values[2]  + " :" + _event.values[3]);
 
         }
     }

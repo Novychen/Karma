@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 public class MainActivity extends Activity implements View.OnClickListener {
 
     final static String TAG = "at.fhooe.mc.karma";
+    private int mCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             } break;
             case R.id.activity_main_levels: {
                 Intent i = new Intent(this, LevelOverviewActivity.class);
+                i.putExtra("value",mCount);
                 startActivity(i);
             } break;
             case R.id.activity_main_settings: {
