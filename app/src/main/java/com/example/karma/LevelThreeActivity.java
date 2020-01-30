@@ -13,7 +13,7 @@ import static android.hardware.Sensor.TYPE_LIGHT;
 
 public class LevelThreeActivity extends AppCompatActivity implements SensorEventListener {
 
-    final static String TAG = "at.fhooe.mc.karma LevelThreeFragment";
+    final static String TAG = "at.fhooe.mc.karma LevelThreeActivity";
 
     private SensorManager mSensorManager;
     private Sensor mLight;
