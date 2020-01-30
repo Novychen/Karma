@@ -134,8 +134,13 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
 
             }
             if (event.values[0] < 0 && event.values[1] > max && mCount == 3){
-                mCount = 0;
+                mCount = 4;
                 mAnimatorSet_04.start();
+            }
+            if(mCount == 4){
+                mCount = 0;
+                LevelCompleteDialog d = new LevelCompleteDialog(this);
+                d.show();
 
             }
 
