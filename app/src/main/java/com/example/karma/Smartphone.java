@@ -16,9 +16,11 @@ public class Smartphone {
     static Smartphone getInstance(Activity _activity){
         if (mInstance == null) {
             mInstance = new Smartphone();
+
             DisplayMetrics displaymetrics = new DisplayMetrics();
             mActivity = _activity;
             mActivity.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+
             mHeightInPixels = displaymetrics.heightPixels;
             mWidthInPixels =  displaymetrics.widthPixels;
             return mInstance;

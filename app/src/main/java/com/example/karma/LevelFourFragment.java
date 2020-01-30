@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 public class LevelFourFragment extends Fragment {
 
 
+    final static String TAG = "at.fhooe.mc.karma LevelFourFragment";
+
     public LevelFourFragment() {
         // Required empty public constructor
     }

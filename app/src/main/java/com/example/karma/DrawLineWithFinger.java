@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -77,15 +76,22 @@ public class DrawLineWithFinger extends View {
             case MotionEvent.ACTION_MOVE: {
                 int intY = (int) y;
                 int intX = (int) x;
-                for(int i = 0; i < size /2; i++){
-                    int indexX = intX + i;
-                    int indexY = intY + i;
+
+                int indexX;
+                int indexY;
+                for(int i = 0; i < size; i++){
+                    if(i < size/2) {
+                        indexX = intX + i;
+                        indexY = intY + i;
+                    } else {
+                        indexX = intX - i;
+                        indexY = intY - i;
+                    }
                     if(indexY < height && indexY > -1 && indexX < width && indexX > -1) {
                         mPixelY[indexY] = 1;
                         mPixelX[indexX] = 1;
                     }
                 }
-
                 float dx = Math.abs(x - mX);
                 float dy = Math.abs(y - mY);
                 if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {

@@ -1,14 +1,10 @@
 package com.example.karma;
 
 import android.animation.Animator;
-
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.Sensor;
@@ -21,7 +17,6 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
-import static android.hardware.Sensor.TYPE_PRESSURE;
 import static android.hardware.Sensor.TYPE_ROTATION_VECTOR;
 
 
@@ -45,7 +40,7 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
                 circularReveal();            }
         });
 
-        Sensor s =null;
+        Sensor s = null;
         SensorManager sMgr = (SensorManager)getSystemService(SENSOR_SERVICE);
         s = sMgr.getDefaultSensor(TYPE_LIGHT);
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
@@ -53,16 +48,14 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
         s = sMgr.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
-        s = sMgr.getDefaultSensor(Sensor.TYPE_PRESSURE);
-        sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
-        Log.i(TAG, "LevelActivity :: onCreate");
+
+        Log.i(TAG, ":: onCreate");
         int value = getIntent().getIntExtra("value",0);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.fragment_container,fragmentCreator(value));
                 ft.commit();
                 ft.addToBackStack(null);
     }
-
 
     protected Fragment fragmentCreator( int _data){
         switch (_data){
@@ -84,21 +77,18 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
         }
     }
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
-        Sensor s =null;
-        SensorManager sMgr = (SensorManager)getSystemService(SENSOR_SERVICE);
+        Sensor s = null;
+        SensorManager sMgr = (SensorManager) getSystemService(SENSOR_SERVICE);
         s = sMgr.getDefaultSensor(TYPE_LIGHT);
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
         s = sMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
         s = sMgr.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
         sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
-        s = sMgr.getDefaultSensor(Sensor.TYPE_PRESSURE);
-        sMgr.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
-
-
     }
+
     @Override
     protected void onPause(){
         super.onPause();
@@ -125,19 +115,15 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
     }
 
     @Override
-    public void onSensorChanged(SensorEvent _event) {
-        if(_event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
-            Log.i(TAG, "LevelActivity:: Accelerometer    " + (int) _event.values[0] + " :" + (int) _event.values[1] + " :" + (int) _event.values[2]);
+    public void onSensorChanged(SensorEvent event) {
+        if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+            Log.i(TAG, ":: Orientation " + (int) event.values[0] + " :" + (int) event.values[1] + " :" + (int) event.values[2]);
 
-        }else if(_event.sensor.getType() == TYPE_LIGHT) {
-            Log.i(TAG, "LevelActivity:: Light" + _event.values[0]);
+        }else if(event.sensor.getType() == TYPE_LIGHT) {
+            Log.i(TAG, ":: Light" + event.values[0]);
 
-        }else if(_event.sensor.getType() == TYPE_PRESSURE) {
-            Log.i(TAG, "LevelActivity:: PRESSURE" + _event.values[0]);
-
-        }else if(_event.sensor.getType() == TYPE_ROTATION_VECTOR) {
-            Log.e(TAG, "LevelActivity:: ROTATION : " + _event.values[0] + " :"  + _event.values[1] + " :" + _event.values[2]  + " :" + _event.values[3]);
-
+        }else if(event.sensor.getType() == TYPE_ROTATION_VECTOR) {
+            Log.i(TAG, ":: Rotation " + (int) (event.values[0]));
         }
     }
 

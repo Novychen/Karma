@@ -3,10 +3,10 @@ package com.example.karma;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,9 +14,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import java.util.Objects;
+
 
 /**
- * Crack something?
+ * Crack something
  */
 public class LevelTwoFragment extends Fragment implements View.OnTouchListener {
 
@@ -55,10 +57,14 @@ public class LevelTwoFragment extends Fragment implements View.OnTouchListener {
     public View onCreateView(LayoutInflater _inflater, ViewGroup _container,
                              Bundle _savedInstanceState) {
         View view = _inflater.inflate(R.layout.fragment_level_two, _container, false);
-        mCracks = new int[]{R.drawable.ic_crack_1, R.drawable.ic_crack_2, R.drawable.ic_crack_3, R.drawable.ic_crack_4, R.drawable.ic_crack_5, R.drawable.ic_crack_6, R.drawable.ic_crack_7, R.drawable.ic_crack_8};
+        mCracks = new int[]{R.drawable.ic_crack_1, R.drawable.ic_crack_2, R.drawable.ic_crack_3, R.drawable.ic_crack_4,
+                R.drawable.ic_crack_5, R.drawable.ic_crack_6, R.drawable.ic_crack_7, R.drawable.ic_crack_8,
+                R.drawable.ic_crack_9, R.drawable.ic_crack_10, R.drawable.ic_crack_11, R.drawable.ic_crack_12,
+                R.drawable.ic_crack_13, R.drawable.ic_crack_14, R.drawable.ic_crack_15, R.drawable.ic_crack_16};
+
         relativeLayout = view.findViewById(R.id.fragment_level_2);
         relativeLayout.setOnTouchListener(this);
-
+        relativeLayout.setBackground(getActivity().getDrawable(R.drawable.ic_crack_0));
         return view;
     }
 
@@ -66,21 +72,30 @@ public class LevelTwoFragment extends Fragment implements View.OnTouchListener {
     @Override
     public boolean onTouch(View _v, MotionEvent _event) {
 
+        float x = _event.getRawX();
+        float y = _event.getRawY();
+
+        float height = Smartphone.getInstance(getActivity()).getHeightInPixels();
+        float width = Smartphone.getInstance(getActivity()).getWidthInPixels();
+
+        int tap = 50 + (20* mTouch +1);
+
         if(_event.getAction() == MotionEvent.ACTION_DOWN){
-                Log.i(TAG, "pressure: " + _event.getPressure());
-                if (mTouch > mCracks.length - 1) {
+            if(x > (width/2 - tap) && x < (width/2 + tap) && y > (height/2 - tap) && y < (height/2 + tap) ) {
+                if (mTouch >= mCracks.length) {
+                    Drawable d = Objects.requireNonNull(getActivity()).getDrawable(mCracks[mCracks.length - 1]);
+                    if (d != null) {
+                        d.setAlpha(0);
+                        relativeLayout.setBackground(d);
+                    }
                     LevelCompleteDialog dialog = new LevelCompleteDialog(getActivity());
                     dialog.show();
                 } else {
                     relativeLayout.setBackground(getActivity().getDrawable(mCracks[mTouch]));
                 }
                 mTouch++;
+            }
         }
       return false;
     }
-
-    private void breakWindow() {
-
-    }
-
 }
