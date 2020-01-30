@@ -14,7 +14,6 @@ import android.view.View;
 public class DrawLineWithFinger extends View {
     final static String TAG = "at.fhooe.mc.karma DrawLineWithFinger";
 
-
     private Paint mPaint;
     private Path mPath;
 
