@@ -25,6 +25,8 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
     final static String TAG = "at.fhooe.mc.karma LevelActivity";
     private View mCircleBackground;
 
+
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);

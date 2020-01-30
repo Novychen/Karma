@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/fragment_level_7_numbers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ic_safelock_nummers"
         app:layout_constraintBottom_toBottomOf="@+id/fragment_level_7_safe_lock"
         app:layout_constraintDimensionRatio="1:1"
@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/fragment_level_7_safe_lock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/ic_safelock"

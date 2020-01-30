@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity android:name=".LevelSevenActivity"></activity>
+        <activity android:name=".LevelSixActivity" />
+        <activity android:name=".LevelFiveActivity" />
+        <activity android:name=".LevelFourActivity" />
+        <activity android:name=".LevelThreeActivity" />
+        <activity android:name=".LevelTwoActivity" />
+        <activity android:name=".LevelOneActivity" />
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,12 +25,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LevelOverviewActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".LevelOverviewActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LevelActivity"
-            android:screenOrientation="portrait"
             android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
     </application>
 
