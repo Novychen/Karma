@@ -48,7 +48,7 @@ public class LevelThreeActivity extends AppCompatActivity implements SensorEvent
     @Override
     public void onSensorChanged(SensorEvent _event) {
         if(_event.sensor.getType() == TYPE_LIGHT){
-            if(_event.values[0] < 20){
+            if(_event.values[0] < 50){
                 LevelCompleteDialog d = new LevelCompleteDialog(this);
                 d.show();
                 mSensorManager.unregisterListener(this);

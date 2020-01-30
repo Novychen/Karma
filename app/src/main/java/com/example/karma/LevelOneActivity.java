@@ -4,19 +4,28 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class LevelOneActivity extends AppCompatActivity {
+import static android.hardware.Sensor.TYPE_LIGHT;
+
+public class LevelOneActivity extends AppCompatActivity implements SensorEventListener {
     private AnimatorSet mAnimatorSet_01;
     private AnimatorSet mAnimatorSet_02;
     private AnimatorSet mAnimatorSet_03;
     private AnimatorSet mAnimatorSet_04;
-
+    private int mCount;
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
     private View mCircleBackground;
+
     final static String TAG = "at.fhooe.mc.karma HelloActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +39,11 @@ public class LevelOneActivity extends AppCompatActivity {
             public void run() {
                 circularReveal();            }
         });*/
+       mCount = 0;
+        mSensorManager= (SensorManager)getSystemService(SENSOR_SERVICE);
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+
         TextView hello = findViewById(R.id.activity_level_1_hello);
         animate(hello);
 
@@ -94,5 +108,60 @@ public class LevelOneActivity extends AppCompatActivity {
         mAnimatorSet_04 = new AnimatorSet();
         mAnimatorSet_04.playTogether(oA_11, oA_12, oA_13, oA_14, oA_15);
         mAnimatorSet_04.setDuration(500);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
+        double max = 8.5;
+        double min = -8.5;
+
+        if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+            Log.i(TAG, "LevelOneActivity : " + event.values[0] +" :"+ event.values[1] +" : Count" + mCount);
+            if (event.values[0] > max && event.values[1] > 0 &&  mCount == 0){
+                mCount = 1;
+                mAnimatorSet_01.start();
+
+            }
+            if (event.values[0] < 0 && event.values[1] < min && mCount == 1){
+                mCount = 2;
+                mAnimatorSet_02.start();
+
+            }
+            if (event.values[0] < min && event.values[1] < 0 && mCount == 2){
+                mCount = 3;
+                mAnimatorSet_03.start();
+
+            }
+            if (event.values[0] < 0 && event.values[1] > max && mCount == 3){
+                mCount = 0;
+                mAnimatorSet_04.start();
+
+            }
+
+
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        mSensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mSensorManager.registerListener(this,mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mSensorManager.unregisterListener(this);
     }
 }
