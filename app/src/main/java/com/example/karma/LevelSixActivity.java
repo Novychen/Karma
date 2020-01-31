@@ -68,5 +68,6 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
     public void nextActivity() {
         Intent i = new Intent(this, LevelSevenActivity.class);
         startActivity(i);
+        finish();
     }
 }

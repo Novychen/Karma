@@ -86,5 +86,6 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
     public void nextActivity() {
         Intent i = new Intent(this, LevelThreeActivity.class);
         startActivity(i);
+        finish();
     }
 }

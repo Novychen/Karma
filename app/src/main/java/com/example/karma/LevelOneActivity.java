@@ -15,6 +15,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -38,6 +39,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
+
         setContentView(R.layout.activity_level_one);
         mCircleBackground = findViewById(R.id.circleActivity_1);
         mCircleBackground.setVisibility(View.INVISIBLE);
@@ -121,8 +123,8 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
     @Override
     public void onSensorChanged(SensorEvent _event) {
 
-        double max = 8.5;
-        double min = -8.5;
+        double max = 8;
+        double min = -8;
 
         if(_event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
             Log.i(TAG, "LevelOneActivity : " + _event.values[0] +" :"+ _event.values[1] +" : Count" + mCount);
@@ -147,13 +149,27 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
             }
             if(mCount == 4){
                 mCount = 0;
-                LevelCompleteDialog d = new LevelCompleteDialog(this);
-                d.show();
+                CountDownTimer countDownTimer = new CountDownTimer(1000,1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        dialog();
+                    }
+                };
+                countDownTimer.start();
+
 
             }
         }
     }
-
+    public void dialog(){
+        LevelCompleteDialog d = new LevelCompleteDialog(this);
+        d.show();
+    }
 
 
     @Override
@@ -180,6 +196,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
 
     @Override
     public void nextActivity() {
+        mSensorManager.unregisterListener(this);
         Intent i = new Intent(this, LevelTwoActivity.class);
         startActivity(i);
     }

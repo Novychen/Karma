@@ -26,7 +26,8 @@ public class LevelFiveActivity extends Activity implements Riddle{
         mCircleBackground.post(new Runnable() {
             @Override
             public void run() {
-                Animation.circularReveal(mActivity,mCircleBackground);            }
+                Animation.circularReveal(mActivity,mCircleBackground);
+            }
         });
     }
 
