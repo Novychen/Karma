@@ -3,7 +3,10 @@ package com.example.karma;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +32,8 @@ public class LevelFiveActivity extends Activity implements Riddle{
                 Animation.circularReveal(mActivity,mCircleBackground);
             }
         });
+        AudioManager aManger = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        
     }
 
     @Override
