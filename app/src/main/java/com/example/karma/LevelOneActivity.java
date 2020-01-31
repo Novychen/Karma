@@ -36,8 +36,8 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
 
     final static String TAG = "at.fhooe.mc.karma HelloActivity";
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle _savedInstanceState) {
+        super.onCreate(_savedInstanceState);
         setContentView(R.layout.activity_level_one);
         mCircleBackground = findViewById(R.id.circleActivity_1);
         mCircleBackground.setVisibility(View.INVISIBLE);
@@ -119,29 +119,29 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
     }
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
+    public void onSensorChanged(SensorEvent _event) {
 
         double max = 8.5;
         double min = -8.5;
 
-        if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
-            Log.i(TAG, "LevelOneActivity : " + event.values[0] +" :"+ event.values[1] +" : Count" + mCount);
-            if (event.values[0] > max && event.values[1] > 0 &&  mCount == 0){
+        if(_event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+            Log.i(TAG, "LevelOneActivity : " + _event.values[0] +" :"+ _event.values[1] +" : Count" + mCount);
+            if (_event.values[0] > max && _event.values[1] > 0 &&  mCount == 0){
                 mCount = 1;
                 mAnimatorSet_01.start();
 
             }
-            if (event.values[0] < 0 && event.values[1] < min && mCount == 1){
+            if (_event.values[0] < 0 && _event.values[1] < min && mCount == 1){
                 mCount = 2;
                 mAnimatorSet_02.start();
 
             }
-            if (event.values[0] < min && event.values[1] < 0 && mCount == 2){
+            if (_event.values[0] < min && _event.values[1] < 0 && mCount == 2){
                 mCount = 3;
                 mAnimatorSet_03.start();
 
             }
-            if (event.values[0] < 0 && event.values[1] > max && mCount == 3){
+            if (_event.values[0] < 0 && _event.values[1] > max && mCount == 3){
                 mCount = 4;
                 mAnimatorSet_04.start();
             }
@@ -157,7 +157,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
 
 
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    public void onAccuracyChanged(Sensor _sensor, int _accuracy) {
 
     }
     @Override

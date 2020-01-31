@@ -12,8 +12,8 @@ public class ComingSoon extends Activity {
     private Activity mActivity = this;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle _savedInstanceState) {
+        super.onCreate(_savedInstanceState);
         setContentView(R.layout.activity_coming_soon);
         mCircleBackground = findViewById(R.id.circleActivity_soon);
         mCircleBackground.setVisibility(View.INVISIBLE);
