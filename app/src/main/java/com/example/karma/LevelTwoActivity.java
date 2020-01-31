@@ -3,6 +3,7 @@ package com.example.karma;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,9 +15,9 @@ import org.w3c.dom.Text;
 
 import java.util.Objects;
 
-public class LevelTwoActivity extends Activity implements View.OnTouchListener{
+public class LevelTwoActivity extends Activity implements View.OnTouchListener,Riddle{
 
-    final static String TAG = "at.fhooe.mc.karma LevelTwoFragment";
+    final static String TAG = "at.fhooe.mc.karma LevelTwoActivity";
     private int[] mCracks;
     private int mTouch;
     ConstraintLayout mConstraintLayout;
@@ -24,9 +25,10 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener{
     private Activity mActivity = this;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle _savedInstanceState) {
+        super.onCreate(_savedInstanceState);
         setContentView(R.layout.activity_level_two);
+        Log.i(TAG,"LEVEL TWO");
         mCircleBackground = findViewById(R.id.circleActivity_2);
         mCircleBackground.setVisibility(View.INVISIBLE);
 
@@ -80,5 +82,11 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener{
             }
         }
         return false;
+    }
+
+    @Override
+    public void nextActivity() {
+        Intent i = new Intent(this, LevelThreeActivity.class);
+        startActivity(i);
     }
 }

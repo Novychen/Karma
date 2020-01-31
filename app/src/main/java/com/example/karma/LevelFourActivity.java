@@ -3,18 +3,20 @@ package com.example.karma;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
-public class LevelFourActivity extends AppCompatActivity {
-
+public class LevelFourActivity extends AppCompatActivity implements Riddle{
+    final static String TAG = "at.fhooe.mc.karma LevelFourActivity";
     private View mCircleBackground;
     private Activity mActivity = this;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    protected void onCreate(Bundle _savedInstanceState) {
+        super.onCreate(_savedInstanceState);
+        Log.i(TAG,"LEVEL FOUR");
         Smartphone s = Smartphone.getInstance(this);
 
         DrawLineWithFinger.width = (int) s.getWidthInPixels();
@@ -31,5 +33,11 @@ public class LevelFourActivity extends AppCompatActivity {
             public void run() {
                 Animation.circularReveal(mActivity,mCircleBackground);            }
         });
+    }
+
+    @Override
+    public void nextActivity() {
+        Intent i = new Intent(this, LevelFiveActivity.class);
+        startActivity(i);
     }
 }

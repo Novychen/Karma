@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-public class LevelSevenActivity extends Activity implements View.OnTouchListener{
+public class LevelSevenActivity extends Activity implements View.OnTouchListener, Riddle{
 
     final static String TAG = "at.fhooe.mc.karma LevelSevenActivity";
 
@@ -25,10 +26,10 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     ImageView mSafeLockNumbers;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle _savedInstanceState) {
+        super.onCreate(_savedInstanceState);
         setContentView(R.layout.activity_level_seven);
-
+        Log.i(TAG,"LEVEL SEVEN");
         mCircleBackground = findViewById(R.id.circleActivity_7);
         mCircleBackground.setVisibility(View.VISIBLE);
 
@@ -113,5 +114,11 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
             Log.i(TAG, "ACTION UP:  X " + mEndX + "   Y " + mEndY);
         }
         return true;
+    }
+
+    @Override
+    public void nextActivity() {
+        Intent i = new Intent(this, ComingSoon.class);
+        startActivity(i);
     }
 }

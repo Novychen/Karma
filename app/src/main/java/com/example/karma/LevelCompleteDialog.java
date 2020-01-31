@@ -33,7 +33,7 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
     private Activity mActivity;
 
 
-    public LevelCompleteDialog(Activity _activity){
+    public LevelCompleteDialog(Activity _activity) {
         super(_activity);
         mActivity = _activity;
     }
@@ -100,6 +100,8 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
             }break;
             case R.id.dialog_level_complete_next: {
                 Log.i(TAG, " :: onClick :: clicked next button");
+                Riddle r = (Riddle) mActivity;
+                r.nextActivity();
                 dismiss();
             }break;
             default:{

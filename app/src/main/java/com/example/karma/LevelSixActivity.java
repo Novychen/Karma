@@ -1,6 +1,7 @@
 package com.example.karma;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -11,7 +12,7 @@ import android.widget.Button;
 /**
  * Nothing
  */
-public class LevelSixActivity extends Activity implements View.OnClickListener{
+public class LevelSixActivity extends Activity implements View.OnClickListener, Riddle{
 
     final static String TAG = "at.fhooe.mc.karma LevelSixActivity";
 
@@ -21,12 +22,14 @@ public class LevelSixActivity extends Activity implements View.OnClickListener{
 
     private CountDownTimer mCountdown;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle _savedInstanceState) {
+        super.onCreate(_savedInstanceState);
         setContentView(R.layout.activity_level_six);
+        Log.i(TAG,"LEVEL SIX");
         mCircleBackground = findViewById(R.id.circleActivity_6);
         mCircleBackground.setVisibility(View.INVISIBLE);
-
+        Button b = (Button) findViewById(R.id.activity_level_6);
+        b.setOnClickListener(this);
         mCircleBackground.post(new Runnable() {
             @Override
             public void run() {
@@ -55,7 +58,15 @@ public class LevelSixActivity extends Activity implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View _v) {
         Log.i(TAG,"Is clicked");
+        mCountdown.cancel();
+        mCountdown.start();
+    }
+
+    @Override
+    public void nextActivity() {
+        Intent i = new Intent(this, LevelSevenActivity.class);
+        startActivity(i);
     }
 }

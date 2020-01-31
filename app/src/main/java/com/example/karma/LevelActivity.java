@@ -92,15 +92,15 @@ public class LevelActivity extends FragmentActivity implements SensorEventListen
     }
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
-        if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
-            Log.i(TAG, ":: Orientation " + (int) event.values[0] + " :" + (int) event.values[1] + " :" + (int) event.values[2]);
+    public void onSensorChanged(SensorEvent _event) {
+        if(_event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+            Log.i(TAG, ":: Orientation " + (int) _event.values[0] + " :" + (int) _event.values[1] + " :" + (int) _event.values[2]);
 
-        }else if(event.sensor.getType() == TYPE_LIGHT) {
-            Log.i(TAG, ":: Light" + event.values[0]);
+        }else if(_event.sensor.getType() == TYPE_LIGHT) {
+            Log.i(TAG, ":: Light" + _event.values[0]);
 
-        }else if(event.sensor.getType() == TYPE_ROTATION_VECTOR) {
-            Log.i(TAG, ":: Rotation " + (int) (event.values[0]));
+        }else if(_event.sensor.getType() == TYPE_ROTATION_VECTOR) {
+            Log.i(TAG, ":: Rotation " + (int) (_event.values[0]));
         }
     }
 

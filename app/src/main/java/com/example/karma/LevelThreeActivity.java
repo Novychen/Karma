@@ -3,6 +3,7 @@ package com.example.karma;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -13,7 +14,7 @@ import android.view.View;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
 
-public class LevelThreeActivity extends Activity implements SensorEventListener {
+public class LevelThreeActivity extends Activity implements SensorEventListener,Riddle {
 
     final static String TAG = "at.fhooe.mc.karma LevelThreeActivity";
 
@@ -24,8 +25,8 @@ public class LevelThreeActivity extends Activity implements SensorEventListener 
     private Sensor mLight;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle _savedInstanceState) {
+        super.onCreate(_savedInstanceState);
         setContentView(R.layout.activity_level_three);
         mCircleBackground = findViewById(R.id.circleActivity_3);
         mCircleBackground.setVisibility(View.INVISIBLE);
@@ -71,7 +72,13 @@ public class LevelThreeActivity extends Activity implements SensorEventListener 
 
 
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    public void onAccuracyChanged(Sensor _sensor, int _accuracy) {
 
+    }
+
+    @Override
+    public void nextActivity() {
+        Intent i = new Intent(this, LevelFourActivity.class);
+        startActivity(i);
     }
 }
