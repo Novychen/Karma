@@ -57,10 +57,12 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
         float height = Smartphone.getInstance(this).getHeightInPixels();
         float width = Smartphone.getInstance(this).getWidthInPixels();
 
-        int tap = 50 + (20* mTouch +1);
+        int tap = 50 + (30* mTouch +1);
 
         if(_event.getAction() == MotionEvent.ACTION_DOWN){
-
+            Log.i(TAG, "X: " + x + ", Y: " + y);
+            Log.i(TAG, x + " > " + (width/2 - tap) +  "  -  " + x  + " < " + width/2 + tap);
+            Log.i(TAG, y + " > " + (height/2 - tap) +  "  -  " + y  + " < " + height/2 + tap);
             if (mTouch > mCracks.length) {
                 LevelCompleteDialog dialog = new LevelCompleteDialog(this);
                 dialog.show();
