@@ -26,7 +26,8 @@ public class LevelSixActivity extends Activity implements View.OnClickListener{
         setContentView(R.layout.activity_level_six);
         mCircleBackground = findViewById(R.id.circleActivity_6);
         mCircleBackground.setVisibility(View.INVISIBLE);
-
+        Button b = (Button) findViewById(R.id.activity_level_6);
+        b.setOnClickListener(this);
         mCircleBackground.post(new Runnable() {
             @Override
             public void run() {
@@ -57,5 +58,7 @@ public class LevelSixActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         Log.i(TAG,"Is clicked");
+        mCountdown.cancel();
+        mCountdown.start();
     }
 }

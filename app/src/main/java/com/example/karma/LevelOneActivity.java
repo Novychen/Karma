@@ -7,6 +7,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.Sensor;
@@ -22,7 +23,7 @@ import android.widget.TextView;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
 
-public class LevelOneActivity extends AppCompatActivity implements SensorEventListener {
+public class LevelOneActivity extends AppCompatActivity implements SensorEventListener, Riddle{
     private AnimatorSet mAnimatorSet_01;
     private AnimatorSet mAnimatorSet_02;
     private AnimatorSet mAnimatorSet_03;
@@ -175,5 +176,11 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
     public void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void nextActivity() {
+        Intent i = new Intent(this, LevelTwoActivity.class);
+        startActivity(i);
     }
 }
