@@ -32,8 +32,16 @@ public class LevelFiveActivity extends Activity implements Riddle{
                 Animation.circularReveal(mActivity,mCircleBackground);
             }
         });
-        AudioManager aManger = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        
+
+
+        MediaRecorder mRecorder;
+        mRecorder = new MediaRecorder();
+        mRecorder.setAudioSource(MediaRecorder.AudioSource.UNPROCESSED);
+
+        mRecorder.start();
+        int volume = mRecorder.getMaxAmplitude();
+        Log.i(TAG, "Volume : " + volume);
+        /*AudioManager audioManager;*/
     }
 
     @Override
