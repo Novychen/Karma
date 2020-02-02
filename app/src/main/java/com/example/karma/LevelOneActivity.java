@@ -62,6 +62,10 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
         TextView hello = findViewById(R.id.activity_level_1_hello);
         animate(hello);
 
+        hideStatusBar();
+    }
+
+    private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION

@@ -1,4 +1,6 @@
 package com.example.karma;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +11,11 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
 
@@ -21,9 +26,14 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
     private View mCircleBackground;
     private Activity mActivity = this;
 
+    private ImageView mLidTop;
+    private ImageView mLidBottom;
+
+    private SensorEventListener mListener;
     private SensorManager mSensorManager;
     private Sensor mLight;
     private boolean mDialog;
+    private boolean mAnimation;
 
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
@@ -42,6 +52,14 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         mLight = mSensorManager.getDefaultSensor(TYPE_LIGHT);
         mSensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
 
+        hideStatusBar();
+
+        mLidTop = findViewById(R.id.level_three_lid_01);
+        mLidBottom = findViewById(R.id.level_three_lid_02);
+
+    }
+
+    private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -49,6 +67,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
+
     @Override
     public void onStop() {
         super.onStop();
@@ -71,9 +90,25 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
     public void onSensorChanged(SensorEvent _event) {
         if(_event.sensor.getType() == TYPE_LIGHT){
             if(_event.values[0] < 5){
+
                 CountDownTimer countDownTimer = new CountDownTimer(3000, 1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {
+
+                        if(millisUntilFinished == 2000){
+                            if(!mAnimation){
+                                float move = mLidBottom.getHeight()/2;
+
+                                ObjectAnimator oA_01 = ObjectAnimator.ofFloat(mLidTop, "translationY", move);
+                                ObjectAnimator oA_02 = ObjectAnimator.ofFloat(mLidBottom, "translationY", -move);
+
+                                AnimatorSet animatorSet = new AnimatorSet();
+                                animatorSet.playTogether(oA_01, oA_02);
+                                animatorSet.setDuration(millisUntilFinished);
+                                animatorSet.start();
+                                mAnimation = true;
+                            }
+                        }
 
                     }
 
@@ -90,11 +125,11 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         }
     }
     public void dialog(){
-        mSensorManager.unregisterListener(this);
-        LevelCompleteDialog d = new LevelCompleteDialog(this);
+
+        mSensorManager.unregisterListener(mListener);
+        LevelCompleteDialog d = new LevelCompleteDialog(mActivity);
         d.show();
         mDialog = true;
-
     }
 
     @Override

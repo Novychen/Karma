@@ -45,6 +45,11 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         ConstraintLayout constraintLayout = findViewById(R.id.circleActivity_7);
         constraintLayout.setOnTouchListener(this);
 
+        hideStatusBar();
+    }
+
+
+    private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION

@@ -58,7 +58,7 @@ public class LevelFiveActivity extends Activity implements Riddle {
         mFlower = findViewById(R.id.level_five_flower);
         setFlower(mFlower);
 
-        hideStatusbar();
+        hideStatusBar();
     }
 
     private void setAudio(){
@@ -122,7 +122,7 @@ public class LevelFiveActivity extends Activity implements Riddle {
         mHandler.removeCallbacks(mRunnable);
     }
 
-    private void hideStatusbar(){
+    private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
