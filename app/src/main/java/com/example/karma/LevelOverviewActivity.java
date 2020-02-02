@@ -2,10 +2,12 @@ package com.example.karma;
 
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.AnimatedVectorDrawable;
@@ -21,6 +23,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
     final static String TAG = "at.fhooe.mc.karma";
     private String[] mColor = {"#D51116","#C51262","#6C4595","#4C4394","#2B4792","#3B5FA9","#328ACA","#08B7D3","#30B39F","#48AE54","#76B82A","#ACC90F","#FFD600","#F8A912","#ED6D1D","#DD2E14"};
+    public static final int RECORD_AUDIO = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,7 +177,6 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 overridePendingTransition(0, 0);
-                finish();
             }
             break;
             case R.id.level_overview_level_2: {
