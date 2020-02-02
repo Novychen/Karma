@@ -54,8 +54,14 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
         mCountdown.start();
         Log.i(TAG, "LevelSixActivity : Timer START");
 
-
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
+
     private void Done(){
         LevelCompleteDialog d = new LevelCompleteDialog(this);
         d.show();

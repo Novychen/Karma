@@ -1,7 +1,4 @@
 package com.example.karma;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +23,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
 
     private SensorManager mSensorManager;
     private Sensor mLight;
+    private boolean mDialog;
 
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
@@ -43,6 +41,13 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         mSensorManager= (SensorManager)getSystemService(SENSOR_SERVICE);
         mLight = mSensorManager.getDefaultSensor(TYPE_LIGHT);
         mSensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
+
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
     @Override
     public void onStop() {
@@ -74,7 +79,9 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
 
                     @Override
                     public void onFinish() {
-                        dialog();
+                        if(!mDialog) {
+                            dialog();
+                        }
                     }
                 };
                 countDownTimer.start();
@@ -86,6 +93,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         mSensorManager.unregisterListener(this);
         LevelCompleteDialog d = new LevelCompleteDialog(this);
         d.show();
+        mDialog = true;
 
     }
 
