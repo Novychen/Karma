@@ -1,9 +1,11 @@
 package com.example.karma;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     final static String TAG = "at.fhooe.mc.karma";
     private int mCount = 0;
+
 
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
@@ -36,6 +39,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         button = findViewById(R.id.activity_main_settings);
         button.setOnClickListener(this);
 
+        PermissionHandler p = PermissionHandler.getInstance(this);
+        p.checkPermission(Manifest.permission.RECORD_AUDIO, 666);
+
     }
 
     @Override
@@ -43,6 +49,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         switch (_v.getId()){
             case R.id.activity_main_play: {
+
                 Intent i = new Intent(this, LevelOneActivity.class);
 
                 SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);

@@ -48,6 +48,11 @@ public class LevelFiveActivity extends Activity implements Riddle {
             }
         });
 
+        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
+                    RECORD_AUDIO);
+        }
+
         setAudio();
 
         mFlower = findViewById(R.id.level_five_flower);
@@ -57,10 +62,6 @@ public class LevelFiveActivity extends Activity implements Riddle {
     }
 
     private void setAudio(){
-        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
-                    RECORD_AUDIO);
-        }
 
         mSensor = new SoundMeter();
         try {
