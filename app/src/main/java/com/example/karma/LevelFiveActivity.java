@@ -52,6 +52,11 @@ public class LevelFiveActivity extends Activity implements Riddle {
             }
         });
 
+        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
+                    RECORD_AUDIO);
+        }
+
         setAudio();
 
         mFlower = findViewById(R.id.level_five_flower);
@@ -63,10 +68,6 @@ public class LevelFiveActivity extends Activity implements Riddle {
     }
 
     private void setAudio(){
-        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
-                    RECORD_AUDIO);
-        }
 
         mSensor = new SoundMeter();
         try {
@@ -143,7 +144,7 @@ public class LevelFiveActivity extends Activity implements Riddle {
         mHandler.removeCallbacks(mRunnable);
     }
 
-    private void hideStatusbar(){
+    private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION

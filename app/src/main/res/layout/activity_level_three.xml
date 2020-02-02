@@ -7,4 +7,71 @@
     android:layout_height="match_parent"
     tools:context=".LevelThreeActivity">
 
+    <ImageView
+        android:id="@+id/level_three_eye_01"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_eye"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/level_three_eye_02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/level_three_eye_02"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/ic_eye"
+        app:layout_constraintBottom_toBottomOf="@+id/level_three_eye_01"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/level_three_eye_01"
+        app:layout_constraintTop_toTopOf="@+id/level_three_eye_01" />
+
+    <ImageView
+        android:id="@+id/level_three_iris_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_iris"
+        app:layout_constraintBottom_toBottomOf="@+id/level_three_eye_01"
+        app:layout_constraintEnd_toEndOf="@+id/level_three_eye_01"
+        app:layout_constraintStart_toStartOf="@+id/level_three_eye_01"
+        app:layout_constraintTop_toTopOf="@+id/level_three_eye_01" />
+
+    <ImageView
+        android:id="@+id/level_three_iris_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_iris"
+        app:layout_constraintBottom_toBottomOf="@+id/level_three_eye_02"
+        app:layout_constraintEnd_toEndOf="@+id/level_three_eye_02"
+        app:layout_constraintStart_toStartOf="@+id/level_three_eye_02"
+        app:layout_constraintTop_toTopOf="@+id/level_three_eye_02" />
+
+    <ImageView
+        android:id="@+id/level_three_lid_01"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#6C4595"
+        app:layout_constraintBottom_toTopOf="@+id/level_three_eye_01"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/level_three_lid_02"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#6C4595"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/level_three_eye_02"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

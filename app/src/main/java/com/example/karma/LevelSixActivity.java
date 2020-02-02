@@ -60,6 +60,12 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
         mTimeStart = System.currentTimeMillis();
         Log.i(TAG, "LevelSixActivity : Timer START");
 
+        hideStatusBar();
+
+     }
+
+
+    private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
