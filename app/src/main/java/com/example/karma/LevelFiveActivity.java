@@ -37,6 +37,7 @@ public class LevelFiveActivity extends Activity implements Riddle {
     private long mTimeStart = 0;
     private long mTimeEnd = 0;
 
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -167,6 +168,16 @@ public class LevelFiveActivity extends Activity implements Riddle {
     public long getTime() {
         return mTimeEnd - mTimeStart;
     }
+
+    @Override
+    public void setRating(int _rate) {
+        mRating[4] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[4];
+    }
+
 
     private void animateFlower(ImageView _flower){
         Drawable d = getDrawable(R.drawable.anim_flower);

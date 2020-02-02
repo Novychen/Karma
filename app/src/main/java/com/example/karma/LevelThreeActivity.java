@@ -126,4 +126,12 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
     }
 
 
+    @Override
+    public void setRating(int _rate) {
+        mRating[2] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[2];
+    }
 }

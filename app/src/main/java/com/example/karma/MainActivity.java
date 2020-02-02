@@ -15,6 +15,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     final static String TAG = "at.fhooe.mc.karma";
     private int mCount = 0;
 
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -55,7 +56,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 editor.putInt("x-Co",point.x);
                 editor.putInt("y-Co",point.y);
-                editor.putString("color","#FFFFFF");
+                editor.putString("color","#D51116");
 
                 editor.apply();
 

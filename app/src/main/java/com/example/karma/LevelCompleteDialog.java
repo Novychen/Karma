@@ -32,7 +32,7 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
     private ImageView  mStar3;
     private Activity mActivity;
     private long mTime;
-
+    private Riddle mRiddle;
 
     public LevelCompleteDialog(Activity _activity) {
         super(_activity);
@@ -44,8 +44,8 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
         super.onCreate(_savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_level_complete);
-        Riddle riddle = (Riddle) mActivity;
-        mTime = riddle.getTime();
+        mRiddle = (Riddle) mActivity;
+        mTime = mRiddle.getTime();
 
         mTitle = findViewById(R.id.dialog_level_complete_title);
         mMessage = findViewById(R.id.dialog_level_complete_message);
@@ -80,28 +80,33 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
         if(d instanceof AnimatedVectorDrawableCompat){
             AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) d;
             if(mTime < 20000){
+                mRiddle.setRating(3);
                 _star1.setImageDrawable(avd);
                 _star2.setImageDrawable(avd);
                 _star3.setImageDrawable(avd);
             }else if(mTime < 50000){
+                mRiddle.setRating(2);
                 _star1.setImageDrawable(avd);
                 _star2.setImageDrawable(avd);
             }else{
+                mRiddle.setRating(1);
                 _star2.setImageDrawable(avd);
             }
-
             avd.start();
 
         } else if (d instanceof AnimatedVectorDrawable){
             AnimatedVectorDrawable avd = (AnimatedVectorDrawable) d;
             if(mTime < 20000){
+                mRiddle.setRating(3);
                 _star1.setImageDrawable(avd);
                 _star2.setImageDrawable(avd);
                 _star3.setImageDrawable(avd);
             }else if(mTime < 50000){
+                mRiddle.setRating(2);
                 _star1.setImageDrawable(avd);
                 _star2.setImageDrawable(avd);
             }else{
+                mRiddle.setRating(1);
                 _star2.setImageDrawable(avd);
             }
             avd.start();
@@ -121,8 +126,7 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
             }break;
             case R.id.dialog_level_complete_next: {
                 Log.i(TAG, " :: onClick :: clicked next button");
-                Riddle r = (Riddle) mActivity;
-                r.nextActivity();
+                mRiddle.nextActivity();
                 dismiss();
             }break;
             default:{

@@ -29,6 +29,7 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
     private long mTimeStart = 0;
     private long mTimeEnd = 0;
 
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -115,5 +116,12 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
         return mTimeEnd - mTimeStart;
     }
 
-
+    @Override
+    public void setRating(int _rate) {
+        mRating[1] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[1];
+    }
 }

@@ -18,6 +18,7 @@ public class LevelFourActivity extends AppCompatActivity implements Riddle{
     private long mTimeStart = 0;
     private long mTimeEnd = 0;
 
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -66,5 +67,12 @@ public class LevelFourActivity extends AppCompatActivity implements Riddle{
         return mTimeEnd - mTimeStart;
     }
 
-
+    @Override
+    public void setRating(int _rate) {
+        mRating[3] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[3];
+    }
 }

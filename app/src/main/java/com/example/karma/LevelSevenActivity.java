@@ -145,4 +145,12 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         return mTimeEnd - mTimeStart;
     }
 
+    @Override
+    public void setRating(int _rate) {
+        mRating[6] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[6];
+    }
 }
