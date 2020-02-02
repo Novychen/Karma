@@ -41,6 +41,9 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
     private View mCircleBackground;
     private Activity mActivity = this;
 
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+
     final static String TAG = "at.fhooe.mc.karma HelloActivity";
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
@@ -63,7 +66,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
         TextView hello = findViewById(R.id.activity_level_1_hello);
         animate(hello);
 
-
+        mTimeStart = System.currentTimeMillis();
 
 
 
@@ -169,6 +172,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
 
                     @Override
                     public void onFinish() {
+                        mTimeEnd = System.currentTimeMillis();
                         dialog();
                     }
                 };
@@ -178,6 +182,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
             }
         }
     }
+
     public void dialog(){
         LevelCompleteDialog d = new LevelCompleteDialog(this);
         d.show();
@@ -219,12 +224,9 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
     }
 
     @Override
-    public void startTimer() {
-
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
     }
 
-    @Override
-    public void endTimer() {
 
-    }
 }

@@ -27,6 +27,9 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
     private SensorManager mSensorManager;
     private Sensor mLight;
 
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -43,6 +46,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         mSensorManager= (SensorManager)getSystemService(SENSOR_SERVICE);
         mLight = mSensorManager.getDefaultSensor(TYPE_LIGHT);
         mSensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
+        mTimeStart = System.currentTimeMillis();
     }
     @Override
     public void onStop() {
@@ -74,6 +78,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
 
                     @Override
                     public void onFinish() {
+                        mTimeEnd = System.currentTimeMillis();
                         dialog();
                     }
                 };
@@ -107,12 +112,9 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
     }
 
     @Override
-    public void startTimer() {
-
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
     }
 
-    @Override
-    public void endTimer() {
 
-    }
 }

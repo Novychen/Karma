@@ -25,6 +25,9 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     private View mCircleBackground;
     private Activity mActivity = this;
 
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+
     ImageView mSafeLockNumbers;
 
     @Override
@@ -131,12 +134,8 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     }
 
     @Override
-    public void startTimer() {
-
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
     }
 
-    @Override
-    public void endTimer() {
-
-    }
 }

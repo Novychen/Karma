@@ -22,6 +22,8 @@ public class LevelFiveActivity extends Activity implements Riddle, View.OnTouchL
     final static String TAG = "at.fhooe.mc.karma LevelFourActivity";
     private View mCircleBackground;
     private Activity mActivity = this;
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
 
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
@@ -46,6 +48,7 @@ public class LevelFiveActivity extends Activity implements Riddle, View.OnTouchL
         Log.i(TAG, "Volume : " + volume);
         /*AudioManager audioManager;*/
         mCircleBackground.setOnTouchListener(this);
+
     }
 
     @Override
@@ -59,6 +62,10 @@ public class LevelFiveActivity extends Activity implements Riddle, View.OnTouchL
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
+    }
+
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
     }
 
     private void animateFlower(ImageView _flower){
@@ -86,13 +93,4 @@ public class LevelFiveActivity extends Activity implements Riddle, View.OnTouchL
         return false;
     }
 
-    @Override
-    public void startTimer() {
-
-    }
-
-    @Override
-    public void endTimer() {
-
-    }
 }

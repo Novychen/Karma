@@ -26,6 +26,9 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
     private View mCircleBackground;
     private Activity mActivity = this;
 
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -48,6 +51,8 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
         mConstraintLayout = findViewById(R.id.circleActivity_2);
         mConstraintLayout.setOnTouchListener(this);
 
+        mTimeStart = System.currentTimeMillis();
+
     }
 
 
@@ -66,6 +71,7 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
             Log.i(TAG, x + " > " + (width/2 - tap) +  "  -  " + x  + " < " + width/2 + tap);
             Log.i(TAG, y + " > " + (height/2 - tap) +  "  -  " + y  + " < " + height/2 + tap);
             if (mTouch > mCracks.length) {
+                mTimeEnd = System.currentTimeMillis();
                 LevelCompleteDialog dialog = new LevelCompleteDialog(this);
                 dialog.show();
             } else if(x > (width/2 - tap) && x < (width/2 + tap) && y > (height/2 - tap) && y < (height/2 + tap) ) {
@@ -99,12 +105,9 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
     }
 
     @Override
-    public void startTimer() {
-
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
     }
 
-    @Override
-    public void endTimer() {
 
-    }
 }

@@ -31,6 +31,7 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
     private ImageView  mStar2;
     private ImageView  mStar3;
     private Activity mActivity;
+    private long mTime;
 
 
     public LevelCompleteDialog(Activity _activity) {
@@ -43,11 +44,15 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
         super.onCreate(_savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_level_complete);
+        Riddle riddle = (Riddle) mActivity;
+        mTime = riddle.getTime();
 
         mTitle = findViewById(R.id.dialog_level_complete_title);
         mMessage = findViewById(R.id.dialog_level_complete_message);
         mBackButton = findViewById(R.id.dialog_level_complete_back);
         mNextButton = findViewById(R.id.dialog_level_complete_next);
+
+
         mStar1 = findViewById(R.id.dialog_level_complete_star_1);
         mStar2 = findViewById(R.id.dialog_level_complete_star_2);
         mStar3 = findViewById(R.id.dialog_level_complete_star_3);
@@ -58,6 +63,8 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
 
         mBackButton.setOnClickListener(this);
         mNextButton.setOnClickListener(this);
+
+
     }
 
     /**
@@ -72,17 +79,31 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
 
         if(d instanceof AnimatedVectorDrawableCompat){
             AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) d;
-            _star1.setImageDrawable(avd);
-            _star2.setImageDrawable(avd);
-            _star3.setImageDrawable(avd);
+            if(mTime < 20000){
+                _star1.setImageDrawable(avd);
+                _star2.setImageDrawable(avd);
+                _star3.setImageDrawable(avd);
+            }else if(mTime < 50000){
+                _star1.setImageDrawable(avd);
+                _star2.setImageDrawable(avd);
+            }else{
+                _star2.setImageDrawable(avd);
+            }
+
             avd.start();
 
         } else if (d instanceof AnimatedVectorDrawable){
             AnimatedVectorDrawable avd = (AnimatedVectorDrawable) d;
-
-            _star1.setImageDrawable(avd);
-            _star2.setImageDrawable(avd);
-            _star3.setImageDrawable(avd);
+            if(mTime < 20000){
+                _star1.setImageDrawable(avd);
+                _star2.setImageDrawable(avd);
+                _star3.setImageDrawable(avd);
+            }else if(mTime < 50000){
+                _star1.setImageDrawable(avd);
+                _star2.setImageDrawable(avd);
+            }else{
+                _star2.setImageDrawable(avd);
+            }
             avd.start();
         }
     }

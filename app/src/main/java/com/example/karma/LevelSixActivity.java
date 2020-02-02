@@ -25,6 +25,10 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
     private int mClicked = 0;
 
     private CountDownTimer mCountdown;
+
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -52,11 +56,13 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
             }
         };
         mCountdown.start();
+        mTimeStart = System.currentTimeMillis();
         Log.i(TAG, "LevelSixActivity : Timer START");
 
 
     }
     private void Done(){
+        mTimeEnd = System.currentTimeMillis();
         LevelCompleteDialog d = new LevelCompleteDialog(this);
         d.show();
     }
@@ -91,12 +97,9 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
     }
 
     @Override
-    public void startTimer() {
-
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
     }
 
-    @Override
-    public void endTimer() {
 
-    }
 }
