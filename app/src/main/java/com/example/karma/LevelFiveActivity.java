@@ -11,6 +11,7 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -56,6 +57,8 @@ public class LevelFiveActivity extends Activity implements Riddle {
         setFlower(mFlower);
 
         hideStatusbar();
+
+        mTimeStart = System.currentTimeMillis();
     }
 
     private void setAudio(){
@@ -102,11 +105,27 @@ public class LevelFiveActivity extends Activity implements Riddle {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                LevelCompleteDialog d = new LevelCompleteDialog(mActivity);
-                d.show();
+                mTimeEnd = System.currentTimeMillis();
+                CountDownTimer countDownTimer = new CountDownTimer(1000,1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        dialog();
+                    }
+                };
+                countDownTimer.start();
             }
         },200);
 
+    }
+
+    public void dialog(){
+        LevelCompleteDialog d = new LevelCompleteDialog(this);
+        d.show();
     }
 
     @Override
