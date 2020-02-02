@@ -32,5 +32,4 @@ dependencies {
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation "androidx.dynamicanimation:dynamicanimation:1.0.0"
     implementation "androidx.fragment:fragment:1.2.0"
-
 }
