@@ -10,15 +10,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
@@ -180,6 +183,10 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
 
     @Override
     public void nextActivity() {
+        SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("color", mColor[1]);
+        editor.apply();
         Intent i = new Intent(this, LevelTwoActivity.class);
         startActivity(i);
     }

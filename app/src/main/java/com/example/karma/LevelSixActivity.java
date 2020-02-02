@@ -1,7 +1,10 @@
 package com.example.karma;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -19,6 +22,7 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
     private View mCircleBackground;
     private Activity mActivity = this;
 
+    private int mClicked = 0;
 
     private CountDownTimer mCountdown;
     @Override
@@ -28,7 +32,7 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
         Log.i(TAG,"LEVEL SIX");
         mCircleBackground = findViewById(R.id.circleActivity_6);
         mCircleBackground.setVisibility(View.INVISIBLE);
-        Button b = (Button) findViewById(R.id.activity_level_6);
+        Button b = (Button) findViewById(R.id.activity_level_6_button);
         b.setOnClickListener(this);
         mCircleBackground.post(new Runnable() {
             @Override
@@ -60,13 +64,29 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
     @Override
     public void onClick(View _v) {
         Log.i(TAG,"Is clicked");
+
+        if(_v.getId() == R.id.activity_level_6_button){
+            Drawable d;
+            if(mClicked % 2 == 0) {
+                d = getDrawable(R.drawable.ic_evil_button_pressed);
+            } else {
+                d = getDrawable(R.drawable.ic_evil_button);
+            }
+            _v.setBackground(d);
+            mClicked++;
+        }
         mCountdown.cancel();
         mCountdown.start();
     }
 
     @Override
     public void nextActivity() {
+        SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("color", mColor[6]);
+        editor.apply();
         Intent i = new Intent(this, LevelSevenActivity.class);
         startActivity(i);
+        finish();
     }
 }

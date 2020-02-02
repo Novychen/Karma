@@ -171,9 +171,10 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 sendPreferences(_v,0);
                 i.putExtra("value", 0);
                 setResult(RESULT_OK,i);
-
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 overridePendingTransition(0, 0);
+                finish();
             }
             break;
             case R.id.level_overview_level_2: {
