@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
+import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -31,8 +33,18 @@ public class LevelFiveActivity extends Activity implements Riddle, View.OnTouchL
         mCircleBackground.post(new Runnable() {
             @Override
             public void run() {
-                Animation.circularReveal(mActivity,mCircleBackground);            }
+                Animation.circularReveal(mActivity,mCircleBackground);
+            }
         });
+
+        MediaRecorder mRecorder;
+        mRecorder = new MediaRecorder();
+        mRecorder.setAudioSource(MediaRecorder.AudioSource.UNPROCESSED);
+
+        mRecorder.start();
+        int volume = mRecorder.getMaxAmplitude();
+        Log.i(TAG, "Volume : " + volume);
+        /*AudioManager audioManager;*/
         mCircleBackground.setOnTouchListener(this);
     }
 

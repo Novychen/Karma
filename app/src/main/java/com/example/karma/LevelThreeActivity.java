@@ -11,6 +11,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 
@@ -64,14 +65,29 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
     @Override
     public void onSensorChanged(SensorEvent _event) {
         if(_event.sensor.getType() == TYPE_LIGHT){
-            if(_event.values[0] < 10){
-                LevelCompleteDialog d = new LevelCompleteDialog(this);
-                d.show();
-                mSensorManager.unregisterListener(this);
+            if(_event.values[0] < 5){
+                CountDownTimer countDownTimer = new CountDownTimer(3000, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        dialog();
+                    }
+                };
+                countDownTimer.start();
+
             }
         }
     }
+    public void dialog(){
+        mSensorManager.unregisterListener(this);
+        LevelCompleteDialog d = new LevelCompleteDialog(this);
+        d.show();
 
+    }
 
     @Override
     public void onAccuracyChanged(Sensor _sensor, int _accuracy) {
