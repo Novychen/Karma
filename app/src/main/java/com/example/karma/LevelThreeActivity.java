@@ -119,9 +119,19 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
                     @Override
                     public void onFinish() {
                         mTimeEnd = System.currentTimeMillis();
-                        dialog();
                         if(!mDialog) {
-                            dialog();
+                            CountDownTimer countDownTimer = new CountDownTimer(1000,1000){
+                                @Override
+                                public void onTick(long millisUntilFinished) {
+
+                                }
+
+                                @Override
+                                public void onFinish() {
+                                    dialog();
+                                }
+                            };
+                           countDownTimer.start();
                         }
                     }
                 };
@@ -131,7 +141,6 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         }
     }
     public void dialog(){
-
         mSensorManager.unregisterListener(mListener);
         LevelCompleteDialog d = new LevelCompleteDialog(mActivity);
         d.show();

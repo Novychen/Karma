@@ -62,7 +62,7 @@ public class LevelFiveActivity extends Activity implements Riddle {
         mFlower = findViewById(R.id.level_five_flower);
         setFlower(mFlower);
 
-        hideStatusbar();
+        hideStatusBar();
 
         mTimeStart = System.currentTimeMillis();
     }
