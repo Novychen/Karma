@@ -22,6 +22,9 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import static android.hardware.Sensor.TYPE_LIGHT;
 
 public class LevelOneActivity extends AppCompatActivity implements SensorEventListener, Riddle{
@@ -56,6 +59,12 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
 
         TextView hello = findViewById(R.id.activity_level_1_hello);
         animate(hello);
+
+
+
+
+
+
 
     }
 
@@ -199,5 +208,15 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
         mSensorManager.unregisterListener(this);
         Intent i = new Intent(this, LevelTwoActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    public void startTimer() {
+
+    }
+
+    @Override
+    public void endTimer() {
+
     }
 }

@@ -90,4 +90,14 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
         startActivity(i);
         finish();
     }
+
+    @Override
+    public void startTimer() {
+
+    }
+
+    @Override
+    public void endTimer() {
+
+    }
 }

@@ -121,4 +121,14 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         Intent i = new Intent(this, ComingSoon.class);
         startActivity(i);
     }
+
+    @Override
+    public void startTimer() {
+
+    }
+
+    @Override
+    public void endTimer() {
+
+    }
 }

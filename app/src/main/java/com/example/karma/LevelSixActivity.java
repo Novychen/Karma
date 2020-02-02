@@ -70,4 +70,14 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
         startActivity(i);
         finish();
     }
+
+    @Override
+    public void startTimer() {
+
+    }
+
+    @Override
+    public void endTimer() {
+
+    }
 }

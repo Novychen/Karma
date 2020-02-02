@@ -40,4 +40,14 @@ public class LevelFourActivity extends AppCompatActivity implements Riddle{
         Intent i = new Intent(this, LevelFiveActivity.class);
         startActivity(i);
     }
+
+    @Override
+    public void startTimer() {
+
+    }
+
+    @Override
+    public void endTimer() {
+
+    }
 }

@@ -97,4 +97,14 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         Intent i = new Intent(this, LevelFourActivity.class);
         startActivity(i);
     }
+
+    @Override
+    public void startTimer() {
+
+    }
+
+    @Override
+    public void endTimer() {
+
+    }
 }
