@@ -32,7 +32,7 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
         Log.i(TAG,"LEVEL SIX");
         mCircleBackground = findViewById(R.id.circleActivity_6);
         mCircleBackground.setVisibility(View.INVISIBLE);
-        Button b = (Button) findViewById(R.id.activity_level_6_button);
+        Button b = findViewById(R.id.activity_level_6_button);
         b.setOnClickListener(this);
         mCircleBackground.post(new Runnable() {
             @Override

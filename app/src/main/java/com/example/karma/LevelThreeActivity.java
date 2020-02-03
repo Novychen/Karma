@@ -91,11 +91,11 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         if(_event.sensor.getType() == TYPE_LIGHT){
             if(_event.values[0] < 5){
 
-                CountDownTimer countDownTimer = new CountDownTimer(3000, 1000) {
+                CountDownTimer countDownTimer = new CountDownTimer(3000, 500) {
                     @Override
                     public void onTick(long millisUntilFinished) {
 
-                        if(millisUntilFinished == 2000){
+                        if(millisUntilFinished <= 2500){
                             if(!mAnimation){
                                 float move = mLidBottom.getHeight()/2;
 
@@ -104,7 +104,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
 
                                 AnimatorSet animatorSet = new AnimatorSet();
                                 animatorSet.playTogether(oA_01, oA_02);
-                                animatorSet.setDuration(millisUntilFinished);
+                                animatorSet.setDuration(2450);
                                 animatorSet.start();
                                 mAnimation = true;
                             }

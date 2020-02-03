@@ -1,0 +1,56 @@
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="vector"
+            android:width="340dp"
+            android:height="340dp"
+            android:viewportWidth="340"
+            android:viewportHeight="340">
+            <group android:name="original">
+                <path
+                    android:name="path"
+                    android:pathData="M 156.5 15.7 L 184.2 15.7 L 170.3 29 Z"
+                    android:fillColor="#84afc9"
+                    android:strokeWidth="1"/>
+                <path
+                    android:name="path_1"
+                    android:pathData="M 170.3 73 C 149.713 72.935 129.628 79.405 112.95 91.474 C 96.272 103.543 83.847 120.599 77.473 140.174 C 71.099 159.749 71.099 180.851 77.473 200.426 C 83.847 220.001 96.272 237.057 112.95 249.126 C 129.628 261.195 149.713 267.665 170.3 267.6 C 196.096 267.6 220.861 257.342 239.101 239.101 C 257.342 220.861 267.6 196.096 267.6 170.3 C 267.6 144.504 257.342 119.739 239.101 101.499 C 220.861 83.258 196.096 73 170.3 73 Z"
+                    android:fillColor="#fdfdfd"
+                    android:strokeWidth="1"/>
+                <path
+                    android:name="path_2"
+                    android:pathData="M 170.3 78.3 C 145.909 78.3 122.493 87.999 105.246 105.246 C 87.999 122.493 78.3 145.909 78.3 170.3 C 78.3 194.691 87.999 218.107 105.246 235.354 C 122.493 252.601 145.909 262.3 170.3 262.3 C 194.691 262.3 218.107 252.601 235.354 235.354 C 252.601 218.107 262.3 194.691 262.3 170.3 C 262.3 145.909 252.601 122.493 235.354 105.246 C 218.107 87.999 194.691 78.3 170.3 78.3 Z"
+                    android:fillColor="#84afc9"
+                    android:strokeWidth="1"/>
+                <path
+                    android:name="path_3"
+                    android:pathData="M 250.8 132 C 263.9 160.6 257.6 203.2 247.7 208.9 C 238.4 214.3 200.8 169.7 178.7 131.7 C 171.8 119.8 120.2 115.3 117.6 106.5 C 114.3 95.3 153.1 81.2 170.4 81.2 C 216.9 81.2 244.4 118 250.8 132 Z"
+                    android:fillColor="#116da4"
+                    android:strokeWidth="1"/>
+            </group>
+            <path
+                android:name="delete_1"
+                android:pathData="M 130 215.5 C 127.5 215.5 145.2 178.4 162 163.3 C 183.9 143.9 209.2 122.9 210.9 124.6 C 211.7 125.4 206.7 133 198.3 142.3 C 176.3 169.2 131.6 215.5 130 215.5 Z"
+                android:fillColor="#84afc9"
+                android:strokeWidth="1"/>
+            <path
+                android:name="delete_2"
+                android:pathData="M 124.8 129.6 C 124.8 127.1 161.9 144.8 177 161.6 C 196.4 183.5 217.4 208.8 215.7 210.5 C 214.9 211.3 207.3 206.3 198 197.9 C 171.1 176 124.8 131.3 124.8 129.6 Z"
+                android:fillColor="#84afc9"
+                android:strokeWidth="1"/>
+        </vector>
+    </aapt:attr>
+    <target android:name="path_3">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="pathData"
+                android:duration="700"
+                android:valueFrom="M 250.8 132 C 263.9 160.6 257.6 203.2 247.7 208.9 C 238.4 214.3 200.8 169.7 178.7 131.7 C 171.8 119.8 120.2 115.3 117.6 106.5 C 114.3 95.3 153.1 81.2 170.4 81.2 C 216.9 81.2 244.4 118 250.8 132 Z"
+                android:valueTo="M 249.7 133.5 C 262.8 162.1 258.2 229 203.1 251.5 C 152.5 272.1 107.1 235.9 93.6 210.9 C 80.1 185.9 81.9 142.8 101.4 117.7 C 120.9 92.6 151.9 82.7 169.2 82.7 C 215.8 82.7 243.3 119.6 249.7 133.5 Z"
+                android:valueType="pathType"
+                android:interpolator="@android:interpolator/fast_out_slow_in"/>
+        </aapt:attr>
+    </target>
+</animated-vector>

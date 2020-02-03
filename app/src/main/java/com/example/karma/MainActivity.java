@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +30,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         button = findViewById(R.id.activity_main_levels);
         button.setOnClickListener(this);
 
-        button = findViewById(R.id.activity_main_settings);
+        button = findViewById(R.id.activity_main_info);
         button.setOnClickListener(this);
 
         PermissionHandler p = PermissionHandler.getInstance(this);
@@ -79,7 +78,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 i.putExtra("value",mCount);
                 startActivity(i);
             } break;
-            case R.id.activity_main_settings: {
+            case R.id.activity_main_info: {
                 Log.i(TAG,"MainActivity :: onClick ::Settings was clicked");
             }break;
             default: {

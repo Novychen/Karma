@@ -8,18 +8,18 @@
     tools:context=".LevelSevenActivity">
 
     <ImageView
-        android:id="@+id/activity_level_2_lock_num"
+        android:id="@+id/activity_level_7_lock_num"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/ic_safelock_nummers"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_level_2_lock"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_level_7_lock"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@+id/activity_level_2_lock"
-        app:layout_constraintStart_toStartOf="@+id/activity_level_2_lock"
-        app:layout_constraintTop_toTopOf="@+id/activity_level_2_lock" />
+        app:layout_constraintEnd_toEndOf="@+id/activity_level_7_lock"
+        app:layout_constraintStart_toStartOf="@+id/activity_level_7_lock"
+        app:layout_constraintTop_toTopOf="@+id/activity_level_7_lock" />
 
     <ImageView
-        android:id="@+id/activity_level_2_lock"
+        android:id="@+id/activity_level_7_lock"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
@@ -30,5 +30,88 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/activity_level_7_first"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/ic_safelock_box"
+        android:fontFamily="casual"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toStartOf="@+id/activity_level_7_second"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_level_7_lock_num" />
+
+    <Button
+        android:id="@+id/activity_level_7_second"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_safelock_box"
+        android:fontFamily="casual"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_level_7_first"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toStartOf="@+id/activity_level_7_third"
+        app:layout_constraintStart_toEndOf="@+id/activity_level_7_first"
+        app:layout_constraintTop_toTopOf="@+id/activity_level_7_first" />
+
+    <Button
+        android:id="@+id/activity_level_7_third"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_safelock_box"
+        android:fontFamily="casual"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_level_7_second"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toStartOf="@+id/activity_level_7_fourth"
+        app:layout_constraintStart_toEndOf="@+id/activity_level_7_second"
+        app:layout_constraintTop_toTopOf="@+id/activity_level_7_second" />
+
+    <Button
+        android:id="@+id/activity_level_7_fourth"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/ic_safelock_box"
+        android:fontFamily="casual"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_level_7_third"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_level_7_third"
+        app:layout_constraintTop_toTopOf="@+id/activity_level_7_third" />
+
+    <Button
+        android:id="@+id/activity_level_7_button"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="120dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_level_7_lock_num"
+        app:layout_constraintEnd_toEndOf="@+id/activity_level_7_lock_num"
+        app:layout_constraintStart_toStartOf="@+id/activity_level_7_lock_num"
+        app:layout_constraintTop_toTopOf="@+id/activity_level_7_lock_num" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
