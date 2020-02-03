@@ -58,23 +58,37 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
                 int level = sharedPref.getInt("level", 0);
+                Log.i(TAG,"LEVEL : " + level);
                 Intent i = new Intent(this, LevelOneActivity.class);
-                switch (level){
-                    case 2:i = new Intent(this, LevelTwoActivity.class);
-                    break;
-                    case 3:i = new Intent(this, LevelThreeActivity.class);
-                    break;
-                    case 4:i = new Intent(this, LevelFourActivity.class);
-                    break;
-                    case 5:i = new Intent(this, LevelFiveActivity.class);
-                    break;
-                    case 6:i = new Intent(this, LevelSixActivity.class);
-                    break;
-                    case 7:i = new Intent(this, LevelSevenActivity.class);
-                    break;
-                    case 8:i = new Intent(this, LevelEightActivity.class);
-                        break;
-                    default: i = new Intent(this, LevelOneActivity.class);
+                if(level != 1) {
+                    switch (level) {
+                        case 1:
+                            i = new Intent(this, LevelOneActivity.class);
+                            break;
+                        case 2:
+                            i = new Intent(this, LevelTwoActivity.class);
+                            break;
+                        case 3:
+                            i = new Intent(this, LevelThreeActivity.class);
+                            break;
+                        case 4:
+                            i = new Intent(this, LevelFourActivity.class);
+                            break;
+                        case 5:
+                            i = new Intent(this, LevelFiveActivity.class);
+                            break;
+                        case 6:
+                            i = new Intent(this, LevelSixActivity.class);
+                            break;
+                        case 7:
+                            i = new Intent(this, LevelSevenActivity.class);
+                            break;
+                        case 8:
+                            i = new Intent(this, LevelEightActivity.class);
+                            break;
+                        default:
+                            i = new Intent(this, LevelOneActivity.class);
+                    }
                 }
 
                 SharedPreferences.Editor editor = sharedPref.edit();
@@ -87,7 +101,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 editor.putInt("x-Co",point.x);
                 editor.putInt("y-Co",point.y);
-                editor.putString("color",mColor[level - 1]);
+                if(level > 0){
+                    editor.putString("color",mColor[level - 1]);
+                }else {editor.putString("color",mColor[0]);}
+
 
                 editor.apply();
 
