@@ -60,7 +60,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     private int mCode2 = 14;
     private int mCode3 = 55;
     private int mCode4 = 0;
-
+    private int mRating = 0;
     private Drawable mD;
 
     private CountDownTimer mTimer;
@@ -94,7 +94,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         mThird.setOnClickListener(this);
         mFourth = findViewById(R.id.activity_level_7_fourth);
         mFourth.setOnClickListener(this);
-
+        mTimeStart = System.currentTimeMillis();
         ConstraintLayout constraintLayout = findViewById(R.id.circleActivity_7);
         constraintLayout.setOnTouchListener(this);
         hideStatusBar();
@@ -199,6 +199,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
 
     private void done(){
         if(mFirst.getBackground() == mD && mSecond.getBackground() == mD && mThird.getBackground() == mD && mFourth.getBackground() == mD){
+            mTimeEnd = System.currentTimeMillis();
             LevelCompleteDialog dialog = new LevelCompleteDialog(this);
             dialog.show();
             mTimer.cancel();
@@ -288,10 +289,10 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     public long getTime() { return mTimeEnd - mTimeStart; }
 
     @Override
-    public void setRating(int _rate) { mRating[6] = _rate; }
+    public void setRating(int _rate) { mRating = _rate; }
 
     @Override
-    public int getRating() { return mRating[6]; }
+    public int getRating() { return mRating; }
 
     private void setUp(Button _field, int _code){
         _field.setVisibility(View.VISIBLE);

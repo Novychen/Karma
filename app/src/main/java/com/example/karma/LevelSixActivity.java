@@ -28,7 +28,7 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
 
     private long mTimeStart = 0;
     private long mTimeEnd = 0;
-
+    private int mRating = 0;
 
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
@@ -116,10 +116,10 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
 
     @Override
     public void setRating(int _rate) {
-        mRating[5] = _rate;
+        mRating = _rate;
     }
     @Override
     public int getRating() {
-        return mRating[5];
+        return mRating;
     }
 }

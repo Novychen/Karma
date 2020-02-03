@@ -31,7 +31,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
     private Sensor mLight;
     private boolean mDialog;
     private boolean mAnimation;
-
+    private int mRating = 0;
     private long mTimeStart = 0;
     private long mTimeEnd = 0;
 
@@ -155,10 +155,10 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
 
     @Override
     public void setRating(int _rate) {
-        mRating[2] = _rate;
+        mRating = _rate;
     }
     @Override
     public int getRating() {
-        return mRating[2];
+        return mRating;
     }
 }
