@@ -125,7 +125,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
     }
     public void dialog(){
         mSensorManager.unregisterListener(mListener);
-        LevelCompleteDialog d = new LevelCompleteDialog(mActivity);
+        LevelCompleteDialog d = new LevelCompleteDialog(mActivity,3);
         d.show();
         mDialog = true;
     }

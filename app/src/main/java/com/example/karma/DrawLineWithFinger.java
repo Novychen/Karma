@@ -102,7 +102,7 @@ public class DrawLineWithFinger extends View {
             }break;
             case MotionEvent.ACTION_UP:{
                 if(isScreenFull()){
-                    LevelCompleteDialog d = new LevelCompleteDialog(mActivity);
+                    LevelCompleteDialog d = new LevelCompleteDialog(mActivity,4);
                     d.show();
                 }
             }break;

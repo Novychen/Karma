@@ -8,6 +8,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Point;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -17,6 +19,7 @@ import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class LevelOneActivity extends AppCompatActivity implements SensorEventListener, Riddle{
@@ -180,7 +183,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
     }
 
     public void dialog(){
-        LevelCompleteDialog d = new LevelCompleteDialog(this);
+        LevelCompleteDialog d = new LevelCompleteDialog(this,1);
         d.show();
     }
 
@@ -216,7 +219,9 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
         editor.putString("color", mColor[1]);
         editor.apply();
         Intent i = new Intent(this, LevelTwoActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
+        finish();
     }
 
     @Override

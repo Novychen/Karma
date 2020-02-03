@@ -127,7 +127,7 @@ public class LevelFiveActivity extends Activity implements Riddle {
     }
 
     public void dialog(){
-        LevelCompleteDialog d = new LevelCompleteDialog(this);
+        LevelCompleteDialog d = new LevelCompleteDialog(this,5);
         d.show();
     }
 

@@ -76,7 +76,7 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
 
     private void done(){
         mTimeEnd = System.currentTimeMillis();
-        LevelCompleteDialog d = new LevelCompleteDialog(this);
+        LevelCompleteDialog d = new LevelCompleteDialog(this,6);
         d.show();
     }
 

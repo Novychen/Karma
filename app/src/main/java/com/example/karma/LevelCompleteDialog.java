@@ -2,7 +2,9 @@ package com.example.karma;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -24,12 +26,14 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
     final static String TAG = "at.fhooe.mc.karma LevelCompleteDialog";
 
     private Activity mActivity;
+    private int mLevel;
     private long mTime;
     private Riddle mRiddle;
 
-    LevelCompleteDialog(Activity _activity) {
+    LevelCompleteDialog(Activity _activity, int _level) {
         super(_activity);
         mActivity = _activity;
+        mLevel = _level;
     }
 
     @Override
@@ -106,6 +110,15 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
         }
     }
 
+    private void sendPreferences(){
+        SharedPreferences sharedPref = mActivity.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        String string = "level_" + mLevel;
+        editor.putInt(string,mRiddle.getRating());
+        editor.apply();
+    }
+
+
     @Override
     public void onClick(View _v) {
 
@@ -114,12 +127,14 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
                 Log.i(TAG, " :: onClick :: clicked back button");
                 dismiss();
                 Intent intent = new Intent(mActivity, LevelOverviewActivity.class);
+                sendPreferences();
                 mActivity.startActivity(intent);
                 mActivity.finish();
             }break;
             case R.id.dialog_level_complete_next: {
                 Log.i(TAG, " :: onClick :: clicked next button");
                 mRiddle.nextActivity();
+                sendPreferences();
                 dismiss();
             }break;
             default:{

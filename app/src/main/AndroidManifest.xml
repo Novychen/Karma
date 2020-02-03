@@ -49,6 +49,7 @@
             android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name=".LevelOneActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name=".MainActivity"

@@ -200,7 +200,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     private void done(){
         if(mFirst.getBackground() == mD && mSecond.getBackground() == mD && mThird.getBackground() == mD && mFourth.getBackground() == mD){
             mTimeEnd = System.currentTimeMillis();
-            LevelCompleteDialog dialog = new LevelCompleteDialog(this);
+            LevelCompleteDialog dialog = new LevelCompleteDialog(this,7);
             dialog.show();
             mTimer.cancel();
         }
@@ -279,7 +279,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("color", mColor[7]);
         editor.apply();
-        Intent i = new Intent(this, ComingSoon.class);
+        Intent i = new Intent(this, LevelEightActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();

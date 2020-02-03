@@ -82,7 +82,7 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
             Log.i(TAG, y + " > " + (height/2 - tap) +  "  -  " + y  + " < " + height/2 + tap);
             if (mTouch > mCracks.length) {
                 mTimeEnd = System.currentTimeMillis();
-                LevelCompleteDialog dialog = new LevelCompleteDialog(this);
+                LevelCompleteDialog dialog = new LevelCompleteDialog(this,2);
                 dialog.show();
             } else if(x > (width/2 - tap) && x < (width/2 + tap) && y > (height/2 - tap) && y < (height/2 + tap) ) {
                 if (mTouch == mCracks.length) {
