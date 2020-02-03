@@ -14,18 +14,17 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
-
+import androidx.constraintlayout.widget.ConstraintLayout;
+/**class of the level Candlelight*/
 public class LevelEightActivity extends Activity implements Riddle{
 
 
     final int MAX_DISTANCE_OF_Y = 250;
     final static String TAG = "at.fhooe.mc.karma LevelEightActivity";
-
     private long mTimeStart = 0;
     private long mTimeEnd = 0;
-    private int mRating = 0;
+    private int mRating;
 
     private View mCircleBackground;
     private Activity mActivity = this;
@@ -143,7 +142,6 @@ public class LevelEightActivity extends Activity implements Riddle{
                 }
                 Log.i(TAG,"SWIPED UP");
             }
-
             return true;
         }
     }

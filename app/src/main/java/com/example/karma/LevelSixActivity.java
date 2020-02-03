@@ -12,9 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 
-/**
- * Nothing
- */
+/**class of the level EvilButton*/
 public class LevelSixActivity extends Activity implements View.OnClickListener, Riddle{
 
     final static String TAG = "at.fhooe.mc.karma LevelSixActivity";
@@ -103,6 +101,7 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
         SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("color", mColor[6]);
+        editor.putInt("level",7);
         editor.apply();
         Intent i = new Intent(this, LevelSevenActivity.class);
         startActivity(i);

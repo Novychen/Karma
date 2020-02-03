@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
+/**class of the level DirtyWindow*/
 public class LevelFourActivity extends AppCompatActivity implements Riddle{
     final static String TAG = "at.fhooe.mc.karma LevelFourActivity";
     private View mCircleBackground;
@@ -59,6 +59,7 @@ public class LevelFourActivity extends AppCompatActivity implements Riddle{
         SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("color", mColor[4]);
+        editor.putInt("level",5);
         editor.apply();
         Intent i = new Intent(this, LevelFiveActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

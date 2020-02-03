@@ -14,6 +14,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     final static String TAG = "at.fhooe.mc.karma";
     private int mCount = 0;
+    String[] mColor = {"#D51116","#C51262","#6C4595","#4C4394","#2B4792","#3B5FA9","#328ACA","#08B7D3","#30B39F","#48AE54","#76B82A","#ACC90F","#FFD600","#F8A912","#ED6D1D","#DD2E14"};
+
 
 
     @Override
@@ -53,10 +55,44 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             case R.id.activity_main_play: {
 
-                Intent i = new Intent(this, LevelOneActivity.class);
 
                 SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
+                int level = sharedPref.getInt("level", 0);
+                Log.i(TAG,"LEVEL : " + level);
+                Intent i = new Intent(this, LevelOneActivity.class);
+                if(level != 1) {
+                    switch (level) {
+                        case 1:
+                            i = new Intent(this, LevelOneActivity.class);
+                            break;
+                        case 2:
+                            i = new Intent(this, LevelTwoActivity.class);
+                            break;
+                        case 3:
+                            i = new Intent(this, LevelThreeActivity.class);
+                            break;
+                        case 4:
+                            i = new Intent(this, LevelFourActivity.class);
+                            break;
+                        case 5:
+                            i = new Intent(this, LevelFiveActivity.class);
+                            break;
+                        case 6:
+                            i = new Intent(this, LevelSixActivity.class);
+                            break;
+                        case 7:
+                            i = new Intent(this, LevelSevenActivity.class);
+                            break;
+                        case 8:
+                            i = new Intent(this, LevelEightActivity.class);
+                            break;
+                        default:
+                            i = new Intent(this, LevelOneActivity.class);
+                    }
+                }
+
                 SharedPreferences.Editor editor = sharedPref.edit();
+
                 int[] location = new int[2];
                 _v.getLocationInWindow(location);
                 int x = location[0] + _v.getWidth() / 2;
@@ -65,7 +101,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 editor.putInt("x-Co",point.x);
                 editor.putInt("y-Co",point.y);
-                editor.putString("color","#D51116");
+                if(level > 0){
+                    editor.putString("color",mColor[level - 1]);
+                }else {editor.putString("color",mColor[0]);}
+
 
                 editor.apply();
 

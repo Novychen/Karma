@@ -18,7 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
+/**class of the level Lock*/
 public class LevelSevenActivity extends Activity implements View.OnTouchListener, View.OnClickListener, Riddle{
 
     final static String TAG = "at.fhooe.mc.karma LevelSevenActivity";
@@ -278,6 +278,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("color", mColor[7]);
+        editor.putInt("level",8);
         editor.apply();
         Intent i = new Intent(this, LevelEightActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
