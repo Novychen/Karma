@@ -278,6 +278,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("color", mColor[7]);
+        editor.putInt("level",8);
         editor.apply();
         Intent i = new Intent(this, ComingSoon.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

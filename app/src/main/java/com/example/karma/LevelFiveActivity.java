@@ -159,6 +159,7 @@ public class LevelFiveActivity extends Activity implements Riddle {
         SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("color", mColor[5]);
+        editor.putInt("level",6);
         editor.apply();
 
         Intent i = new Intent(this, LevelSixActivity.class);

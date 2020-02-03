@@ -140,6 +140,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("color", mColor[3]);
+        editor.putInt("level",4);
         editor.apply();
         Intent i = new Intent(this, LevelFourActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

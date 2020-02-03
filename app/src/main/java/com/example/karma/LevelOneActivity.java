@@ -214,6 +214,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
         SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("color", mColor[1]);
+        editor.putInt("level",2);
         editor.apply();
         Intent i = new Intent(this, LevelTwoActivity.class);
         startActivity(i);

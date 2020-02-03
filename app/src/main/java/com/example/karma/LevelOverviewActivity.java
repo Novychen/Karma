@@ -142,6 +142,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
         editor.putInt("x-Co", point.x);
         editor.putInt("y-Co", point.y);
+        editor.putInt("level", level);
 
         Button b = findViewById(_v.getId());
         b.getBackground().setTint(Color.parseColor(mColor[level]));
@@ -151,12 +152,9 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
 
     private void setVisible(ImageView _star1, ImageView _star2, ImageView _star3, int _position){
-
             _star1.setVisibility(View.VISIBLE);
             _star2.setVisibility(View.VISIBLE);
             _star3.setVisibility(View.VISIBLE);
-
-
     }
 
     @Override

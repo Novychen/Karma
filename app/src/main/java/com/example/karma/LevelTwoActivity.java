@@ -107,6 +107,7 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
         SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("color", mColor[2]);
+        editor.putInt("level",3);
         editor.apply();
         Intent i = new Intent(this, LevelThreeActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
