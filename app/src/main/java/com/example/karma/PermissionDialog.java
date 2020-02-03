@@ -6,23 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-public class PermissonDialog extends Dialog implements View.OnClickListener  {
+public class PermissionDialog extends Dialog implements View.OnClickListener  {
 
     final static String TAG = "at.fhooe.mc.karma LevelCompleteDialog";
 
-    private TextView mTitle;
-    private TextView mMessage;
-    private TextView mHint;
-    private Button mCancel;
     private Activity mActivity;
-    public String mPermission;
-    public int mRequestCode;
+    String mPermission;
+    int mRequestCode;
 
 
-    public PermissonDialog(Activity _activity) {
+    PermissionDialog(Activity _activity) {
         super(_activity);
         mActivity = _activity;
     }
@@ -33,16 +28,16 @@ public class PermissonDialog extends Dialog implements View.OnClickListener  {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_permisson);
 
-        mTitle = findViewById(R.id.dialog_permission_title);
-        mMessage = findViewById(R.id.dialog_permission_message);
-        mHint = findViewById(R.id.dialog_permission_hint);
-        mCancel = findViewById(R.id.dialog_permission_cancel);
+        TextView title = findViewById(R.id.dialog_permission_title);
+        TextView message = findViewById(R.id.dialog_permission_message);
+        TextView hint = findViewById(R.id.dialog_permission_hint);
+        Button cancel = findViewById(R.id.dialog_permission_cancel);
 
-        mTitle.setText(R.string.dialog_permission_title);
-        mMessage.setText(R.string.dialog_permission_message);
-        mHint.setText(R.string.dialog_permission_hint);
+        title.setText(R.string.dialog_permission_title);
+        message.setText(R.string.dialog_permission_message);
+        hint.setText(R.string.dialog_permission_hint);
 
-        mCancel.setOnClickListener(this);
+        cancel.setOnClickListener(this);
     }
 
     @Override

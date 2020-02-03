@@ -2,35 +2,22 @@ package com.example.karma;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.Manifest;
-import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.Point;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.Timer;
-import java.util.TimerTask;
-
-import static android.hardware.Sensor.TYPE_LIGHT;
 
 public class LevelOneActivity extends AppCompatActivity implements SensorEventListener, Riddle{
     private AnimatorSet mAnimatorSet_01;
@@ -59,7 +46,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
         mCircleBackground.post(new Runnable() {
             @Override
             public void run() {
-                Animation.circularReveal(mActivity,mCircleBackground);            }
+                Animation.circularReveal(mActivity,mCircleBackground); }
         });
         mCount = 0;
         mSensorManager= (SensorManager)getSystemService(SENSOR_SERVICE);
@@ -70,10 +57,6 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
         animate(hello);
 
         mTimeStart = System.currentTimeMillis();
-
-
-
-
 
         hideStatusBar();
     }

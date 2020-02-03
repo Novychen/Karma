@@ -1,37 +1,30 @@
 package com.example.karma;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
-import android.nfc.cardemulation.HostNfcFService;
-import android.util.DisplayMetrics;
 
-import java.util.logging.Handler;
+class PermissionHandler {
 
-public class PermissionHandler {
+    private PermissionHandler mInstance;
+    private Activity mActivity;
 
-    private static PermissionHandler mInstance;
-    private static Activity mActivity;
+    private  PermissionHandler(){
 
-    private PermissionHandler() {
     }
 
-    static PermissionHandler getInstance(Activity _activity) {
+    PermissionHandler(Activity _activity) {
         if (mInstance == null) {
             mInstance = new PermissionHandler();
             mActivity = _activity;
-            return mInstance;
-        } else {
-            return mInstance;
         }
     }
 
 
-    protected void checkPermission(final String _permission, final int _requestCode) {
-        if (mActivity.checkSelfPermission(_permission) == PackageManager.PERMISSION_DENIED) {
-                PermissonDialog dialog = new PermissonDialog(mActivity);
-                dialog.mPermission = _permission;
-                dialog.mRequestCode = _requestCode;
+    void checkPermission() {
+        if (mActivity.checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_DENIED) {
+                PermissionDialog dialog = new PermissionDialog(mActivity);
+                dialog.mPermission = android.Manifest.permission.RECORD_AUDIO;
+                dialog.mRequestCode = 666;
                 dialog.show();
         }
     }

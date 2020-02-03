@@ -4,7 +4,6 @@ import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -167,6 +166,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
     @Override
     public void onClick(View _v) {
+        Handler handler = new Handler();
 
         switch (_v.getId()) {
 
@@ -177,17 +177,16 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_2 = findViewById(R.id.level_overview_star_2);
                 ImageView star_3 = findViewById(R.id.level_overview_star_3);
 
-
                 setVisible(star_1,star_2,star_3,0);
-
                 animate(star_1,star_2,star_3);
+
                 sendPreferences(_v,0);
                 i.putExtra("value", 0);
                 setResult(RESULT_OK,i);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 
                 if(checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_DENIED){
-                    PermissonDialog d = new PermissonDialog(this);
+                    PermissionDialog d = new PermissionDialog(this);
                     d.mPermission = Manifest.permission.RECORD_AUDIO;
                     d.mRequestCode = 666;
                     d.show();
@@ -206,9 +205,12 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_5 = findViewById(R.id.level_overview_star_5);
                 ImageView star_6 = findViewById(R.id.level_overview_star_6);
 
+                animate(star_4,star_5,star_6);
                 setVisible(star_4,star_5,star_6,1);
+
                 sendPreferences(_v,1);
                 i.putExtra("value", 1);
+
                 startActivity(i);
                 overridePendingTransition(0, 0);
             }
@@ -220,9 +222,12 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_8 = findViewById(R.id.level_overview_star_8);
                 ImageView star_9 = findViewById(R.id.level_overview_star_9);
 
+                animate(star_7,star_8,star_9);
                 setVisible(star_7,star_8,star_9,2);
+
                 sendPreferences(_v,2);
                 i.putExtra("value", 2);
+
                 startActivity(i);
                 overridePendingTransition(0, 0);
             }
@@ -236,6 +241,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_10,star_11,star_12,3);
                 sendPreferences(_v,3);
+
                 i.putExtra("value", 3);
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -250,6 +256,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 setVisible(star_13,star_14,star_15,4);
                 sendPreferences(_v,4);
+
                 i.putExtra("value", 4);
                 startActivity(i);
                 overridePendingTransition(0, 0);
@@ -417,12 +424,14 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 Log.i(TAG, " :: onClick :: clicked back");
                 Intent i = new Intent(this, MainActivity.class);
                 startActivity(i);
-                finish();
             }break;
             default: {
                 Log.i(TAG, " :: onClick :: unexpected ID");
             }
-
         }
+        getWindow().setWindowAnimations(0);
+        handler.postDelayed(new Runnable() {
+            public void run() { finish(); }
+        }, 1000);
     }
 }

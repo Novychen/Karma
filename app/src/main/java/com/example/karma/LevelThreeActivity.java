@@ -11,10 +11,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
@@ -29,7 +26,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
     private ImageView mLidTop;
     private ImageView mLidBottom;
 
-    private SensorEventListener mListener;
+    private SensorEventListener mListener = this;
     private SensorManager mSensorManager;
     private Sensor mLight;
     private boolean mDialog;
@@ -47,8 +44,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
 
         mCircleBackground.post(new Runnable() {
             @Override
-            public void run() {
-                Animation.circularReveal(mActivity,mCircleBackground);            }
+            public void run() { Animation.circularReveal(mActivity,mCircleBackground); }
         });
 
         mSensorManager= (SensorManager)getSystemService(SENSOR_SERVICE);
@@ -95,11 +91,11 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         if(_event.sensor.getType() == TYPE_LIGHT){
             if(_event.values[0] < 5){
 
-                CountDownTimer countDownTimer = new CountDownTimer(3000, 500) {
+                CountDownTimer countDownTimer = new CountDownTimer(2500, 500) {
                     @Override
                     public void onTick(long millisUntilFinished) {
 
-                        if(millisUntilFinished <= 2500){
+                        if(millisUntilFinished <= 2000){
                             if(!mAnimation){
                                 float move = mLidBottom.getHeight()/2;
 
@@ -108,7 +104,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
 
                                 AnimatorSet animatorSet = new AnimatorSet();
                                 animatorSet.playTogether(oA_01, oA_02);
-                                animatorSet.setDuration(2450);
+                                animatorSet.setDuration(2400);
                                 animatorSet.start();
                                 mAnimation = true;
                             }
@@ -119,20 +115,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
                     @Override
                     public void onFinish() {
                         mTimeEnd = System.currentTimeMillis();
-                        if(!mDialog) {
-                            CountDownTimer countDownTimer = new CountDownTimer(1000,1000){
-                                @Override
-                                public void onTick(long millisUntilFinished) {
-
-                                }
-
-                                @Override
-                                public void onFinish() {
-                                    dialog();
-                                }
-                            };
-                           countDownTimer.start();
-                        }
+                        if(!mDialog) { dialog(); }
                     }
                 };
                 countDownTimer.start();

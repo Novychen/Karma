@@ -1,6 +1,5 @@
 package com.example.karma;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -33,8 +32,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         button = findViewById(R.id.activity_main_info);
         button.setOnClickListener(this);
 
-        PermissionHandler p = PermissionHandler.getInstance(this);
-        p.checkPermission(Manifest.permission.RECORD_AUDIO, 666);
+        PermissionHandler p = new PermissionHandler(this);
+        p.checkPermission();
 
     }
 

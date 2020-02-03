@@ -23,18 +23,11 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
 
     final static String TAG = "at.fhooe.mc.karma LevelCompleteDialog";
 
-    private TextView mTitle;
-    private TextView mMessage;
-    private Button mBackButton;
-    private Button mNextButton;
-    private ImageView mStar1;
-    private ImageView  mStar2;
-    private ImageView  mStar3;
     private Activity mActivity;
     private long mTime;
     private Riddle mRiddle;
 
-    public LevelCompleteDialog(Activity _activity) {
+    LevelCompleteDialog(Activity _activity) {
         super(_activity);
         mActivity = _activity;
     }
@@ -47,22 +40,22 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
         mRiddle = (Riddle) mActivity;
         mTime = mRiddle.getTime();
 
-        mTitle = findViewById(R.id.dialog_level_complete_title);
-        mMessage = findViewById(R.id.dialog_level_complete_message);
-        mBackButton = findViewById(R.id.dialog_level_complete_back);
-        mNextButton = findViewById(R.id.dialog_level_complete_next);
+        TextView title = findViewById(R.id.dialog_level_complete_title);
+        TextView message = findViewById(R.id.dialog_level_complete_message);
+        Button backButton = findViewById(R.id.dialog_level_complete_back);
+        Button nextButton = findViewById(R.id.dialog_level_complete_next);
 
 
-        mStar1 = findViewById(R.id.dialog_level_complete_star_1);
-        mStar2 = findViewById(R.id.dialog_level_complete_star_2);
-        mStar3 = findViewById(R.id.dialog_level_complete_star_3);
+        ImageView star1 = findViewById(R.id.dialog_level_complete_star_1);
+        ImageView star2 = findViewById(R.id.dialog_level_complete_star_2);
+        ImageView star3 = findViewById(R.id.dialog_level_complete_star_3);
 
-        mTitle.setText(R.string.dialog_level_complete_title);
-        mMessage.setText(R.string.dialog_level_complete_message);
-        animate(mStar1,mStar2,mStar3);
+        title.setText(R.string.dialog_level_complete_title);
+        message.setText(R.string.dialog_level_complete_message);
+        animate(star1, star2, star3);
 
-        mBackButton.setOnClickListener(this);
-        mNextButton.setOnClickListener(this);
+        backButton.setOnClickListener(this);
+        nextButton.setOnClickListener(this);
 
 
     }

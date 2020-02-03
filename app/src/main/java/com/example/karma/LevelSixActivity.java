@@ -53,7 +53,7 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
 
             @Override
             public void onFinish() {
-                Done();
+                done();
             }
         };
         mCountdown.start();
@@ -74,7 +74,7 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
-    private void Done(){
+    private void done(){
         mTimeEnd = System.currentTimeMillis();
         LevelCompleteDialog d = new LevelCompleteDialog(this);
         d.show();

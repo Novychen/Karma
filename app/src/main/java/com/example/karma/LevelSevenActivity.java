@@ -1,6 +1,5 @@
 package com.example.karma;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
@@ -10,7 +9,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.VibrationEffect;
@@ -43,7 +41,6 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
 
     private ImageView mSafeLockNumbers;
     private ImageView mSafeLock;
-    private Button mSafeLockButton;
 
     private Button mFirst;
     private Button mSecond;
@@ -64,6 +61,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     private int mCode3 = 55;
     private int mCode4 = 0;
 
+    private Drawable mD;
 
     private CountDownTimer mTimer;
 
@@ -71,7 +69,8 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
         setContentView(R.layout.activity_level_seven);
-        Log.i(TAG,"LEVEL SEVEN");
+
+        // Circular Background reveal
         mCircleBackground = findViewById(R.id.circleActivity_7);
         mCircleBackground.setVisibility(View.VISIBLE);
 
@@ -83,8 +82,9 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
 
         mSafeLockNumbers = findViewById(R.id.activity_level_7_lock_num);
         mSafeLock = findViewById(R.id.activity_level_7_lock);
-        mSafeLockButton = findViewById(R.id.activity_level_7_button);
-        mSafeLockButton.setOnClickListener(this);
+
+        Button safeLockButton = findViewById(R.id.activity_level_7_button);
+        safeLockButton.setOnClickListener(this);
 
         mFirst = findViewById(R.id.activity_level_7_first);
         mFirst.setOnClickListener(this);
@@ -95,10 +95,11 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         mFourth = findViewById(R.id.activity_level_7_fourth);
         mFourth.setOnClickListener(this);
 
-
         ConstraintLayout constraintLayout = findViewById(R.id.circleActivity_7);
         constraintLayout.setOnTouchListener(this);
         hideStatusBar();
+
+        mD =  getDrawable(R.drawable.ic_safelock_box_checked);
     }
 
 
@@ -137,7 +138,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         // "A" to "C" - b
         double b = Math.sqrt( Math.pow(aY - cY,2) +  Math.pow(cX - aX,2));
 
-        // "A" to "B" - mConstraintLayout
+        // "A" to "B" - c
         double c = Math.sqrt( Math.pow(aY - bY,2) +  Math.pow(bX - aX,2));
 
         // "B" to "C" - a
@@ -190,8 +191,18 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
                 mTimer.cancel();
                 mTimer.start();
             }
+            done();
         }
         return true;
+    }
+
+
+    private void done(){
+        if(mFirst.getBackground() == mD && mSecond.getBackground() == mD && mThird.getBackground() == mD && mFourth.getBackground() == mD){
+            LevelCompleteDialog dialog = new LevelCompleteDialog(this);
+            dialog.show();
+            mTimer.cancel();
+        }
     }
 
     /**
@@ -200,9 +211,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     private void setTimer() {
             mTimer = new CountDownTimer(1000, 50) {
                 @Override
-                public void onTick(long millisUntilFinished) {
-
-                }
+                public void onTick(long millisUntilFinished) { }
 
                 @Override
                 public void onFinish() {
@@ -211,7 +220,6 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
 
                 }
             };
-            Log.i(TAG, "Timer: started");
     }
 
 
@@ -231,7 +239,6 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
 
         } else if (d instanceof AnimatedVectorDrawable){
             AnimatedVectorDrawable avd = (AnimatedVectorDrawable) d;
-
             _safelock.setImageDrawable(avd);
             avd.start();
         }
@@ -239,20 +246,29 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
 
 
     /**
-     * Checks if the number (chosen by the user) is near to one of the numbers of the code. If yes the phone vibrates
+     * Checks if the number (chosen by the user) is near to one of the numbers of the code. If yes the phone vibrates. The phone will only vibrate by the correct numbers that have yet to be guessed.
+     * There is tolerance of +-2
      */
     private void isNear(){
 
-        if((mNumber >= mCode1 - 2 && mNumber <= mCode1 + 2) || (mNumber >= mCode2 - 2 && mNumber <= mCode2 + 2) ||(mNumber >= mCode3 - 2 && mNumber <= mCode3 + 2) || (mNumber >= mCode4 - 2 && mNumber <= mCode4 + 2)) {
+        if(mNumber >= mCode1 - 2 && mNumber <= mCode1 + 2 && mFirst.getBackground() != mD) {
 
             Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
-            } else {
-                //deprecated in API 26
-                v.vibrate(50);
-            }
+        } else if(mNumber >= mCode2 - 2 && mNumber <= mCode2 + 2 && mSecond.getBackground() != mD){
+
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else if(mNumber >= mCode3 - 2 && mNumber <= mCode3 + 2 && mThird.getBackground() != mD){
+
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
+
+        } else if(mNumber >= mCode4 - 2 && mNumber <= mCode4 + 2 && mFourth.getBackground() != mD){
+
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
         }
     }
 
@@ -269,25 +285,19 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     }
 
     @Override
-    public long getTime() {
-        return mTimeEnd - mTimeStart;
-    }
+    public long getTime() { return mTimeEnd - mTimeStart; }
 
     @Override
-    public void setRating(int _rate) {
-        mRating[6] = _rate;
-    }
+    public void setRating(int _rate) { mRating[6] = _rate; }
+
     @Override
-    public int getRating() {
-        return mRating[6];
-    }
+    public int getRating() { return mRating[6]; }
 
     private void setUp(Button _field, int _code){
         _field.setVisibility(View.VISIBLE);
         _field.setText(String.valueOf(mNumber));
-        if(mNumber == _code){
-            Drawable d = getDrawable(R.drawable.ic_safelock_box_checked);
-            _field.setBackground(d);
+        if(mNumber <= _code + 2 && mNumber >= _code - 2){
+            _field.setBackground(mD);
         }
         animate(mSafeLock, ANIM_FROM_CHECK);
         mCurrentAnimation = ANIM_FROM_CHECK;
@@ -299,16 +309,16 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         switch (_v.getId()){
             case R.id.activity_level_7_button: {
                 if(mCurrentAnimation == ANIM_TO_CHECK) {                             // If the knob is a check sign, check if the numbers are already displayed
-                    if (mFirst.getVisibility() == View.INVISIBLE || !mOne) {                  // If not -> make them visible and set the current number
+                    if ((mFirst.getVisibility() == View.INVISIBLE || !mOne) && mFirst.getBackground() != mD) {                  // If not -> make them visible and set the current number
                         setUp(mFirst,mCode1);
                         mOne = true;
-                    } else if (mSecond.getVisibility() == View.INVISIBLE || !mTwo) {
+                    } else if ((mSecond.getVisibility() == View.INVISIBLE || !mTwo) && mSecond.getBackground() != mD) {
                         setUp(mSecond,mCode2);
                         mTwo = true;
-                    } else if (mThird.getVisibility() == View.INVISIBLE || !mThree) {
+                    } else if ((mThird.getVisibility() == View.INVISIBLE || !mThree) && mThird.getBackground() != mD) {
                        setUp(mThird,mCode3);
                        mThree = true;
-                    } else if (mFourth.getVisibility() == View.INVISIBLE || !mFour) {
+                    } else if ((mFourth.getVisibility() == View.INVISIBLE || !mFour) && mFourth.getBackground() != mD) {
                         setUp(mFourth,mCode4);
                         mFour = true;
                     }
@@ -320,34 +330,41 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
                 }
             }break;
             case R.id.activity_level_7_first: {
-                animate(mSafeLock,ANIM_TO_DELETE);              // clicked on first number -> show delete sign
-                mCurrentAnimation = ANIM_TO_DELETE;
-                mLastClicked = mFirst;                           // update what the latest pressed field was
-                mOne = false;
+                if(mFirst.getBackground() != mD){
+                    animate(mSafeLock,ANIM_TO_DELETE);              // clicked on first number -> show delete sign
+                    mCurrentAnimation = ANIM_TO_DELETE;
+                    mLastClicked = mFirst;                           // update what the latest pressed field was
+                    mOne = false;
+                }
             }break;
             case R.id.activity_level_7_second: {
-                animate(mSafeLock,ANIM_TO_DELETE);              // clicked on second number -> show delete sign
-                mCurrentAnimation = ANIM_TO_DELETE;
-                mLastClicked = mSecond;                          // update what the latest pressed field was
-                mTwo = false;
+                if(mSecond.getBackground() != mD) {
+                    animate(mSafeLock, ANIM_TO_DELETE);              // clicked on second number -> show delete sign
+                    mCurrentAnimation = ANIM_TO_DELETE;
+                    mLastClicked = mSecond;                          // update what the latest pressed field was
+                    mTwo = false;
+                }
             }break;
             case R.id.activity_level_7_third: {
-                animate(mSafeLock,ANIM_TO_DELETE);              // clicked on third number -> show delete sign
-                mCurrentAnimation = ANIM_TO_DELETE;
-                mLastClicked = mThird;                          // update what the latest pressed field was
-                mThree = false;
+                if(mThird.getBackground() != mD) {
+                    animate(mSafeLock, ANIM_TO_DELETE);              // clicked on third number -> show delete sign
+                    mCurrentAnimation = ANIM_TO_DELETE;
+                    mLastClicked = mThird;                          // update what the latest pressed field was
+                    mThree = false;
+                }
             }break;
             case R.id.activity_level_7_fourth: {
-                animate(mSafeLock,ANIM_TO_DELETE);              // clicked on fourth number -> show delete sign
-                mCurrentAnimation = ANIM_TO_DELETE;
-                mLastClicked = mFourth;                         // update what the latest pressed field was
-                mFour = false;
+                if(mFourth.getBackground() != mD) {
+                    animate(mSafeLock, ANIM_TO_DELETE);              // clicked on fourth number -> show delete sign
+                    mCurrentAnimation = ANIM_TO_DELETE;
+                    mLastClicked = mFourth;                         // update what the latest pressed field was
+                    mFour = false;
+                }
             }break;
             default:{
                 Log.i(TAG, ":: onClick :: unknown ID");
             }
         }
-
-
+        done();
     }
 }
