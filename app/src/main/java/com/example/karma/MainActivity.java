@@ -72,6 +72,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     break;
                     case 7:i = new Intent(this, LevelSevenActivity.class);
                     break;
+                    case 8:i = new Intent(this, LevelEightActivity.class);
+                        break;
                     default: i = new Intent(this, LevelOneActivity.class);
                 }
 

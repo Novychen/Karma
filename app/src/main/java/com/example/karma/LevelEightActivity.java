@@ -9,12 +9,14 @@ import android.view.View;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class LevelEightActivity extends Activity{
+public class LevelEightActivity extends Activity implements Riddle{
 
 
     final int MAX_DISTANCE_OF_Y = 250;
     final static String TAG = "at.fhooe.mc.karma LevelEightActivity";
-
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+    private int mRating;
 
     private View mCircleBackground;
     private ConstraintLayout mConstraintLayout;
@@ -35,12 +37,35 @@ public class LevelEightActivity extends Activity{
             public void run() {
                 Animation.circularReveal(mActivity,mCircleBackground);            }
         });
+
+        mTimeStart = System.currentTimeMillis();
+
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         this.mGestureDetector.onTouchEvent(event);
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    public void nextActivity() {
+
+    }
+
+    @Override
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
+    }
+
+    @Override
+    public void setRating(int _rate) {
+        mRating = _rate;
+    }
+
+    @Override
+    public int getRating() {
+        return mRating;
     }
 
     private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
@@ -60,7 +85,7 @@ public class LevelEightActivity extends Activity{
             if(Math.abs(x1 - x2) < MAX_DISTANCE_OF_Y && y1 > y2){
                 Log.i(TAG,"SWIPED UP");
             }
-
+            mTimeEnd = System.currentTimeMillis();
             return true;
         }
     }
