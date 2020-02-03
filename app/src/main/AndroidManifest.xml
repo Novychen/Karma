@@ -11,26 +11,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".GameInfo"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ComingSoon"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".LevelEightActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name=".LevelSevenActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name=".LevelSixActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name=".LevelFiveActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name=".LevelFourActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name=".LevelThreeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name=".LevelTwoActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name=".LevelOneActivity"
@@ -47,11 +62,6 @@
         <activity
             android:name=".LevelOverviewActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".LevelActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Transparent" />
     </application>
 
 </manifest>

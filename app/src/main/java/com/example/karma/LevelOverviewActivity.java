@@ -21,7 +21,7 @@ import android.widget.ImageView;
 
 public class LevelOverviewActivity extends Activity implements View.OnClickListener {
 
-    final static String TAG = "at.fhooe.mc.karma";
+    final static String TAG = "at.fhooe.mc.karma LevelOverviewActivity";
     private String[] mColor = {"#D51116","#C51262","#6C4595","#4C4394","#2B4792","#3B5FA9","#328ACA","#08B7D3","#30B39F","#48AE54","#76B82A","#ACC90F","#FFD600","#F8A912","#ED6D1D","#DD2E14"};
 
     @Override
@@ -126,7 +126,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
     }
 
     /**
-     * Send SharedPreferences so that the next activity (LevelActivity) knows which color the background should be in as well as the position for the animation
+     * Send SharedPreferences so that the next activity knows which color the background should be in as well as the position for the animation
      * @param _v View to fetch the buttons etc
      * @param level which level the player wants to play
      */
@@ -191,9 +191,8 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
             }
             break;
             case R.id.level_overview_level_2: {
-                Intent i = new Intent(this, LevelTwoActivity.class);
                 Log.i(TAG, " :: onClick :: clicked 2. level");
-
+                Intent i = new Intent(this, LevelTwoActivity.class);
                 ImageView star_4 = findViewById(R.id.level_overview_star_4);
                 ImageView star_5 = findViewById(R.id.level_overview_star_5);
                 ImageView star_6 = findViewById(R.id.level_overview_star_6);
@@ -287,7 +286,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
             break;
             case R.id.level_overview_level_8: {
                 Log.i(TAG, " :: onClick :: clicked 8. level");
-                Intent i = new Intent(this, ComingSoon.class);
+                Intent i = new Intent(this, LevelEightActivity.class);
                 ImageView star_22 = findViewById(R.id.level_overview_star_22);
                 ImageView star_23 = findViewById(R.id.level_overview_star_23);
                 ImageView star_24 = findViewById(R.id.level_overview_star_24);
