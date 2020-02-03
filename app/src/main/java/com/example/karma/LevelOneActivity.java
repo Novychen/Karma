@@ -27,6 +27,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import static android.hardware.Sensor.TYPE_LIGHT;
 
 public class LevelOneActivity extends AppCompatActivity implements SensorEventListener, Riddle{
@@ -39,6 +42,10 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
     private Sensor mAccelerometer;
     private View mCircleBackground;
     private Activity mActivity = this;
+
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+
 
     final static String TAG = "at.fhooe.mc.karma HelloActivity";
     @Override
@@ -61,6 +68,12 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
 
         TextView hello = findViewById(R.id.activity_level_1_hello);
         animate(hello);
+
+        mTimeStart = System.currentTimeMillis();
+
+
+
+
 
         hideStatusBar();
     }
@@ -172,6 +185,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
 
                     @Override
                     public void onFinish() {
+                        mTimeEnd = System.currentTimeMillis();
                         dialog();
                     }
                 };
@@ -181,6 +195,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
             }
         }
     }
+
     public void dialog(){
         LevelCompleteDialog d = new LevelCompleteDialog(this);
         d.show();
@@ -219,5 +234,20 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
         editor.apply();
         Intent i = new Intent(this, LevelTwoActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
+    }
+
+
+    @Override
+    public void setRating(int _rate) {
+        mRating[0] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[0];
     }
 }

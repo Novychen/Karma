@@ -15,12 +15,16 @@ public class LevelFourActivity extends AppCompatActivity implements Riddle{
     private View mCircleBackground;
     private Activity mActivity = this;
 
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
         Log.i(TAG,"LEVEL FOUR");
         Smartphone s = Smartphone.getInstance(this);
-
+        mTimeStart = System.currentTimeMillis();
         DrawLineWithFinger.width = (int) s.getWidthInPixels();
         DrawLineWithFinger.height = (int) s.getHeightInPixels();
         DrawLineWithFinger.mActivity = this;
@@ -35,6 +39,8 @@ public class LevelFourActivity extends AppCompatActivity implements Riddle{
             public void run() {
                 Animation.circularReveal(mActivity,mCircleBackground); }
         });
+        mTimeEnd = System.currentTimeMillis();
+
         hideStatusBar();
 
     }
@@ -58,5 +64,19 @@ public class LevelFourActivity extends AppCompatActivity implements Riddle{
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
+    }
+
+    @Override
+    public void setRating(int _rate) {
+        mRating[3] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[3];
     }
 }

@@ -26,6 +26,10 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
     private View mCircleBackground;
     private Activity mActivity = this;
 
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -58,6 +62,8 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
                 | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
+        mTimeStart = System.currentTimeMillis();
+
     }
 
     public boolean onTouch(View _v, MotionEvent _event) {
@@ -75,6 +81,7 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
             Log.i(TAG, x + " > " + (width/2 - tap) +  "  -  " + x  + " < " + width/2 + tap);
             Log.i(TAG, y + " > " + (height/2 - tap) +  "  -  " + y  + " < " + height/2 + tap);
             if (mTouch > mCracks.length) {
+                mTimeEnd = System.currentTimeMillis();
                 LevelCompleteDialog dialog = new LevelCompleteDialog(this);
                 dialog.show();
             } else if(x > (width/2 - tap) && x < (width/2 + tap) && y > (height/2 - tap) && y < (height/2 + tap) ) {
@@ -105,5 +112,19 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
+    }
+
+    @Override
+    public void setRating(int _rate) {
+        mRating[1] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[1];
     }
 }

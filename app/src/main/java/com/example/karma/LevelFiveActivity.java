@@ -11,6 +11,7 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -33,6 +34,9 @@ public class LevelFiveActivity extends Activity implements Riddle {
     Runnable mRunnable;
     Runnable mRunnableAmp;
     public static final int RECORD_AUDIO = 0;
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+
 
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
@@ -59,6 +63,8 @@ public class LevelFiveActivity extends Activity implements Riddle {
         setFlower(mFlower);
 
         hideStatusBar();
+
+        mTimeStart = System.currentTimeMillis();
     }
 
     private void setAudio(){
@@ -101,11 +107,27 @@ public class LevelFiveActivity extends Activity implements Riddle {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                LevelCompleteDialog d = new LevelCompleteDialog(mActivity);
-                d.show();
+                mTimeEnd = System.currentTimeMillis();
+                CountDownTimer countDownTimer = new CountDownTimer(1000,1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        dialog();
+                    }
+                };
+                countDownTimer.start();
             }
         },200);
 
+    }
+
+    public void dialog(){
+        LevelCompleteDialog d = new LevelCompleteDialog(this);
+        d.show();
     }
 
     @Override
@@ -143,6 +165,20 @@ public class LevelFiveActivity extends Activity implements Riddle {
         startActivity(i);
         finish();
     }
+
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
+    }
+
+    @Override
+    public void setRating(int _rate) {
+        mRating[4] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[4];
+    }
+
 
     private void animateFlower(ImageView _flower){
         Drawable d = getDrawable(R.drawable.anim_flower);

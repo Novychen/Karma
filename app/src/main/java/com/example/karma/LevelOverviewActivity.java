@@ -151,12 +151,20 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
     }
 
 
-    private void setVisible(ImageView _star1, ImageView _star2, ImageView _star3){
+    private void setVisible(ImageView _star1, ImageView _star2, ImageView _star3, int _position){
+        if(Riddle.mRating[_position] == 3){
+            _star1.setVisibility(View.VISIBLE);
+            _star2.setVisibility(View.VISIBLE);
+            _star3.setVisibility(View.VISIBLE);
+        } else if (Riddle.mRating[_position] == 2){
+            _star1.setVisibility(View.VISIBLE);
+            _star2.setVisibility(View.VISIBLE);
+        }else if(Riddle.mRating[_position] == 1){
+            _star2.setVisibility(View.VISIBLE);
+        }
 
-        _star1.setVisibility(View.VISIBLE);
-        _star2.setVisibility(View.VISIBLE);
-        _star3.setVisibility(View.VISIBLE);
     }
+
     @Override
     public void onClick(View _v) {
 
@@ -169,7 +177,8 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_2 = findViewById(R.id.level_overview_star_2);
                 ImageView star_3 = findViewById(R.id.level_overview_star_3);
 
-                setVisible(star_1,star_2,star_3);
+
+                setVisible(star_1,star_2,star_3,0);
 
                 animate(star_1,star_2,star_3);
                 sendPreferences(_v,0);
@@ -197,7 +206,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_5 = findViewById(R.id.level_overview_star_5);
                 ImageView star_6 = findViewById(R.id.level_overview_star_6);
 
-                setVisible(star_4,star_5,star_6);
+                setVisible(star_4,star_5,star_6,1);
                 sendPreferences(_v,1);
                 i.putExtra("value", 1);
                 startActivity(i);
@@ -211,7 +220,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_8 = findViewById(R.id.level_overview_star_8);
                 ImageView star_9 = findViewById(R.id.level_overview_star_9);
 
-                setVisible(star_7,star_8,star_9);
+                setVisible(star_7,star_8,star_9,2);
                 sendPreferences(_v,2);
                 i.putExtra("value", 2);
                 startActivity(i);
@@ -225,7 +234,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_11 = findViewById(R.id.level_overview_star_11);
                 ImageView star_12 = findViewById(R.id.level_overview_star_12);
 
-                setVisible(star_10,star_11,star_12);
+                setVisible(star_10,star_11,star_12,3);
                 sendPreferences(_v,3);
                 i.putExtra("value", 3);
                 startActivity(i);
@@ -239,7 +248,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_14 = findViewById(R.id.level_overview_star_14);
                 ImageView star_15 = findViewById(R.id.level_overview_star_15);
 
-                setVisible(star_13,star_14,star_15);
+                setVisible(star_13,star_14,star_15,4);
                 sendPreferences(_v,4);
                 i.putExtra("value", 4);
                 startActivity(i);
@@ -253,7 +262,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_17 = findViewById(R.id.level_overview_star_17);
                 ImageView star_18 = findViewById(R.id.level_overview_star_18);
 
-                setVisible(star_16,star_17,star_18);
+                setVisible(star_16,star_17,star_18,5);
                 sendPreferences(_v,5);
                 i.putExtra("value", 5);
 
@@ -268,7 +277,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_20 = findViewById(R.id.level_overview_star_20);
                 ImageView star_21 = findViewById(R.id.level_overview_star_21);
 
-                setVisible(star_19,star_20,star_21);
+                setVisible(star_19,star_20,star_21,6);
                 sendPreferences(_v,6);
                 i.putExtra("value", 6);
 
@@ -283,7 +292,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_23 = findViewById(R.id.level_overview_star_23);
                 ImageView star_24 = findViewById(R.id.level_overview_star_24);
 
-                setVisible(star_22,star_23,star_24);
+                setVisible(star_22,star_23,star_24,7);
                 sendPreferences(_v,7);
                 i.putExtra("value", 7);
 
@@ -298,7 +307,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_26 = findViewById(R.id.level_overview_star_26);
                 ImageView star_27 = findViewById(R.id.level_overview_star_27);
 
-                setVisible(star_25,star_26,star_27);
+                setVisible(star_25,star_26,star_27,8);
                 sendPreferences(_v,8);
 
                 startActivity(i);
@@ -312,7 +321,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_29 = findViewById(R.id.level_overview_star_29);
                 ImageView star_30 = findViewById(R.id.level_overview_star_30);
 
-                setVisible(star_28,star_29,star_30);
+                setVisible(star_28,star_29,star_30,9);
                 sendPreferences(_v,9);
 
                 startActivity(i);
@@ -326,7 +335,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_32 = findViewById(R.id.level_overview_star_32);
                 ImageView star_33 = findViewById(R.id.level_overview_star_33);
 
-                setVisible(star_31,star_32,star_33);
+                setVisible(star_31,star_32,star_33,10);
                 sendPreferences(_v,10);
 
                 startActivity(i);
@@ -340,7 +349,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_35 = findViewById(R.id.level_overview_star_35);
                 ImageView star_36 = findViewById(R.id.level_overview_star_36);
 
-                setVisible(star_34,star_35,star_36);
+                setVisible(star_34,star_35,star_36,11);
                 sendPreferences(_v,11);
 
                 startActivity(i);
@@ -354,7 +363,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_38 = findViewById(R.id.level_overview_star_38);
                 ImageView star_39 = findViewById(R.id.level_overview_star_39);
 
-                setVisible(star_37,star_38,star_39);
+                setVisible(star_37,star_38,star_39,12);
                 sendPreferences(_v,12);
 
                 startActivity(i);
@@ -368,7 +377,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_41 = findViewById(R.id.level_overview_star_41);
                 ImageView star_42 = findViewById(R.id.level_overview_star_42);
 
-                setVisible(star_40,star_41,star_42);
+                setVisible(star_40,star_41,star_42,13);
                 sendPreferences(_v,13);
 
                 startActivity(i);
@@ -382,7 +391,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_44 = findViewById(R.id.level_overview_star_44);
                 ImageView star_45 = findViewById(R.id.level_overview_star_45);
 
-                setVisible(star_43,star_44,star_45);
+                setVisible(star_43,star_44,star_45,15);
                 sendPreferences(_v,14);
 
                 startActivity(i);
@@ -396,7 +405,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 ImageView star_47 = findViewById(R.id.level_overview_star_47);
                 ImageView star_48 = findViewById(R.id.level_overview_star_48);
 
-                setVisible(star_46,star_47,star_48);
+                setVisible(star_46,star_47,star_48,16);
                 sendPreferences(_v,15);
 
                 startActivity(i);

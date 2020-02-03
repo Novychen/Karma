@@ -35,6 +35,9 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
     private boolean mDialog;
     private boolean mAnimation;
 
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -66,6 +69,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
                 | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
+        mTimeStart = System.currentTimeMillis();
     }
 
     @Override
@@ -114,8 +118,20 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
 
                     @Override
                     public void onFinish() {
+                        mTimeEnd = System.currentTimeMillis();
                         if(!mDialog) {
-                            dialog();
+                            CountDownTimer countDownTimer = new CountDownTimer(1000,1000){
+                                @Override
+                                public void onTick(long millisUntilFinished) {
+
+                                }
+
+                                @Override
+                                public void onFinish() {
+                                    dialog();
+                                }
+                            };
+                           countDownTimer.start();
                         }
                     }
                 };
@@ -125,7 +141,6 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         }
     }
     public void dialog(){
-
         mSensorManager.unregisterListener(mListener);
         LevelCompleteDialog d = new LevelCompleteDialog(mActivity);
         d.show();
@@ -147,5 +162,20 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
+    }
+
+
+    @Override
+    public void setRating(int _rate) {
+        mRating[2] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[2];
     }
 }

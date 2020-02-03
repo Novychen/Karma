@@ -1,5 +1,6 @@
 package com.example.karma;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
@@ -36,6 +37,9 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     private int mNumber;
     private View mCircleBackground;
     private Activity mActivity = this;
+
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
 
     private ImageView mSafeLockNumbers;
     private ImageView mSafeLock;
@@ -262,6 +266,20 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
+    }
+
+    @Override
+    public void setRating(int _rate) {
+        mRating[6] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[6];
     }
 
     private void setUp(Button _field, int _code){

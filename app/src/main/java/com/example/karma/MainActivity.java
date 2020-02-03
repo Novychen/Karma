@@ -65,7 +65,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 editor.putInt("x-Co",point.x);
                 editor.putInt("y-Co",point.y);
-                editor.putString("color","#FFFFFF");
+                editor.putString("color","#D51116");
 
                 editor.apply();
 

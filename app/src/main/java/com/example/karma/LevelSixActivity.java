@@ -25,6 +25,11 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
     private int mClicked = 0;
 
     private CountDownTimer mCountdown;
+
+    private long mTimeStart = 0;
+    private long mTimeEnd = 0;
+
+
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -52,16 +57,13 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
             }
         };
         mCountdown.start();
+        mTimeStart = System.currentTimeMillis();
         Log.i(TAG, "LevelSixActivity : Timer START");
 
         hideStatusBar();
 
      }
 
-    private void Done(){
-        LevelCompleteDialog d = new LevelCompleteDialog(this);
-        d.show();
-    }
 
     private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
@@ -70,6 +72,12 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
                 | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
+    }
+
+    private void Done(){
+        mTimeEnd = System.currentTimeMillis();
+        LevelCompleteDialog d = new LevelCompleteDialog(this);
+        d.show();
     }
 
     @Override
@@ -99,5 +107,19 @@ public class LevelSixActivity extends Activity implements View.OnClickListener, 
         Intent i = new Intent(this, LevelSevenActivity.class);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public long getTime() {
+        return mTimeEnd - mTimeStart;
+    }
+
+    @Override
+    public void setRating(int _rate) {
+        mRating[5] = _rate;
+    }
+    @Override
+    public int getRating() {
+        return mRating[5];
     }
 }
