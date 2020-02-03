@@ -18,7 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
+/**class of the level Lock*/
 public class LevelSevenActivity extends Activity implements View.OnTouchListener, View.OnClickListener, Riddle{
 
     final static String TAG = "at.fhooe.mc.karma LevelSevenActivity";

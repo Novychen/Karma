@@ -12,9 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 
-/**
- * Nothing
- */
+/**class of the level EvilButton*/
 public class LevelSixActivity extends Activity implements View.OnClickListener, Riddle{
 
     final static String TAG = "at.fhooe.mc.karma LevelSixActivity";

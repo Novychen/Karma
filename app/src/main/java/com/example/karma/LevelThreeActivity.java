@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
-
+/**class of the level GoodNight*/
 public class LevelThreeActivity extends Activity implements SensorEventListener,Riddle {
 
     final static String TAG = "at.fhooe.mc.karma LevelThreeActivity";

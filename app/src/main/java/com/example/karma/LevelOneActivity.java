@@ -18,7 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+/**class of the Level RotatingHello*/
 public class LevelOneActivity extends AppCompatActivity implements SensorEventListener, Riddle{
     private AnimatorSet mAnimatorSet_01;
     private AnimatorSet mAnimatorSet_02;
@@ -74,7 +74,8 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
     public void onResume() {
         super.onResume();
     }
-
+    /**animates the rotation of the Text hello
+     * @param _hello TextView of hello */
     private void animate (TextView _hello){
 
         Smartphone smartphone = Smartphone.getInstance(this);
@@ -131,6 +132,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
         mAnimatorSet_04.setDuration(500);
     }
 
+
     @Override
     public void onSensorChanged(SensorEvent _event) {
 
@@ -178,7 +180,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
             }
         }
     }
-
+    /**activates the class LevelCompleteDialog*/
     public void dialog(){
         LevelCompleteDialog d = new LevelCompleteDialog(this);
         d.show();

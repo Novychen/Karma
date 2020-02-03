@@ -8,7 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-
+/**class of the level Candlelight*/
 public class LevelEightActivity extends Activity implements Riddle{
 
 

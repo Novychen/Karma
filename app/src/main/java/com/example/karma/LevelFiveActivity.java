@@ -20,9 +20,7 @@ import android.widget.ImageView;
 
 import java.io.IOException;
 
-/**
- * pusteblume
- */
+/**class of the level Dandelion*/
 public class LevelFiveActivity extends Activity implements Riddle {
     final static String TAG = "at.fhooe.mc.karma LevelFourActivity";
     private View mCircleBackground;

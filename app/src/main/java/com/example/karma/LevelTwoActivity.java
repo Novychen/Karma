@@ -17,6 +17,7 @@ import org.w3c.dom.Text;
 
 import java.util.Objects;
 
+/**class of the level BrokenPink*/
 public class LevelTwoActivity extends Activity implements View.OnTouchListener,Riddle{
 
     final static String TAG = "at.fhooe.mc.karma LevelTwoActivity";

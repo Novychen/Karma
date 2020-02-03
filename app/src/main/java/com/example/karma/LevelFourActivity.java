@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
+/**class of the level DirtyWindow*/
 public class LevelFourActivity extends AppCompatActivity implements Riddle{
     final static String TAG = "at.fhooe.mc.karma LevelFourActivity";
     private View mCircleBackground;
