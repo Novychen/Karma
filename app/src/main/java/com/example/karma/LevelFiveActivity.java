@@ -36,6 +36,7 @@ public class LevelFiveActivity extends Activity implements Riddle {
     public static final int RECORD_AUDIO = 0;
     private long mTimeStart = 0;
     private long mTimeEnd = 0;
+    private int mRating;
 
 
     @Override
@@ -172,11 +173,11 @@ public class LevelFiveActivity extends Activity implements Riddle {
 
     @Override
     public void setRating(int _rate) {
-        mRating[4] = _rate;
+        mRating = _rate;
     }
     @Override
     public int getRating() {
-        return mRating[4];
+        return mRating;
     }
 
 

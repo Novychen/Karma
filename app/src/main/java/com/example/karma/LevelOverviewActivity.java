@@ -151,16 +151,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
 
     private void setVisible(ImageView _star1, ImageView _star2, ImageView _star3, int _position){
-        if(Riddle.mRating[_position] == 3){
+
             _star1.setVisibility(View.VISIBLE);
             _star2.setVisibility(View.VISIBLE);
             _star3.setVisibility(View.VISIBLE);
-        } else if (Riddle.mRating[_position] == 2){
-            _star1.setVisibility(View.VISIBLE);
-            _star2.setVisibility(View.VISIBLE);
-        }else if(Riddle.mRating[_position] == 1){
-            _star2.setVisibility(View.VISIBLE);
-        }
+
 
     }
 

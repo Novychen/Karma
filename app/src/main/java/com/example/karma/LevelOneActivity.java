@@ -33,7 +33,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
     private long mTimeStart = 0;
     private long mTimeEnd = 0;
 
-
+    private int mRating = 0;
     final static String TAG = "at.fhooe.mc.karma HelloActivity";
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
@@ -227,10 +227,10 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
 
     @Override
     public void setRating(int _rate) {
-        mRating[0] = _rate;
+        mRating = _rate;
     }
     @Override
     public int getRating() {
-        return mRating[0];
+        return mRating;
     }
 }
