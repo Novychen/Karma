@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+
 public class LevelOverviewActivity extends Activity implements View.OnClickListener {
 
     final static String TAG = "at.fhooe.mc.karma LevelOverviewActivity";
@@ -34,7 +35,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
         hideStatusBar();
     }
-
+    /** hides the Statusbar in the activity*/
     private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -43,7 +44,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
-
+    /** sets all the buttons in the overview*/
     private void setOnClickListenerToButtons() {
         Button button = findViewById(R.id.level_overview_level_1);
         button.setOnClickListener(this);
@@ -150,7 +151,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
         editor.apply();
     }
 
-
+    /**Sets the visibility of the stars
+     * @param _star1 image view of star1
+     * @param _star2 image view of star2
+     * @param _star3 image view of star3
+     * int*/
     private void setVisible(ImageView _star1, ImageView _star2, ImageView _star3, int _position){
             _star1.setVisibility(View.VISIBLE);
             _star2.setVisibility(View.VISIBLE);
