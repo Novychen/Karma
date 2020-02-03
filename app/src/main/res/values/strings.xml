@@ -11,9 +11,7 @@
     <string name="dialog_permission_title">Hello there!</string>
     <string name="dialog_permission_message">We know that allowing an app to do things can be scary
         but we need this permission - without it you can\'t play our levels. </string>
-
     <string name="dialog_permission_hint">On the bright side - we just told you a hint to one level ;)</string>
-
 
     // Level Complete Dialog
     <string name="dialog_level_complete_title">Congrats!</string>
@@ -21,5 +19,12 @@
 
     // Level coming soon
     <string name="coming_soon">Sorry I\'m still \n incomplete!</string>
+
+    // Info
+    <string name="activity_info_title">Welcome</string>
+    <string name="activity_info_heart">\u2661</string>
+    <string name="activity_info_message">Hi, we are the developers of this game and want to thank you for downloading / playing it :) \n \n We hope you have fun.</string>
+    <string name="activity_info_hint">PS: Searching for an instruction or help is useless. Your phone and your brain are everything you need. \n \n
+        PPS: However, some hints may or may not be hidden somewhere ;)</string>
 
 </resources>

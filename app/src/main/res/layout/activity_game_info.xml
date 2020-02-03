@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameInfo">
+
+    <ImageView
+        android:id="@+id/activity_info_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_infobox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/activity_info_line"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        app:layout_constraintDimensionRatio="w,15:3"
+        app:layout_constraintEnd_toEndOf="@+id/activity_info_title"
+        app:layout_constraintStart_toStartOf="@+id/activity_info_title"
+        app:layout_constraintTop_toTopOf="@+id/activity_info_title"
+        app:srcCompat="@drawable/ic_line" />
+
+    <TextView
+        android:id="@+id/activity_info_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="casual"
+        android:text="@string/activity_info_message"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/activity_info_background"
+        app:layout_constraintStart_toStartOf="@+id/activity_info_background"
+        app:layout_constraintTop_toBottomOf="@+id/activity_info_title" />
+
+    <TextView
+        android:id="@+id/activity_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="casual"
+        android:text="@string/activity_info_title"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/activity_info_background"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="@+id/activity_info_background"
+        app:layout_constraintTop_toTopOf="@+id/activity_info_background" />
+
+    <TextView
+        android:id="@+id/activity_info_hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="casual"
+        android:text="@string/activity_info_hint"
+        android:textAlignment="center"
+        android:textColor="#757575"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/activity_info_message"
+        app:layout_constraintStart_toStartOf="@+id/activity_info_message"
+        app:layout_constraintTop_toBottomOf="@+id/activity_info_message" />
+
+    <Button
+        android:id="@+id/activity_info_cancel"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/ic_close"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_info_background"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/activity_info_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_info_hint" />
+
+    <TextView
+        android:id="@+id/activity_info_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="casual"
+        android:text="@string/activity_info_heart"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_info_title"
+        app:layout_constraintStart_toEndOf="@+id/activity_info_title"
+        app:layout_constraintTop_toTopOf="@+id/activity_info_title" />
+</androidx.constraintlayout.widget.ConstraintLayout>

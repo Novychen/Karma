@@ -50,6 +50,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View _v) {
 
         switch (_v.getId()){
+
             case R.id.activity_main_play: {
 
                 Intent i = new Intent(this, LevelOneActivity.class);
@@ -78,7 +79,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(i);
             } break;
             case R.id.activity_main_info: {
-                Log.i(TAG,"MainActivity :: onClick ::Settings was clicked");
+                Intent i = new Intent(this, GameInfo.class);
+                startActivity(i);
             }break;
             default: {
                 Log.i(TAG,"MainActivity :: onClick :: unexpected ID");
