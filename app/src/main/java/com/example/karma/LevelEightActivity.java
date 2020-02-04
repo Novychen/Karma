@@ -29,10 +29,11 @@ public class LevelEightActivity extends Activity implements Riddle{
     private View mCircleBackground;
     private Activity mActivity = this;
     private GestureDetector mGestureDetector;
-
+/**sets the variabels for mTimeStart, mRating, mCircleBackground, mActivity, mGestureDetector
+ * @param _savedInstanceState*/
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle _savedInstanceState) {
+        super.onCreate(_savedInstanceState);
         setContentView(R.layout.activity_level_eight);
 
         mTimeStart = System.currentTimeMillis();
@@ -50,9 +51,9 @@ public class LevelEightActivity extends Activity implements Riddle{
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        this.mGestureDetector.onTouchEvent(event);
-        return super.onTouchEvent(event);
+    public boolean onTouchEvent(MotionEvent _event) {
+        this.mGestureDetector.onTouchEvent(_event);
+        return super.onTouchEvent(_event);
     }
 
     private void hideStatusBar(){
@@ -91,6 +92,7 @@ public class LevelEightActivity extends Activity implements Riddle{
         return mRating;
     }
 
+    /**Sets a new custom GestureListener and calls a new animation, vor the candle*/
     private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
 
         private void animate(ImageView _img){
@@ -114,8 +116,14 @@ public class LevelEightActivity extends Activity implements Riddle{
             return true;
         }
 
+        /** controls the position of the gesture, in this level, and ends it if
+         * the gesture is in the right position
+         * @param _event1
+         * @param _event2
+         * @param _velocityX
+         * @param _velocityY*/
         @Override
-        public boolean onFling(MotionEvent _event1, MotionEvent _event2, float velocityX, float velocityY) {
+        public boolean onFling(MotionEvent _event1, MotionEvent _event2, float _velocityX, float _velocityY) {
 
             float x1 = _event1.getX();
             float y1 = _event1.getY();

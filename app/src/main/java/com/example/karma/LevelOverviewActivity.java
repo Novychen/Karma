@@ -20,18 +20,18 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class LevelOverviewActivity extends Activity implements View.OnClickListener {
 
     final static String TAG = "at.fhooe.mc.karma LevelOverviewActivity";
     private int mNumberStars;
     private String[] mColor = {"#D51116","#C51262","#6C4595","#4C4394","#2B4792","#3B5FA9","#328ACA","#08B7D3","#30B39F","#48AE54","#76B82A","#ACC90F","#FFD600","#F8A912","#ED6D1D","#DD2E14"};
 
+    /** sets the variables of this level, calls the method hideStatusBar()
+     * @param _savedInstanceState*/
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle _savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
+        super.onCreate(_savedInstanceState);
         setContentView(R.layout.activity_level_overview);
 
         setOnClickListenerToButtons();
@@ -185,7 +185,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
         editor.apply();
     }
 
-
+    /**sets the visibility of the stars
+     * @param _rating rating of the level
+     * @param _star1 ImageView of star1
+     * @param _star2 ImageView of star2
+     * @param _star3 ImageView of star3*/
     private void setVisible(ImageView _star1, ImageView _star2, ImageView _star3, int _rating) {
 
         for(int i = 0; i <= _rating; i++){
@@ -216,6 +220,8 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
         }
     }
 
+    /** Handles the button in the overview and calls the right Activity
+     * @param _v */
     @Override
     public void onClick(View _v) {
         Handler handler = new Handler();

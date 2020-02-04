@@ -34,7 +34,8 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
     private int mRating = 0;
     private long mTimeStart = 0;
     private long mTimeEnd = 0;
-
+    /** sets the variables of this level, calls the method hideStatusBar()
+     * @param _savedInstanceState*/
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -58,6 +59,9 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
 
     }
 
+    /**
+     * hides the statusbar
+     */
     private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -86,6 +90,9 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
         mSensorManager.unregisterListener(this);
     }
 
+    /** Controls  if the light sensor returns the right values.
+     * if the right are taken, and calls the method dialog()
+     * @param _event */
     @Override
     public void onSensorChanged(SensorEvent _event) {
         if(_event.sensor.getType() == TYPE_LIGHT){
@@ -123,6 +130,7 @@ public class LevelThreeActivity extends Activity implements SensorEventListener,
             }
         }
     }
+    /**ends the level and creats a object of the LevelCompleteDialog, and shows it*/
     public void dialog(){
         mSensorManager.unregisterListener(mListener);
         LevelCompleteDialog d = new LevelCompleteDialog(mActivity,3);

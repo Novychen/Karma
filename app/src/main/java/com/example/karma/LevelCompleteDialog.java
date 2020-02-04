@@ -35,7 +35,8 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
         mActivity = _activity;
         mLevel = _level;
     }
-
+    /**sets the button and uses the activity, which calls the dialog
+     * @param _savedInstanceState*/
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -109,7 +110,7 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
             avd.start();
         }
     }
-
+    /**adds new Strings to the SharedPreferences so the last level which calls the activity is useabel*/
     private void sendPreferences(){
         SharedPreferences sharedPref = mActivity.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -118,7 +119,8 @@ public class LevelCompleteDialog extends Dialog implements View.OnClickListener 
         editor.apply();
     }
 
-
+/** sets the two buttons for the next activity and the x - Button wish returns the user two the Overview
+ * @param _v*/
     @Override
     public void onClick(View _v) {
 

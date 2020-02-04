@@ -64,7 +64,8 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     private Drawable mD;
 
     private CountDownTimer mTimer;
-
+    /** sets the variables of this level, calls the method hideStatusBar()
+     * @param _savedInstanceState*/
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -159,7 +160,9 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         mSafeLockNumbers.animate().start();
         mSafeLockNumbers.setRotation(mAngle);
     }
-
+    /**handels the Touch motion
+     * @param _v
+     * @param _event */
     @Override
     public boolean onTouch(View _v, MotionEvent _event) {
 
@@ -196,7 +199,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         return true;
     }
 
-
+    /** ends the activity, and calls the dialog */
     private void done(){
         if(mFirst.getBackground() == mD && mSecond.getBackground() == mD && mThird.getBackground() == mD && mFourth.getBackground() == mD){
             mTimeEnd = System.currentTimeMillis();
@@ -287,7 +290,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
     }
 
     @Override
-    public long getTime() { return mTimeEnd - mTimeStart; }
+    public long getTime() { return mTimeEnd - mTimeStart + 5000; }
 
     @Override
     public void setRating(int _rate) { mRating = _rate; }
@@ -304,7 +307,8 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         animate(mSafeLock, ANIM_FROM_CHECK);
         mCurrentAnimation = ANIM_FROM_CHECK;
     }
-
+    /** sets the code in the level
+     * @param _v */
     @Override
     public void onClick(View _v) {
 

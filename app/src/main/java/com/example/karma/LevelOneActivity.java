@@ -36,6 +36,9 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
 
     private int mRating = 0;
     final static String TAG = "at.fhooe.mc.karma HelloActivity";
+
+    /** sets the variables of this level, calls the method hideStatusBar()
+     * @param _savedInstanceState*/
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -62,6 +65,7 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
         hideStatusBar();
     }
 
+    /**hides StatusBar in the Activity*/
     private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -133,7 +137,9 @@ public class LevelOneActivity extends AppCompatActivity implements SensorEventLi
         mAnimatorSet_04.setDuration(500);
     }
 
-
+    /** controls the Accelerometer-Sensor and starts the animation of the
+     * text hello if the right values are return from the Sensor
+     * @param _event*/
     @Override
     public void onSensorChanged(SensorEvent _event) {
 
