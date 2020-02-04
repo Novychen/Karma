@@ -36,7 +36,8 @@ public class LevelFiveActivity extends Activity implements Riddle {
     private long mTimeEnd = 0;
     private int mRating;
 
-
+    /**sets the new variables for the Activity
+     * @param _savedInstanceState*/
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -65,7 +66,8 @@ public class LevelFiveActivity extends Activity implements Riddle {
 
         mTimeStart = System.currentTimeMillis();
     }
-
+    /**Creates a new objects of SoundMeter, controls the amplitude of the Input throw the microphone
+     * if the amplitude is high enough the animation is called.*/
     private void setAudio(){
 
         mSensor = new SoundMeter();
@@ -99,6 +101,7 @@ public class LevelFiveActivity extends Activity implements Riddle {
         mHandler.postDelayed(mRunnable,250);
     }
 
+    /**Method calls the completion dialog, after the countdown ends.*/
     private void solved(){
         mSensor.stop();
         mHandler.removeCallbacks(mRunnableAmp);
@@ -142,7 +145,7 @@ public class LevelFiveActivity extends Activity implements Riddle {
         mHandler.removeCallbacks(mRunnableAmp);
         mHandler.removeCallbacks(mRunnable);
     }
-
+    /**hides StatusBar in the Activity*/
     private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -179,7 +182,8 @@ public class LevelFiveActivity extends Activity implements Riddle {
         return mRating;
     }
 
-
+    /**starts the animation of the flower.
+     * @param _flower - ImageView of flower*/
     private void animateFlower(ImageView _flower){
         Drawable d = getDrawable(R.drawable.anim_flower);
 
@@ -195,7 +199,8 @@ public class LevelFiveActivity extends Activity implements Riddle {
         }
     }
 
-
+    /**sets the animation of the flower.
+     * @param _flower - ImageView of flower*/
     private void setFlower(ImageView _flower){
         Drawable d = getDrawable(R.drawable.anim_flower);
 

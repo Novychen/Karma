@@ -30,7 +30,8 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
     private long mTimeStart = 0;
     private long mTimeEnd = 0;
     private int mRating = 0;
-
+    /** sets the variables of this level, calls the method hideStatusBar()
+     * @param _savedInstanceState*/
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
@@ -56,6 +57,9 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
         hideStatusBar();
     }
 
+    /**
+     * hides the statusbar
+     */
     private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -66,7 +70,9 @@ public class LevelTwoActivity extends Activity implements View.OnTouchListener,R
         mTimeStart = System.currentTimeMillis();
 
     }
-
+    /** controls if te right place of the View is touched and starts the animation
+     * @param _event
+     * @param _v */
     public boolean onTouch(View _v, MotionEvent _event) {
 
         float x = _event.getRawX();

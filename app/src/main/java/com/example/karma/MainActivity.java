@@ -16,7 +16,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private int mCount = 0;
     String[] mColor = {"#D51116","#C51262","#6C4595","#4C4394","#2B4792","#3B5FA9","#328ACA","#08B7D3","#30B39F","#48AE54","#76B82A","#ACC90F","#FFD600","#F8A912","#ED6D1D","#DD2E14"};
 
-
+    /** sets the variables of this level, calls the method hideStatusBar()
+     * @param _savedInstanceState*/
 
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
@@ -39,6 +40,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
+    /**
+     * hides the statusbar
+     */
     private void hideStatusBar(){
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -48,6 +52,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
+    /** lokates the button which starts the activity based on the level saved in the SharedPreferences file,
+     * the overview or the question mark with new information of the user
+     * @param _v */
     @Override
     public void onClick(View _v) {
 
