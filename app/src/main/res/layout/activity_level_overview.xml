@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/level_overview"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -30,7 +31,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4DC51262"
+        android:backgroundTint="#C51262"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toStartOf="@+id/level_overview_level_3"
         app:layout_constraintStart_toEndOf="@+id/level_overview_level_1"
@@ -44,7 +45,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4D6C4595"
+        android:backgroundTint="#6C4595"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toStartOf="@+id/level_overview_level_4"
         app:layout_constraintStart_toEndOf="@+id/level_overview_level_2"
@@ -58,7 +59,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4D4C4394"
+        android:backgroundTint="#4C4394"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/level_overview_level_3"
@@ -72,7 +73,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4D2B4792"
+        android:backgroundTint="#2B4792"
         app:layout_constraintBottom_toTopOf="@+id/level_overview_level_9"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_1"
@@ -84,7 +85,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4D3B5FA9"
+        android:backgroundTint="#3B5FA9"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_2"
         app:layout_constraintTop_toTopOf="@+id/level_overview_level_5" />
@@ -95,7 +96,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4D328ACA"
+        android:backgroundTint="#328ACA"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_3"
         app:layout_constraintTop_toTopOf="@+id/level_overview_level_6" />
@@ -106,7 +107,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4D08B7D3"
+        android:backgroundTint="#08B7D3"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_4"
         app:layout_constraintTop_toTopOf="@+id/level_overview_level_7" />
@@ -119,7 +120,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4D30B39F"
+        android:backgroundTint="#30B39F"
         app:layout_constraintBottom_toTopOf="@+id/level_overview_level_13"
         app:layout_constraintDimensionRatio="h,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_5"
@@ -131,7 +132,7 @@
         android:layout_width="60dp"
         android:layout_height="0dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4D48AE54"
+        android:backgroundTint="#48AE54"
         app:layout_constraintDimensionRatio="h,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_6"
         app:layout_constraintTop_toTopOf="@+id/level_overview_level_9" />
@@ -142,7 +143,7 @@
         android:layout_width="60dp"
         android:layout_height="0dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4D76B82A"
+        android:backgroundTint="#76B82A"
         app:layout_constraintDimensionRatio="h,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_7"
         app:layout_constraintTop_toTopOf="@+id/level_overview_level_10" />
@@ -153,7 +154,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4DACC90F"
+        android:backgroundTint="#ACC90F"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_8"
         app:layout_constraintTop_toTopOf="@+id/level_overview_level_11" />
@@ -165,7 +166,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4DFFD600"
+        android:backgroundTint="#FFD600"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintDimensionRatio="h,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_9"
@@ -177,7 +178,7 @@
         android:layout_width="60dp"
         android:layout_height="0dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4DF8A912"
+        android:backgroundTint="#F8A912"
         app:layout_constraintDimensionRatio="h,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_10"
         app:layout_constraintTop_toTopOf="@+id/level_overview_level_13" />
@@ -188,7 +189,7 @@
         android:layout_width="60dp"
         android:layout_height="0dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4DED6D1D"
+        android:backgroundTint="#ED6D1D"
         app:layout_constraintDimensionRatio="h,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_11"
         app:layout_constraintTop_toTopOf="@+id/level_overview_level_14" />
@@ -199,7 +200,7 @@
         android:layout_width="60dp"
         android:layout_height="0dp"
         android:background="@drawable/ic_levelbox"
-        android:backgroundTint="#4DDD2E14"
+        android:backgroundTint="#DD2E14"
         app:layout_constraintDimensionRatio="h,1:1"
         app:layout_constraintStart_toStartOf="@+id/level_overview_level_12"
         app:layout_constraintTop_toTopOf="@+id/level_overview_level_15" />
@@ -813,5 +814,55 @@
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/level_overview_title" />
+
+    <TextView
+        android:id="@+id/level_overview_line"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="/"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_number_curr"
+        app:layout_constraintDimensionRatio="0.2:1"
+        app:layout_constraintEnd_toStartOf="@+id/level_overview_number_all"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_number_curr" />
+
+    <ImageView
+        android:id="@+id/level_overview_mini_star"
+        android:layout_width="0dp"
+        android:layout_height="15dp"
+        android:background="@drawable/ic_star_black"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_number_all"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/level_overview_level_4"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_number_all"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <TextView
+        android:id="@+id/level_overview_number_curr"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/level_overview_title"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/level_overview_line" />
+
+    <TextView
+        android:id="@+id/level_overview_number_all"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="casual"
+        android:text="@string/actvity_main_number_all"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/level_overview_number_curr"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/level_overview_mini_star"
+        app:layout_constraintTop_toTopOf="@+id/level_overview_number_curr" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

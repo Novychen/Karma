@@ -4,10 +4,17 @@ import android.media.MediaRecorder;
 
 import java.io.IOException;
 
+/**
+ * Handles the Microphone (& Voice recording) of the device
+ */
 public class SoundMeter {
 
     private MediaRecorder mRecorder;
 
+    /**
+     * starts the recorder (It won't write a file for the audio input)
+     * @throws IOException
+     */
     public void start() throws IOException {
         if (mRecorder == null) {
             mRecorder = new MediaRecorder();
@@ -20,6 +27,9 @@ public class SoundMeter {
         }
     }
 
+    /**
+     * stops the recorder
+     */
     public void stop(){
         if (mRecorder != null) {
             mRecorder.stop();
@@ -28,6 +38,10 @@ public class SoundMeter {
         }
     }
 
+    /**
+     * gets the current maximum amplitude
+     * @return the current maximum amplitude
+     */
     public double getAmplitude() {
         if (mRecorder != null) { return (mRecorder.getMaxAmplitude()); }
         else { return -1; }

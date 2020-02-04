@@ -8,10 +8,16 @@ import android.graphics.Color;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 
+/**
+ * Class that provides all animations, that are used in every level
+ */
 public class Animation {
 
     /**
-     * Creates the circular reveal animation in the color of the box that was clicked
+     * Creates the circular reveal animation in the color of the box that was clicked.
+     * It knows the color through sharedPreferences
+     * @param _activity the activity that will be started an which background will be edited
+     * @param _circleBackground the layout of the given activity, which color will be edited
      */
     protected static void circularReveal(Activity _activity, View _circleBackground) {
         SharedPreferences sharedPref = _activity.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);

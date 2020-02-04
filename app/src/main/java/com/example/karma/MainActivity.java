@@ -55,16 +55,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             case R.id.activity_main_play: {
 
-
                 SharedPreferences sharedPref = this.getSharedPreferences("at.fhooe.mc.karma", Context.MODE_PRIVATE);
                 int level = sharedPref.getInt("level", 0);
                 Log.i(TAG,"LEVEL : " + level);
                 Intent i = new Intent(this, LevelOneActivity.class);
                 if(level != 1) {
                     switch (level) {
-                        case 1:
-                            i = new Intent(this, LevelOneActivity.class);
-                            break;
                         case 2:
                             i = new Intent(this, LevelTwoActivity.class);
                             break;

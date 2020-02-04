@@ -8,6 +8,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * Dialog which asks for the permission needed
+ */
 public class PermissionDialog extends Dialog implements View.OnClickListener  {
 
     final static String TAG = "at.fhooe.mc.karma LevelCompleteDialog";
@@ -17,6 +20,10 @@ public class PermissionDialog extends Dialog implements View.OnClickListener  {
     int mRequestCode;
 
 
+    /**
+     * Constructor of the PermissionDialog
+     * @param _activity current activity
+     */
     PermissionDialog(Activity _activity) {
         super(_activity);
         mActivity = _activity;
@@ -40,6 +47,10 @@ public class PermissionDialog extends Dialog implements View.OnClickListener  {
         cancel.setOnClickListener(this);
     }
 
+    /**
+     * Requests the permisson when clicked
+     * @param _v view that is clicked
+     */
     @Override
     public void onClick(View _v) {
 

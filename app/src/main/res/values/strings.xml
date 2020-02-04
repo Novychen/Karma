@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Karma</string>
+    <string name="app_name">Carma</string>
 
     //Level overview
     <string name="level_overview_title">levels</string>
@@ -26,5 +26,8 @@
     <string name="activity_info_message">Hi, we are the developers of this game and want to thank you for downloading / playing it :) \n \n We hope you have fun.</string>
     <string name="activity_info_hint">PS: Searching for an instruction or help is useless. Your phone and your brain are everything you need. \n \n
         PPS: However, some hints may or may not be hidden somewhere ;)</string>
+
+    // Main
+    <string name="actvity_main_number_all">24</string>
 
 </resources>

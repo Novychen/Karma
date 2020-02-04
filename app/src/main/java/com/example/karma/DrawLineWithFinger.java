@@ -11,6 +11,9 @@ import android.view.MotionEvent;
 import android.view.View;
 
 
+/**
+ * Custom view for painting
+ */
 public class DrawLineWithFinger extends View {
     final static String TAG = "at.fhooe.mc.karma DrawLineWithFinger";
 
@@ -30,6 +33,11 @@ public class DrawLineWithFinger extends View {
     private static final float TOUCH_TOLERANCE = 1;
     public static Activity mActivity;
 
+    /**
+     * Constructor of the class DrawLineWithFinger
+     * @param _context
+     * @param _attrs
+     */
     public DrawLineWithFinger(Context _context, AttributeSet _attrs){
         super(_context, _attrs);
         mPath = new Path();
@@ -59,6 +67,12 @@ public class DrawLineWithFinger extends View {
 
     }
 
+    /**
+     * Gets the coordinates of the touch and tracks the position of the finger. Wherever the finger is moved a white stroke will be drawn.
+     * If the the finger is lifted the method will check if the complete x- & y- axis is white.
+     * @param _event
+     * @return
+     */
     @Override
     public boolean onTouchEvent(MotionEvent _event) {
 
@@ -111,6 +125,10 @@ public class DrawLineWithFinger extends View {
         return true;
     }
 
+    /**
+     * Checks if the complete x- & y-axis is white
+     * @return true if the x & y axis is white, false if not
+     */
     private boolean isScreenFull(){
         for(int i = 0; i < mPixelX.length; i++){
             if(i % 10 == 0 && mPixelX[i] == 0){

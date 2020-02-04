@@ -18,10 +18,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class LevelOverviewActivity extends Activity implements View.OnClickListener {
 
     final static String TAG = "at.fhooe.mc.karma LevelOverviewActivity";
+    private int mNumberStars;
     private String[] mColor = {"#D51116","#C51262","#6C4595","#4C4394","#2B4792","#3B5FA9","#328ACA","#08B7D3","#30B39F","#48AE54","#76B82A","#ACC90F","#FFD600","#F8A912","#ED6D1D","#DD2E14"};
 
     @Override
@@ -49,8 +53,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
             String string = "level_" + i;
             rating = sharedPref.getInt(string, 0);
+            mNumberStars = mNumberStars + rating;
             setVisible(star_1, star_2, star_3, rating);
         }
+        TextView t = findViewById(R.id.level_overview_number_curr);
+        t.setText(String.valueOf(mNumberStars));
     }
 
     private ImageView[] getStars(int _level){
@@ -195,6 +202,20 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
         }
     }
 
+
+    private void checkPermission(Intent _i){
+        if(checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_DENIED){
+            PermissionDialog d = new PermissionDialog(this);
+            d.mPermission = Manifest.permission.RECORD_AUDIO;
+            d.mRequestCode = 666;
+            d.show();
+        }
+        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED){
+            startActivity(_i);
+            overridePendingTransition(0, 0);
+        }
+    }
+
     @Override
     public void onClick(View _v) {
         Handler handler = new Handler();
@@ -209,17 +230,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 i.putExtra("value", 0);
                 setResult(RESULT_OK,i);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                if(checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_DENIED){
-                    PermissionDialog d = new PermissionDialog(this);
-                    d.mPermission = Manifest.permission.RECORD_AUDIO;
-                    d.mRequestCode = 666;
-                    d.show();
-                }
-                if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED){
-                    startActivity(i);
-                    overridePendingTransition(0, 0);
-                }
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_2: {
@@ -228,9 +239,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 sendPreferences(_v,1);
                 i.putExtra("value", 1);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_3: {
@@ -239,9 +248,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 sendPreferences(_v,2);
                 i.putExtra("value", 2);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_4: {
@@ -249,10 +256,8 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 Intent i = new Intent(this, LevelFourActivity.class);
 
                 sendPreferences(_v,3);
-
                 i.putExtra("value", 3);
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_5: {
@@ -260,20 +265,18 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 Intent i = new Intent(this, LevelFiveActivity.class);
 
                 sendPreferences(_v,4);
-
                 i.putExtra("value", 4);
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_6: {
                 Log.i(TAG, " :: onClick :: clicked 6. level");
                 Intent i = new Intent(this, LevelSixActivity.class);
-                               sendPreferences(_v,5);
-                i.putExtra("value", 5);
 
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                sendPreferences(_v,5);
+                i.putExtra("value", 5);
+                checkPermission(i);
+
             }
             break;
             case R.id.level_overview_level_7: {
@@ -282,9 +285,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 sendPreferences(_v,6);
                 i.putExtra("value", 6);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_8: {
@@ -293,9 +294,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
 
                 sendPreferences(_v,7);
                 i.putExtra("value", 7);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_9: {
@@ -303,9 +302,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 Intent i = new Intent(this, ComingSoon.class);
 
                 sendPreferences(_v,8);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_10: {
@@ -313,9 +310,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 Intent i = new Intent(this, ComingSoon.class);
 
                 sendPreferences(_v,9);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_11: {
@@ -323,9 +318,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 Intent i = new Intent(this, ComingSoon.class);
 
                 sendPreferences(_v,10);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_12: {
@@ -333,9 +326,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 Intent i = new Intent(this, ComingSoon.class);
 
                 sendPreferences(_v,11);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_13: {
@@ -343,9 +334,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 Intent i = new Intent(this, ComingSoon.class);
 
                 sendPreferences(_v,12);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_14: {
@@ -353,9 +342,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 Intent i = new Intent(this, ComingSoon.class);
 
                 sendPreferences(_v,13);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_15: {
@@ -363,9 +350,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 Intent i = new Intent(this, ComingSoon.class);
 
                 sendPreferences(_v,14);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
             case R.id.level_overview_level_16: {
@@ -373,9 +358,7 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
                 Intent i = new Intent(this, ComingSoon.class);
 
                 sendPreferences(_v,15);
-
-                startActivity(i);
-                overridePendingTransition(0, 0);
+                checkPermission(i);
             }
             break;
 
