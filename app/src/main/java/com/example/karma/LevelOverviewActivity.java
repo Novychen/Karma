@@ -60,6 +60,11 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
         t.setText(String.valueOf(mNumberStars));
     }
 
+    /**
+     * get the imageviews of the stars corresponding to the given level
+     * @param _level the level which stars are asked for
+     * @return an ImageView array with the three stars of the given level
+     */
     private ImageView[] getStars(int _level){
         switch(_level){
             case 1:{ return new ImageView[]{findViewById(R.id.level_overview_star_1), findViewById(R.id.level_overview_star_2), findViewById(R.id.level_overview_star_3)}; }
@@ -207,6 +212,10 @@ public class LevelOverviewActivity extends Activity implements View.OnClickListe
     }
 
 
+    /**
+     * checks if the user has granted the permission for audio recording
+     * @param _i the intent which is used to start the next activity
+     */
     private void checkPermission(Intent _i){
         if(checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_DENIED){
             PermissionDialog d = new PermissionDialog(this);
