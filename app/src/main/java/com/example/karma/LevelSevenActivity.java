@@ -95,7 +95,7 @@ public class LevelSevenActivity extends Activity implements View.OnTouchListener
         mThird.setOnClickListener(this);
         mFourth = findViewById(R.id.activity_level_7_fourth);
         mFourth.setOnClickListener(this);
-        mTimeStart = System.currentTimeMillis();
+        mTimeStart = System.currentTimeMillis() - 1000;
         ConstraintLayout constraintLayout = findViewById(R.id.circleActivity_7);
         constraintLayout.setOnTouchListener(this);
         hideStatusBar();
